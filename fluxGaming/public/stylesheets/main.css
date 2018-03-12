@@ -48,5 +48,9 @@ body{
     height: 3em;
     float: left;
     margin-left: 0em;
-    margin-right: .5em;
+    margin-right: 0em;
+}
+
+#logo:hover {
+background-color: rgb(43, 124, 175);
 }
