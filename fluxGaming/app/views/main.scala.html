@@ -1,4 +1,5 @@
-@(title: String)(content: Html)
+@(title: String, loginForm: Form[models.users.Login], user: models.User)(content: Html)
+@import helper._
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,7 @@
         <title>@title</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/logos/logo.png")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/logos/logoShader.png")">
     </head>
     <body>
         <!--- NAVBAR -->
@@ -25,17 +26,60 @@
                 <li><a href="/">Store</a></li>
                 <li><a href="/">Contact</a></li>
               </ul>
-              <!-- <ul class="nav navbar-nav navbar-right">
-                ATSYMBOL!!!if(user != null){
-                  <li><a href="/">ATSYMBOL!!!!user.getfName()</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                @if(user != null){
+                  <li><a href="/">@user.getUsername()</a></li>
                   <li><a href="/" id="signUp"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
                 } else {
                   <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                } -->
+                }
               </ul>
             </div>
           </div>
         </div>
+
+            <!-- The Modal -->
+    <div id="myModal" class="modal">     
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <img id="loginLogo" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+          <h2>Login</h2>   
+          @if(loginForm.hasGlobalErrors){
+              <script>
+                  setTimeout(function(){
+                          document.getElementById('login').click();
+                         },2);
+              </script>
+            <br>
+            <p class="alert alert-warning">
+              @loginForm.globalError.message
+            </p>
+          }
+  
+          @if(flash.containsKey("error")){
+            <p class="alert alert-warning">
+              @flash.get("loginRequired")
+            </p>
+          }
+  
+          @helper.form(action = controllers.routes.HomeController.loginSubmit()){
+          @CSRF.formField
+  
+          <div class="form-group">
+              @inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")
+          </div>
+  
+          <div class="form-group">
+             @inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")
+          </div>
+  
+          <div class="form-group">
+              <input type="submit" value="Sign in" class="btn btn-primary">
+          </div>
+        }
+        </div>
+      </div>
        
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,5 +1,5 @@
-@()
+@(user: models.User, loginForm: Form[models.users.Login])
 
-@main("Review") {
-  <h1>Reviews!</h1>
+@main("Reviews", loginForm, user) {
+  <h1>Reviews!!!</h1>
 }

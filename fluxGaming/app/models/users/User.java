@@ -25,7 +25,7 @@ public class User extends Model {
         this.password = password;
     }
 
-    public static Finder<String, User> Find = new Finder<String, User>(User.class);
+    public static Finder<String, User> find = new Finder<String, User>(User.class);
 
     public Long getId() {
         return id;
@@ -74,4 +74,16 @@ public class User extends Model {
     public static User authenticate(String username, String password){
         return find.query().where().eq("username", username).eq("password", password).findUnique();
     }
+
+    public static User getUserById(String id){
+        if (id == null)
+          {
+            return null;
+          }
+        else
+          {
+            return find.byId(id);
+          }
+        }
+
 }
