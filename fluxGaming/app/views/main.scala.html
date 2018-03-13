@@ -29,7 +29,7 @@
               <ul class="nav navbar-nav navbar-right">
                 @if(user != null){
                   <li><a href="/">@user.getUsername()</a></li>
-                  <li><a href="/" id="signUp"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
+                  <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
                 } else {
                   <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 }
