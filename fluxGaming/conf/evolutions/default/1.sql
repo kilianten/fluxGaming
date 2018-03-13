@@ -8,7 +8,7 @@ create table review (
   name                          varchar(255),
   author                        varchar(255),
   caption                       varchar(255),
-  review                        varchar(255),
+  review                        varchar(7000),
   rating                        integer not null,
   constraint pk_review primary key (id)
 );

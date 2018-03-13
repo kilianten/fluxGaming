@@ -1,0 +1,41 @@
+@(user: models.User, loginForm: Form[models.users.Login], reviewForm: Form[models.Review])
+@import helper._
+
+@main("Add a Review", loginForm, user) {
+  
+
+  <div class="container">
+
+    <img style="width:11em; float:right;" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+
+    <br>
+
+    <h1 style="text-align:center;">Add a Review</h1>
+
+    <br>
+    <br>
+
+    @form(action=routes.HomeController.addReviewSubmit(), 'class -> "form-horizontal", 'role -> "form"){
+    @CSRF.formField
+
+    @inputText(reviewForm("name"), '_label -> "Name", 'class -> "form-control", '_help -> "")
+    @inputText(reviewForm("caption"), '_label -> "Caption", 'class -> "form-control", '_help -> "")
+
+    @textarea(reviewForm("review"), '_label -> "Review", 'class -> "form-control", '_help -> "")
+    @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "")
+    @inputText(reviewForm("author"), '_label -> "Author", 'class -> "form-control", '_help -> "")
+
+
+    <div class="actions">
+        <input type="submit" value="Add Review" class="btn btn-primary">
+        <a href="@routes.HomeController.index()">
+            <button type="button" class="btn btn-warning">Cancel</button>
+        </a>
+    </div>
+
+    <br>
+  
+  </div>
+  }
+
+}

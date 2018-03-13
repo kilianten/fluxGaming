@@ -59,4 +59,29 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.index());
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    public Result addReview(){
+        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+
+        Form<Review> reviewForm = formFactory.form(Review.class);
+
+        return ok(addReview.render(User.getUserById(session().get("username")), loginForm, reviewForm));
+    }
+
+    public Result addReviewSubmit(){
+        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+        Form<Review> newReviewForm = formFactory.form(Review.class).bindFromRequest();
+
+        if(newReviewForm.hasErrors()){
+            return badRequest(addReview.render(User.getUserById(session().get("username")), loginForm, newReviewForm));
+        }
+        else{
+            Review newReview = newReviewForm.get();
+            newReview.save();
+            flash("success", "Review " + newReview.getName() + " was added");
+            return redirect(controllers.routes.HomeController.index());
+        }
+    }
+
 }

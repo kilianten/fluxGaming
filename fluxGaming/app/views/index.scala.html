@@ -2,4 +2,15 @@
 
 @main("Home", loginForm, user) {
   <h1>Welcome to Play!</h1>
+
+  <div class="container">
+
+    @if(flash.containsKey("success")){
+      <div class="alert alert-success">
+        @flash.get("success")
+      </div>
+
+  </div>
+  
+  }
 }

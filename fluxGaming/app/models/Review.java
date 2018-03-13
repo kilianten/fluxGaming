@@ -12,10 +12,16 @@ public class Review extends Model {
 
     @Id
     private Long id;
+    @Constraints.Required
     private String name;
+    @Constraints.Required
     private String author;
+    @Constraints.Required
     private String caption;
+    @Constraints.Required
+    @javax.persistence.Column(length=7000)  
     private String review;
+    @Constraints.Required
     private int rating;
 
     //to add:
