@@ -29,6 +29,8 @@ public class Review extends Model {
     //arrayList platform;
     //arrayList comments?
 
+    public static Finder<Long, Review> find = new Finder<Long, Review>(Review.class);
+
     public Review(Long id, String name, String author, String caption, String review, int rating) {
         this.id = id;
         this.name = name;

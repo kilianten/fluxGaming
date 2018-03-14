@@ -84,4 +84,44 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result updateReview(Long id){
+
+        Review r;
+        Form<Review> reviewForm;
+        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+
+        try{
+            r = Review.find.byId(id);
+            reviewForm = formFactory.form(Review.class).fill(r);
+        } catch (Exception ex){
+            return badRequest("Error");
+        }
+        return ok(updateReview.render(User.getUserById(session().get("username")), loginForm, reviewForm, id));
+    }
+
+    public Result updateReviewSubmit(Long id){
+
+        Form<Review> updateReviewForm = formFactory.form(Review.class).bindFromRequest();
+        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+
+        if(updateReviewForm.hasErrors()){
+            return badRequest(updateReview.render(User.getUserById(session().get("username")), loginForm, updateReviewForm, id));
+        } else {
+            Review r = updateReviewForm.get();
+            r.setId(id);
+            r.update();
+
+            flash("success", "Review " + r.getName() + " has been updated" );
+        }
+
+        return redirect(controllers.routes.HomeController.reviews());
+    }
+
+    
+
+    
+
 }

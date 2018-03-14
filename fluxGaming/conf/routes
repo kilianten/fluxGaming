@@ -9,6 +9,9 @@ GET     /reviews                    controllers.HomeController.reviews
 POST    /loginSubmit                controllers.HomeController.loginSubmit
 GET     /logout                     controllers.HomeController.logout        
 
+GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
+POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)
+
 GET     /addReview                  controllers.HomeController.addReview
 POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
 # Map static resources from the /public folder to the /assets URL path
