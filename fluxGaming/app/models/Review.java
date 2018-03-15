@@ -92,4 +92,9 @@ public class Review extends Model {
         return Review.find.all();
     }
 
+    public static final List<Review> findRecent(){
+    
+        return Review.find.query().setMaxRows(5).where().orderBy("Id desc").findList();
+    }
+
 }

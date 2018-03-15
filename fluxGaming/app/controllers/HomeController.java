@@ -31,10 +31,11 @@ public class HomeController extends Controller {
     }
 
     public Result index() {
+        List<Review> reviews = Review.findRecent();
 
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(index.render(User.getUserById(session().get("username")), loginForm));
+        return ok(index.render(User.getUserById(session().get("username")), loginForm, reviews, env));
     }
 
     public Result reviews(){
@@ -50,7 +51,8 @@ public class HomeController extends Controller {
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         if(loginForm.hasErrors()){
-            return badRequest(index.render(User.getUserById(session().get("username")), loginForm));
+            List<Review> reviews = Review.findRecent();
+            return badRequest(index.render(User.getUserById(session().get("username")), loginForm, reviews, env));
         } else {
             session().clear();
             session("username", loginForm.get().getUsername());
