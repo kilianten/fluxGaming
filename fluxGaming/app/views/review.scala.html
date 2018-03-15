@@ -1,0 +1,25 @@
+@(user: models.User, loginForm: Form[models.users.Login], review: models.Review, env: play.api.Environment)
+
+@main("Review", loginForm, user) {
+
+  <head>
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/review.css")">                
+  </head>
+
+  <div class="container">
+      
+    <img id="logoReview" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+    <img id="logoReviewRight" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+    <h1 id="title">Review @review.getName</h1>
+
+    @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
+      <img class="banner" src="/assets/images/gamePictures/@(review.getId + ".jpg")"/>
+    } else {
+      <img class="banner" src="/assets/images/misc/noImage.png"/>
+    }
+    
+    
+
+  </div>      
+
+}

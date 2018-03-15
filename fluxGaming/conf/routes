@@ -9,6 +9,8 @@ GET     /reviews                    controllers.HomeController.reviews
 POST    /loginSubmit                controllers.HomeController.loginSubmit
 GET     /logout                     controllers.HomeController.logout        
 
+GET     /review/:id           controllers.HomeController.review(id: Long)
+
 GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
 POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)
 

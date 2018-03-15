@@ -42,9 +42,11 @@ public class HomeController extends Controller {
 
         List<Review> reviewList = Review.findAll();
 
+        int size = Review.calcRow(reviewList.size());
+
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env));
+        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, size));
     }
 
     public Result loginSubmit(){
@@ -172,4 +174,12 @@ public class HomeController extends Controller {
         return "/ no file";
     }
 
+    public Result review(Long id){
+
+        Review r = Review.find.byId(id);
+
+        Form<Login> loginForm = formFactory.form(Login.class);
+
+        return ok(review.render(User.getUserById(session().get("username")), loginForm, r, env));
+    }
 }

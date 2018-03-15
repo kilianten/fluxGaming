@@ -97,4 +97,8 @@ public class Review extends Model {
         return Review.find.query().setMaxRows(5).where().orderBy("Id desc").findList();
     }
 
+    public static int calcRow(double reviewSize){
+        return (int) Math.ceil(reviewSize/3);
+    }
+
 }

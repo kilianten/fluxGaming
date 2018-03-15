@@ -1,4 +1,4 @@
-@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment)
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, reviewSize: Integer)
 
 @main("Reviews", loginForm, user) {
 
@@ -8,15 +8,33 @@
 
   <h1>Reviews!</h1>
 
+  <div class="container">
+  @for(i <- 1 to reviewSize){
+    <div class="row">
+      @for(j <- 1 to 3){
+        @if((i - 1)*3 + (j - 1) < reviews.size){
+        <div class="col-md-4">
+            <a href="@routes.HomeController.review(reviews.get((i - 1)*3 + (j - 1)).getId)"> 
+            @if(env.resource("public/images/gamePictures/" + reviews.get((i - 1)*3 + (j - 1)).getId + "Tile.jpg").isDefined) {
+              <img class="tile" src="/assets/images/gamePictures/@(reviews.get((i - 1)*3 + (j - 1)).getId + "Tile.jpg")"/>
+            } else {
+              <img class="tile" src="/assets/images/misc/noImage.png"/>
+            }
+        
+            @reviews.get((i - 1)*3 + (j - 1)).getName
+            <a>
+        </div>
+        }
+      }
+    </div>
+   
+  }
+  </div> 
+
+
   @for(r <- reviews){
     
-    @if(env.resource("public/images/gamePictures/" + r.getId + "Tile.jpg").isDefined) {
-      <img class="tile" src="/assets/images/gamePictures/@(r.getId + "Tile.jpg")"/>
-    } else {
-      <img class="tile" src="/assets/images/misc/noImage.png"/>
-    }
 
-    @r.getName
 
   }
 
