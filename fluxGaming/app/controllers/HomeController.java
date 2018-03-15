@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.ArrayList;
 import javax.inject.Inject;
 
+import play.mvc.Http.*;
+import play.mvc.Http.MultipartFormData.FilePart;
+import java.io.File;
+
 public class HomeController extends Controller {
     
     private FormFactory formFactory;
@@ -35,9 +39,11 @@ public class HomeController extends Controller {
 
     public Result reviews(){
 
+        List<Review> reviewList = Review.findAll();
+
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm));
+        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env));
     }
 
     public Result loginSubmit(){
@@ -70,8 +76,15 @@ public class HomeController extends Controller {
     }
 
     public Result addReviewSubmit(){
+
+        String saveImageMsg;
+
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
         Form<Review> newReviewForm = formFactory.form(Review.class).bindFromRequest();
+
+        MultipartFormData data = request().body().asMultipartFormData();
+        FilePart image = data.getFile("upload");
+        FilePart tileImage = data.getFile("uploadTile");
 
         if(newReviewForm.hasErrors()){
             return badRequest(addReview.render(User.getUserById(session().get("username")), loginForm, newReviewForm));
@@ -79,6 +92,9 @@ public class HomeController extends Controller {
         else{
             Review newReview = newReviewForm.get();
             newReview.save();
+            saveFile(Long.toString(newReview.getId()), image);
+            saveFile(Long.toString(newReview.getId()) + "Tile", tileImage);
+
             flash("success", "Review " + newReview.getName() + " was added");
             return redirect(controllers.routes.HomeController.index());
         }
@@ -107,12 +123,18 @@ public class HomeController extends Controller {
         Form<Review> updateReviewForm = formFactory.form(Review.class).bindFromRequest();
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
+        MultipartFormData data = request().body().asMultipartFormData();
+        FilePart image = data.getFile("upload");
+        FilePart tileImage = data.getFile("uploadTile");
+
         if(updateReviewForm.hasErrors()){
             return badRequest(updateReview.render(User.getUserById(session().get("username")), loginForm, updateReviewForm, id));
         } else {
             Review r = updateReviewForm.get();
             r.setId(id);
             r.update();
+            saveFile(Long.toString(r.getId()), image);
+            saveFile(Long.toString(r.getId()) + "Tile", tileImage);
 
             flash("success", "Review " + r.getName() + " has been updated" );
         }
@@ -120,8 +142,32 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.reviews());
     }
 
-    
+    public String saveFile(String id, FilePart<File> uploaded){
+        String mimeType = uploaded.getContentType();
+        if(uploaded !=null){
+            if(mimeType.startsWith("image/")){
+              String fileName = uploaded.getFilename();
+              String extension = "";
+              int i = fileName.lastIndexOf('.');
+              if(i >= 0){
+                  extension = fileName.substring(i + 1);
+              }
 
-    
+              File file = uploaded.getFile();
+              File dir = new File("public/images/gamePictures");
+              if(!dir.exists()){
+                  dir.mkdirs();
+              }
+              if(file.renameTo(new File("public/images/gamePictures", id + "." + extension))){
+                  return "/ file uploaded";
+              }
+              else
+              {
+                  return "/ file upload failed";
+              }
+            }
+        }
+        return "/ no file";
+    }
 
 }

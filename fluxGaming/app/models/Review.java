@@ -88,4 +88,8 @@ public class Review extends Model {
         this.rating = rating;
     }
 
+    public static List<Review> findAll(){
+        return Review.find.all();
+    }
+
 }

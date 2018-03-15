@@ -15,7 +15,7 @@
     <br>
     <br>
 
-    @form(action=routes.HomeController.updateReviewSubmit(reviewId), 'class -> "form-horizontal", 'role -> "form"){
+    @form(action=routes.HomeController.updateReviewSubmit(reviewId), 'class -> "form-horizontal", 'role -> "form", 'enctype -> "multipart/form-data"){
     @CSRF.formField
 
     @inputText(reviewForm("name"), '_label -> "Name", 'class -> "form-control", '_help -> "")
@@ -26,6 +26,14 @@
     @inputText(reviewForm("author"), '_label -> "Author", 'class -> "form-control", '_help -> "")
 
     @inputText(reviewForm("id"), '_label -> null, 'hidden -> "hidden", '_help -> "")
+
+    <label>Banner Image Upload (Displayed at: 1660x780)</label>
+    <input class="btn-sm btn-default" type="file" name="upload">
+    <br>
+
+    <label>Tile Image Upload (Displayed at: 300x300)</label>
+    <input class="btn-sm btn-default" type="file" name="uploadTile">
+    <br>
 
     <div class="actions">
         <input type="submit" value="Update Review" class="btn btn-primary">

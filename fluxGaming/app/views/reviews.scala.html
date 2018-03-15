@@ -1,5 +1,20 @@
-@(user: models.User, loginForm: Form[models.users.Login])
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment)
 
 @main("Reviews", loginForm, user) {
+
+  <head>
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
+  </head>
+
   <h1>Reviews!</h1>
+
+  @for(r <- reviews){
+    @r.getName
+    @if(env.resource("public/images/gamePictures/" + r.getId + "Tile.jpg").isDefined) {
+      <img id="tile" src="/assets/images/gamePictures/@(r.getId + "Tile.jpg")"/>
+    } else {
+      <img src="/assets/images/misc/noImage.jpg"/>
+    }
+  }
+
 }
