@@ -6,19 +6,33 @@
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/review.css")">                
   </head>
 
-  <div class="container">
+  <div class="container-fluid">
       
     <img id="logoReview" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <img id="logoReviewRight" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <h1 id="title">Review @review.getName</h1>
 
     @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
+      <div class="img-container">
       <img class="banner" src="/assets/images/gamePictures/@(review.getId + ".jpg")"/>
+      <img class="top" src="/assets/images/misc/blurry.png"/>
+      </div>
     } else {
-      <img class="banner" src="/assets/images/misc/noImage.png"/>
+      <img class="banner" src="/assets/images/misc/notFoundBanner.png"/>
     }
     
-    
+    <div id="reviewBody">
+      <h2><i>@review.getCaption</i></h2>
+      <hr>
+      @if(env.resource("public/images/gamePictures/" + review.getId + "Tile.jpg").isDefined) {
+        <img class="tile" src="/assets/images/gamePictures/@(review.getId + "Tile.jpg")"/>
+      }
+
+      <p>@review.getReview</p>
+    </div>
+
+    <br>
+    <br>
 
   </div>      
 

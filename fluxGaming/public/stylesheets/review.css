@@ -2,11 +2,6 @@
     width:100%;
 }
 
-.container{
-    background-color: rgb(197, 153, 92);
-    border-radius: 25px;
-}
-
 #title{
     color:white;
     text-align: center;
@@ -22,3 +17,31 @@
     float:right;
     padding-top:.2em;
 }
+
+#reviewBody{
+    background-color: rgb(26, 85, 122);
+    border-radius: 10px;
+    padding: 1em;
+    color:white;
+}
+
+h2{
+    text-align: center;
+}
+
+.img-container { position: relative; }
+
+.img-container .top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width:100%;
+    opacity: .7;
+  }
+
+  .tile{
+      width: 12em;
+      float: left;
+      padding-right: 1em;
+  }
