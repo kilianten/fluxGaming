@@ -45,3 +45,12 @@ h2{
       float: left;
       padding-right: 1em;
   }
+  
+  #review{
+    white-space: pre-line;
+    font-size: 1.5em;
+  }
+
+  #star{
+    width:1.6em;
+  }

@@ -14,6 +14,8 @@ GET     /review/:id           controllers.HomeController.review(id: Long)
 GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
 POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)
 
+GET     /deleteReview/:id   controllers.HomeController.deleteReview(id: Long)
+
 GET     /addReview                  controllers.HomeController.addReview
 POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
 # Map static resources from the /public folder to the /assets URL path

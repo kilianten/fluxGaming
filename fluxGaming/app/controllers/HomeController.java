@@ -182,4 +182,16 @@ public class HomeController extends Controller {
 
         return ok(review.render(User.getUserById(session().get("username")), loginForm, r, env));
     }
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result deleteReview(Long id) {
+        Review.find.ref(id).delete();
+
+        flash("success", "Review has been deleted");
+        
+        return redirect(routes.HomeController.index());
+    }
+
 }

@@ -1,3 +1,45 @@
 .tile{
     width:15em;
 }
+
+.col-md-4{
+ background-color: #76BFEC;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(79, 103, 148);
+}
+
+a:hover, a:focus {
+    color: rgb(76, 96, 134);
+    text-decoration: none;
+}
+
+.gradientBoxesWithOuterShadows { 
+    padding: 20px;
+    background-color: rgb(255, 255, 255); 
+    
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px; 
+    border-radius: 7px;
+    
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(241, 206, 131)), color-stop(15%, rgb(224, 176, 121)), color-stop(100%, #E5B97C)); 
+    
+    height: 30em;
+    }
+    
+    .icon{
+        width:1.5em;
+        float:right;
+        margin-top:.3em;
+        margin-right:.3em;
+        margin-left:0em;
+    
+    }

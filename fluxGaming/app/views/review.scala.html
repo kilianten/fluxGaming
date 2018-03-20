@@ -12,15 +12,19 @@
     <img id="logoReviewRight" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <h1 id="title">Review @review.getName</h1>
 
-    @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
-      <div class="img-container">
-      <img class="banner" src="/assets/images/gamePictures/@(review.getId + ".jpg")"/>
-      <img class="top" src="/assets/images/misc/blurry.png"/>
-      </div>
-    } else {
-      <img class="banner" src="/assets/images/misc/notFoundBanner.png"/>
-    }
-    
+    <div class="row">
+        <div class="col-lg-5 col-lg-offset-1">
+          @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
+            <div class="img-container">
+            <img class="banner" src="/assets/images/gamePictures/@(review.getId + ".jpg")"/>
+            <img class="top" src="/assets/images/misc/blurry.png"/>
+            </div>
+          } else {
+            <img class="banner" src="/assets/images/misc/notFoundBanner.png"/>
+          }
+        </div>  
+    <div class="col-lg-5">
+
     <div id="reviewBody">
       <h2><i>@review.getCaption</i></h2>
       <hr>
@@ -28,11 +32,27 @@
         <img class="tile" src="/assets/images/gamePictures/@(review.getId + "Tile.jpg")"/>
       }
 
-      <p>@review.getReview</p>
+      <p id="review">@review.getReview</p>
+
+      <br>
+
+        <h3>Rating:</h3> 
+        @for(i <- 1 to review.getRating){          
+         <img id="star" src="@routes.Assets.versioned("images/misc/star.png")">
+        }
+
+        @if(review.getRating > 0){
+          @review.getRating /10
+        }
+
+        <br>
+        <br>
+
     </div>
 
-    <br>
-    <br>
+  </div>
+
+
 
   </div>      
 
