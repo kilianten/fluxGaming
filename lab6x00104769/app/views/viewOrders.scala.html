@@ -1,0 +1,58 @@
+@import models.products.Product
+@import models.users.User
+@(user: User, orders: List[models.shopping.ShopOrder])
+
+@main("View Orders", user) {
+
+
+    <div class="container">
+
+    <h1>Order History</h1>
+    <br>
+
+    @if(flash.containsKey("success")) {
+      <div class="alert alert-success">
+        @flash.get("success")
+      </div>
+    }
+
+    @for(o <- orders){
+
+      @o.getOrderDate
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        @for(item <- 0 to o.getItems.size - 1){
+                            
+                            <tr>
+                            <td>@(item + 1)</td>
+                            <td>@o.getItems.get(item).getProduct.getName</td> 
+                            <td>@o.getItems.get(item).getQuantity</td> 
+                            <td>@o.getItems.get(item).getProduct.getPrice</td> 
+                            <td>@o.getItems.get(item).getItemTotal</td> 
+                            </tr>
+                        }
+                  </tbody>
+
+              </table>
+              <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(o.getOrderTotal))</strong></p>
+              
+                  <a href="@routes.ShoppingCtrl.cancelOrder(o.getId)" class="btn btn-success btn-sm">
+                  Cancel
+                  </a>
+             
+              <br>
+    }
+
+</div>
+
+}
