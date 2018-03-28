@@ -30,7 +30,7 @@ a:hover, a:focus {
     border-radius: 7px;
     
     /* gradients */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(241, 206, 131)), color-stop(15%, rgb(224, 176, 121)), color-stop(100%, #E5B97C)); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(238, 216, 169)), color-stop(15%, rgb(218, 185, 148)), color-stop(100%, rgb(224, 193, 150))); 
     
     height: 30em;
     }

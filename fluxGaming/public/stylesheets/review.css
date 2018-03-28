@@ -5,7 +5,7 @@
 }
 
 #title{
-    color:white;
+    color:rgb(0, 0, 0);
     text-align: center;
 }
 
@@ -21,10 +21,10 @@
 }
 
 #reviewBody{
-    background-color: rgb(43, 106, 145);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(243, 222, 177)), color-stop(50%, rgb(207, 163, 113)), color-stop(100%, rgb(233, 207, 170))); 
     border-radius: 10px;
     padding: 1em;
-    color:white;
+    color:rgb(10, 9, 9);
     min-height: 40em;
 }
 
@@ -47,7 +47,7 @@ h2{
 
   .tile{
       width: 12em;
-      float: left;
+      float: right;
       padding-right: 1em;
   }
   
@@ -62,11 +62,8 @@ h2{
 
   .gradientBoxesWithOuterShadows { 
     padding: 20px;
-    background-color: rgb(255, 255, 255); 
-    
-    /* outer shadows  (note the rgba is red, green, blue, alpha) */
-    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
-    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    /* background-color: rgb(255, 255, 255);  */
+  
     
     /* rounded corners */
     -webkit-border-radius: 12px;
@@ -74,6 +71,6 @@ h2{
     border-radius: 7px;
     
     /* gradients */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(241, 206, 131)), color-stop(15%, rgb(224, 176, 121)), color-stop(100%, #E5B97C)); 
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(243, 222, 177)), color-stop(15%, rgb(224, 176, 121)), color-stop(100%, rgb(233, 207, 170)));  */
     
 }

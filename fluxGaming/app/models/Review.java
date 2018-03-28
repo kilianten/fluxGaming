@@ -7,6 +7,9 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+
 @Entity
 public class Review extends Model {
 
@@ -23,6 +26,8 @@ public class Review extends Model {
     private String review;
     @Constraints.Required
     private int rating;
+    @Constraints.Required
+    private int year;
 
     //to add:
     //arrayList genre;
@@ -88,8 +93,30 @@ public class Review extends Model {
         this.rating = rating;
     }
 
+    public void setYear(int year){
+        this.year = year;
+    }
+
+    public int getYear(){
+        return year;
+    }
+
     public static List<Review> findAll(){
         return Review.find.all();
+    }
+
+    public static Map<String, String> options() {
+
+        LinkedHashMap<String, String> years = new LinkedHashMap();
+        int baseYear = 1980;
+        int currentYear = Calendar.getInstance().get(1) + 1;
+        
+        while(baseYear < currentYear){
+            years.put(Integer.toString(currentYear), Integer.toString(currentYear));
+            currentYear--;
+        }
+
+        return years;
     }
 
     public static final List<Review> findRecent(){

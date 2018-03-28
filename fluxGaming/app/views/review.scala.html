@@ -11,9 +11,9 @@
       
     <img id="logoReview" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <img id="logoReviewRight" src="@routes.Assets.versioned("images/logos/logoShader.png")">
-    <h1 id="title">Review @review.getName</h1>
 
     <div class="gradientBoxesWithOuterShadows">
+      <h1 id="title">Review: @review.getName ( @review.getYear )</h1>
 
       <div class="img-container">
           @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
