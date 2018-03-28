@@ -25,6 +25,16 @@
     @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "")
     @inputText(reviewForm("author"), '_label -> "Author", 'class -> "form-control", '_help -> "")
 
+    @select(
+      reviewForm("year"),
+      options(Review.options),
+      '_label -> "Year",
+      '_default -> "Choose Release Year",
+      '_disabled -> Seq("null", "null"),
+      '_help -> "",
+      'class -> "form-control"
+    )
+
     <label>Banner Image Upload (Displayed at: 1660x780)</label>
     <input class="btn-sm btn-default" type="file" name="upload">
     <br>

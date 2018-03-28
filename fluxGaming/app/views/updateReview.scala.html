@@ -23,7 +23,16 @@
 
     @textarea(reviewForm("review"), '_label -> "Review", 'class -> "form-control", '_help -> "")
     @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "")
-    @inputText(reviewForm("author"), '_label -> "Author", 'class -> "form-control", '_help -> "")
+    
+    @select(
+      reviewForm("author"),
+      options(User.listAdmins),
+      '_label -> "Author",
+      '_default -> "Choose Author",
+      '_disabled -> Seq("null", "null"),
+      '_help -> "",
+      'class -> "form-control"
+    )
 
     @select(
       reviewForm("year"),

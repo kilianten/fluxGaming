@@ -76,4 +76,16 @@ public class User extends Model {
           }
         }
 
+    public static Map<String, String> listAdmins() {
+
+        List<User> admins = find.query().where().eq("role", "admin").findList();
+
+        LinkedHashMap<String, String> adminsMap = new LinkedHashMap();
+
+        for(User u: admins){
+            adminsMap.put(u.getUsername(), u.getUsername());
+        }
+        return adminsMap;
+    }
+
 }
