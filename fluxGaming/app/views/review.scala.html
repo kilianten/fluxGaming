@@ -6,24 +6,25 @@
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/review.css")">                
   </head>
 
+
   <div class="container-fluid">
       
     <img id="logoReview" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <img id="logoReviewRight" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <h1 id="title">Review @review.getName</h1>
 
-    <div class="row">
-        <div class="col-lg-5 col-lg-offset-1">
+    <div class="gradientBoxesWithOuterShadows">
+
+      <div class="img-container">
           @if(env.resource("public/images/gamePictures/" + review.getId + ".jpg").isDefined) {
-            <div class="img-container">
             <img class="banner" src="/assets/images/gamePictures/@(review.getId + ".jpg")"/>
             <img class="top" src="/assets/images/misc/blurry.png"/>
-            </div>
+            
           } else {
             <img class="banner" src="/assets/images/misc/notFoundBanner.png"/>
           }
-        </div>  
-    <div class="col-lg-5">
+          </div>
+
 
     <div id="reviewBody">
       <h2><i>@review.getCaption</i></h2>
@@ -50,10 +51,10 @@
 
     </div>
 
+
+
+  </div>   
+  
   </div>
-
-
-
-  </div>      
 
 }

@@ -1,5 +1,7 @@
 .banner{
-    width:100%;
+    width:50%;
+    float:left;
+    padding:2em;
 }
 
 #title{
@@ -19,10 +21,11 @@
 }
 
 #reviewBody{
-    background-color: rgb(26, 85, 122);
+    background-color: rgb(43, 106, 145);
     border-radius: 10px;
     padding: 1em;
     color:white;
+    min-height: 40em;
 }
 
 h2{
@@ -36,8 +39,10 @@ h2{
     top: 0;
     left: 0;
     z-index: 1;
-    width:100%;
-    opacity: .7;
+    width:50%;
+    opacity: .5;
+    float:left;
+    padding:2em;
   }
 
   .tile{
@@ -54,3 +59,21 @@ h2{
   #star{
     width:1.6em;
   }
+
+  .gradientBoxesWithOuterShadows { 
+    padding: 20px;
+    background-color: rgb(255, 255, 255); 
+    
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px; 
+    border-radius: 7px;
+    
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(241, 206, 131)), color-stop(15%, rgb(224, 176, 121)), color-stop(100%, #E5B97C)); 
+    
+}
