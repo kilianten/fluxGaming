@@ -28,18 +28,18 @@ body{
     background-color:  rgb(60, 146, 199);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color:  #216F9F;
+    border-color:  rgb(184, 198, 207);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-    background-color:  rgb(60, 146, 199);
+    background-color:  rgb(46, 125, 173);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-    background-color:  #216F9F;
+    background-color:  rgb(7, 9, 10);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color:  rgb(60, 146, 199);
+    background-color:  rgb(144, 162, 175);
 }
 
 
