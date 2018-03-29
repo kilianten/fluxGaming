@@ -29,6 +29,10 @@
     <div id="reviewBody">
       <h2><i>@review.getCaption</i></h2>
       <hr>
+      @for(g <- review.getGenres){
+        <button disabled class="genreBtn" type="button">@g.getName</button>  
+      }
+      <hr>
       @if(env.resource("public/images/gamePictures/" + review.getId + "Tile.jpg").isDefined) {
         <img class="tile" src="/assets/images/gamePictures/@(review.getId + "Tile.jpg")"/>
       }

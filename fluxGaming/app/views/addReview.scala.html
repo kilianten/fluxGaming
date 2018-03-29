@@ -23,7 +23,16 @@
 
     @textarea(reviewForm("review"), '_label -> "Review", 'class -> "form-control", '_help -> "")
     @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "")
-    @inputText(reviewForm("author"), '_label -> "Author", 'class -> "form-control", '_help -> "")
+    
+    @select(
+      reviewForm("author"),
+      options(User.listAdmins),
+      '_label -> "Author",
+      '_default -> "Choose Author",
+      '_disabled -> Seq("null", "null"),
+      '_help -> "",
+      'class -> "form-control"
+    )
 
     @select(
       reviewForm("year"),
@@ -34,6 +43,13 @@
       '_help -> "",
       'class -> "form-control"
     )
+
+    <div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
+    @for((value, name) <- Genre.options){
+      <input type="checkbox" name="genreSelect[]" value="@value"
+      />@name<br>
+    }
+    </div>
 
     <label>Banner Image Upload (Displayed at: 1660x780)</label>
     <input class="btn-sm btn-default" type="file" name="upload">

@@ -29,8 +29,10 @@ public class Review extends Model {
     @Constraints.Required
     private int year;
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "reviews")
+    public List<Genre> genres;
+
     //to add:
-    //arrayList genre;
     //arrayList platform;
     //arrayList comments?
 
@@ -126,6 +128,12 @@ public class Review extends Model {
 
     public static int calcRow(double reviewSize){
         return (int) Math.ceil(reviewSize/3);
+    }
+
+    public List<Long> genreSelect = new ArrayList<Long>();
+
+    public List<Long> getGenreSelect(){
+        return genreSelect;
     }
 
 }

@@ -4,7 +4,7 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
-GET     /reviews                    controllers.HomeController.reviews      
+GET     /reviews                    controllers.HomeController.reviews(genre:Long?=0L)      
 
 POST    /loginSubmit                controllers.HomeController.loginSubmit
 GET     /logout                     controllers.HomeController.logout        

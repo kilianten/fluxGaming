@@ -44,6 +44,17 @@
       'class -> "form-control"
     )
 
+    <div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
+      @for((value, name) <- Genre.options){
+      <input type="checkbox" name="genreSelect[]" value="@value"
+      @if(Genre.inGenre(value.toLong, reviewId)){
+        checked
+      }
+      />@name<br>  
+    }
+    </div>
+    <br>
+
     <label>Banner Image Upload (Must be: 1660x780)</label>
     <input class="btn-sm btn-default" type="file" name="upload">
     <br>

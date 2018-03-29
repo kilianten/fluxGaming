@@ -1,4 +1,4 @@
-@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, reviewSize: Integer)
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, reviewSize: Integer, genres: List[models.Genre])
 
 @main("Reviews", loginForm, user) {
 
@@ -8,52 +8,46 @@
 
   <h1>Reviews!</h1>
 
-  <div class="container">
-  @for(i <- 1 to reviewSize){
-    
-    <div class="row">
-      @for(j <- 1 to 3){
-        @if((i - 1)*3 + (j - 1) < reviews.size){
-        <div class="col-md-4">
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href="@routes.HomeController.reviews(0)" class="list-group-item">All Genres</a>
+            @for(g <- genres){
+              <a href="@routes.HomeController.reviews(g.getId)" class="list-group-item"> @g.getName
+                <span class="badge">@g.getReviews.size()</span>
+              </a>
+            }
+          </div>
+        </div>
+
+  @for(r <- reviews){
+    <div class="col-md-3">
           <div class="gradientBoxesWithOuterShadows">
               <!-- admin buttons -->
               @if(user != null){
                 @if(user.getRole=="admin"){
                     
-                    <a href="@routes.HomeController.deleteReview(reviews.get((i - 1)*3 + (j - 1)).getId)">
+                    <a href="@routes.HomeController.deleteReview(r.getId)">
                     <img class="icon" src="/assets/images/misc/bin.png"/>
                     </a>
-                    <a href="@routes.HomeController.updateReview(reviews.get((i - 1)*3 + (j - 1)).getId)">
+                    <a href="@routes.HomeController.updateReview(r.getId)">
                     <img class="icon" src="/assets/images/misc/edit.png"/>
                     </a>
                 }
               }
-            <a href="@routes.HomeController.review(reviews.get((i - 1)*3 + (j - 1)).getId)"> 
-            @if(env.resource("public/images/gamePictures/" + reviews.get((i - 1)*3 + (j - 1)).getId + "Tile.jpg").isDefined) {
-              <img class="tile" src="/assets/images/gamePictures/@(reviews.get((i - 1)*3 + (j - 1)).getId + "Tile.jpg")"/>
+            <a href="@routes.HomeController.review(r.getId)"> 
+            @if(env.resource("public/images/gamePictures/" + r.getId + "Tile.jpg").isDefined) {
+              <img class="tile" src="/assets/images/gamePictures/@(r.getId + "Tile.jpg")"/>
             } else {
               <img class="tile" src="/assets/images/misc/noImage.png"/>
             }
         
-            <h3><u>@reviews.get((i - 1)*3 + (j - 1)).getName</u></h3>
-            <h4>@reviews.get((i - 1)*3 + (j - 1)).getCaption</h5>
-            <h5>- @reviews.get((i - 1)*3 + (j - 1)).getAuthor</h5>
+            <h3><u>@r.getName</u></h3>
+            <h4>@r.getCaption</h5>
+            <h5>- @r.getAuthor</h5>
 
-            <a>
-            </div>
+          </div> 
         </div>
-        }
-      }
-    </div>
-    <br>
-  }
-  </div> 
-
-
-  @for(r <- reviews){
     
-
-
   }
 
 }

@@ -38,15 +38,25 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("username")), loginForm, reviews, env));
     }
 
-    public Result reviews(){
+    public Result reviews(Long genre){
 
-        List<Review> reviewList = Review.findAll();
+        List<Review> reviewList = null;
+
+        List<Genre> genreList = Genre.findAll();
+
+
+        if(genre == 0){
+            reviewList = Review.findAll();
+        }
+        else{
+            reviewList = Genre.find.ref(genre).getReviews();
+        }
 
         int size = Review.calcRow(reviewList.size());
 
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, size));
+        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, size, genreList));
     }
 
     public Result loginSubmit(){
@@ -89,13 +99,20 @@ public class HomeController extends Controller {
         MultipartFormData data = request().body().asMultipartFormData();
         FilePart image = data.getFile("upload");
         FilePart tileImage = data.getFile("uploadTile");
-
+        
         if(newReviewForm.hasErrors()){
             return badRequest(addReview.render(User.getUserById(session().get("username")), loginForm, newReviewForm));
         }
         else{
             Review newReview = newReviewForm.get();
             newReview.save();
+
+                for(Long genre : newReview.getGenreSelect()){
+                    newReview.genres.add(Genre.find.byId(genre));
+                }
+            
+            newReview.update();
+
             saveFile(Long.toString(newReview.getId()), image);
             saveFile(Long.toString(newReview.getId()) + "Tile", tileImage);
 
@@ -136,6 +153,15 @@ public class HomeController extends Controller {
         } else {
             Review r = updateReviewForm.get();
             r.setId(id);
+
+            List<Genre> newGenres = new ArrayList<Genre>();
+                for(Long genre : r.getGenreSelect()){
+                newGenres.add(Genre.find.byId(genre));
+            }
+            
+
+            r.genres = newGenres;
+            
             r.update();
             saveFile(Long.toString(r.getId()), image);
             saveFile(Long.toString(r.getId()) + "Tile", tileImage);
@@ -143,7 +169,7 @@ public class HomeController extends Controller {
             flash("success", "Review " + r.getName() + " has been updated" );
         }
 
-        return redirect(controllers.routes.HomeController.reviews());
+        return redirect(controllers.routes.HomeController.reviews(0));
     }
 
     public String saveFile(String id, FilePart<File> uploaded){
