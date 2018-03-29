@@ -1,4 +1,4 @@
-@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, reviewSize: Integer, genres: List[models.Genre])
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, genres: List[models.Genre])
 
 @main("Reviews", loginForm, user) {
 
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
   </head>
 
-  <h1>Reviews!</h1>
+  <h1 style="text-align:center;">Reviews</h1>
 
         <div class="col-md-3 hidden-sm hidden-xs">
           <div class="list-group">

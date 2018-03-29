@@ -46,17 +46,15 @@ public class HomeController extends Controller {
 
 
         if(genre == 0){
-            reviewList = Review.findAll();
+            reviewList = Review.findAllOrdered();
         }
         else{
             reviewList = Genre.find.ref(genre).getReviews();
         }
 
-        int size = Review.calcRow(reviewList.size());
-
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, size, genreList));
+        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, genreList));
     }
 
     public Result loginSubmit(){

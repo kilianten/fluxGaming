@@ -32,17 +32,24 @@ a:hover, a:focus {
     height: 30em;
     margin:0em;
     margin-bottom: 2em;
-    }
+}
     
-    .icon{
+.icon{
         width:1.5em;
         float:right;
         margin-top:.3em;
         margin-right:.3em;
         margin-left:0em;
     
-    }
-
-.list-group{
-    grid-area: menu; 
 }
+
+.list-group-item {
+    background-color: rgb(165, 213, 243);
+    
+}
+
+.list-group-item a:link {
+    color:white;  
+}
+
+

@@ -123,17 +123,17 @@ public class Review extends Model {
 
     public static final List<Review> findRecent(){
     
-        return Review.find.query().setMaxRows(5).where().orderBy("Id desc").findList();
-    }
-
-    public static int calcRow(double reviewSize){
-        return (int) Math.ceil(reviewSize/3);
+        return Review.find.query().setMaxRows(5).where().orderBy("id DESC").findList();
     }
 
     public List<Long> genreSelect = new ArrayList<Long>();
 
     public List<Long> getGenreSelect(){
         return genreSelect;
+    }
+
+    public static final List<Review> findAllOrdered(){
+        return Review.find.query().where().orderBy("id DESC").findList();
     }
 
 }
