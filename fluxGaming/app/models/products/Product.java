@@ -24,8 +24,6 @@ public class Product extends Model {
         private double price; 
 
         public static final Finder<Long, Product> find = new Finder<>(Product.class);
-        // List of category ids - this will be bound to checkboxes in the view form
-        private List<Long> catSelect = new ArrayList<Long>();
 
         public static final List<Product> findAll() { 
             
@@ -98,12 +96,7 @@ public class Product extends Model {
         public void setPrice(double price) { 
             this.price = price; 
         } 
-        public List<Long> getCatSelect(){
-            return catSelect;
-        }
-        public void setCatSelect(List<Long> catSelect){
-            this.catSelect = catSelect;
-        }
+
         public boolean decrementStock(){
             boolean allowed =true;
             if ((stock-1) < 0){
