@@ -4,12 +4,14 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
-GET     /reviews                    controllers.HomeController.reviews(genre:Long?=0L)      
+GET     /reviews                    controllers.HomeController.reviews(genre:Long?=0L, filter?="")      
 
 POST    /loginSubmit                controllers.HomeController.loginSubmit
 GET     /logout                     controllers.HomeController.logout        
 
 GET     /review/:id           controllers.HomeController.review(id: Long)
+
+GET     /store                      controllers.HomeController.store
 
 GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
 POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)

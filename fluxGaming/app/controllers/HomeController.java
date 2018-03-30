@@ -38,7 +38,7 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("username")), loginForm, reviews, env));
     }
 
-    public Result reviews(Long genre){
+    public Result reviews(Long genre, String filter){
 
         List<Review> reviewList = null;
 
@@ -46,15 +46,15 @@ public class HomeController extends Controller {
 
 
         if(genre == 0){
-            reviewList = Review.findAllOrdered();
+            reviewList = Review.findAllOrdered(filter);
         }
         else{
-            reviewList = Genre.find.ref(genre).getReviews();
+            reviewList = Review.findFilter(genre, filter);
         }
 
         Form<Login> loginForm = formFactory.form(Login.class);
 
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, genreList));
+        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, genreList, genre, filter));
     }
 
     public Result loginSubmit(){
@@ -157,7 +157,6 @@ public class HomeController extends Controller {
                 newGenres.add(Genre.find.byId(genre));
             }
             
-
             r.genres = newGenres;
             
             r.update();
@@ -167,7 +166,7 @@ public class HomeController extends Controller {
             flash("success", "Review " + r.getName() + " has been updated" );
         }
 
-        return redirect(controllers.routes.HomeController.reviews(0));
+        return redirect(routes.HomeController.review(id));
     }
 
     public String saveFile(String id, FilePart<File> uploaded){
@@ -216,6 +215,13 @@ public class HomeController extends Controller {
         flash("success", "Review has been deleted");
         
         return redirect(routes.HomeController.index());
+    }
+
+    public Result store() {
+
+        Form<Login> loginForm = formFactory.form(Login.class);
+        
+        return ok(store.render(User.getUserById(session().get("username")), loginForm));
     }
 
 }

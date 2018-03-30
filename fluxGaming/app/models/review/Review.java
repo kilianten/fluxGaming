@@ -132,8 +132,12 @@ public class Review extends Model {
         return genreSelect;
     }
 
-    public static final List<Review> findAllOrdered(){
-        return Review.find.query().where().orderBy("id DESC").findList();
+    public static final List<Review> findAllOrdered(String filter){
+        return Review.find.query().where().ilike("name", "%" + filter + "%").orderBy("id DESC").findList();
+    }
+
+    public static List<Review> findFilter(Long genreId, String filter){
+        return Review.find.query().where().eq("genres.id", genreId).ilike("name", "%" + filter + "%").orderBy("name asc").findList();
     }
 
 }

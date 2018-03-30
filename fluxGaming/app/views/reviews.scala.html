@@ -1,4 +1,4 @@
-@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, genres: List[models.Genre])
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, genres: List[models.Genre], genreId: Long, filter: String)
 
 @main("Reviews", loginForm, user) {
 
@@ -6,13 +6,24 @@
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
   </head>
 
+  <div id="actions">
+    <form action="@routes.HomeController.reviews(genreId)" method="GET">
+      <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search Review Name">
+      <input type="submit" id="searchsubmit" value="Filter by title" class="btn-md btn-primary">
+    </form>
+  </div>
+
   <h1 style="text-align:center;">Reviews</h1>
+
+  @if(!filter.equals("")){
+    <p style="text-align: center;"> Showing results for: @filter </p>
+  }
 
         <div class="col-md-3 hidden-sm hidden-xs">
           <div class="list-group">
-            <a href="@routes.HomeController.reviews(0)" class="list-group-item">All Genres</a>
+            <a href="@routes.HomeController.reviews(0, filter)" class="list-group-item">All Genres</a>
             @for(g <- genres){
-              <a href="@routes.HomeController.reviews(g.getId)" class="list-group-item"> @g.getName
+              <a href="@routes.HomeController.reviews(g.getId, filter)" class="list-group-item"> @g.getName
                 <span class="badge">@g.getReviews.size()</span>
               </a>
             }

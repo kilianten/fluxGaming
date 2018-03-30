@@ -1,6 +1,6 @@
 @(user: models.User, loginForm: Form[models.users.Login], review: models.Review, env: play.api.Environment)
 
-@main("Review", loginForm, user) {
+@main(review.getName + " Review", loginForm, user) {
 
   <head>
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/review.css")">                
