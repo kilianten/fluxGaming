@@ -1,0 +1,21 @@
+.addToCartBtn{
+    background: #d86565;
+    background-image: linear-gradient(to bottom, #da8181, #da4753);
+    border-radius: 1em;
+    font-family: Arial;
+    color: black;
+    font-size: 1em;
+    padding: 10px 15px 10px 15px;
+}
+
+.img-container { position: relative; }
+
+.img-container .top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: .80;
+    float:left;
+    width:15em;
+  }

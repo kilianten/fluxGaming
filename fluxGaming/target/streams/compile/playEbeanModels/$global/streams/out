@@ -1,0 +1,63 @@
+[0m[[0m[31merror[0m] [0m[0mjava.lang.BootstrapMethodError: call site initialization exception[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.CallSite.makeSite(CallSite.java:341)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:110)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration.load(Configuration.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.Configuration.load(Configuration.java:48)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.db.ebean.ModelsConfigLoader.apply(ModelsConfigLoader.java:27)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.db.ebean.ModelsConfigLoader.apply(ModelsConfigLoader.java:21)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.$anonfun$configuredEbeanModels$4(PlayEbean.scala:153)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.withClassLoader$1(PlayEbean.scala:130)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.$anonfun$configuredEbeanModels$1(PlayEbean.scala:150)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1.$anonfun$compose$1(Function1.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$4.work(System.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$2(Execute.scala:257)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:16)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.work(Execute.scala:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$1(Execute.scala:257)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:167)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.CompletionService$$anon$2.call(CompletionService.scala:32)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Thread.java:748)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: java.lang.OutOfMemoryError: Metaspace[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.misc.Unsafe.defineAnonymousClass(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.InnerClassLambdaMetafactory.spinInnerClass(InnerClassLambdaMetafactory.java:326)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.InnerClassLambdaMetafactory.buildCallSite(InnerClassLambdaMetafactory.java:194)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.LambdaMetafactory.altMetafactory(LambdaMetafactory.java:474)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.LambdaForm$DMH/445288316.invokeStatic_L4_L(LambdaForm$DMH)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.LambdaForm$BMH/420787029.reinvoke(LambdaForm$BMH)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.LambdaForm$MH/217687948.invoker(LambdaForm$MH)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.LambdaForm$MH/1957502751.invokeExact_MT(LambdaForm$MH)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.CallSite.makeSite(CallSite.java:325)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:110)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration$.load(Configuration.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.api.Configuration.load(Configuration.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.Configuration.load(Configuration.java:48)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.db.ebean.ModelsConfigLoader.apply(ModelsConfigLoader.java:27)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.db.ebean.ModelsConfigLoader.apply(ModelsConfigLoader.java:21)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.$anonfun$configuredEbeanModels$4(PlayEbean.scala:153)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$$$Lambda$3698/111006157.apply(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.withClassLoader$1(PlayEbean.scala:130)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$.$anonfun$configuredEbeanModels$1(PlayEbean.scala:150)[0m
+[0m[[0m[31merror[0m] [0m[0m	at play.ebean.sbt.PlayEbean$$$Lambda$2397/1221559316.apply(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1.$anonfun$compose$1(Function1.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1$$Lambda$774/1138845999.apply(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.$tilde$greater$$Lambda$1577/18233895.apply(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$4.work(System.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$2(Execute.scala:257)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute$$Lambda$1597/76904636.apply(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:16)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.work(Execute.scala:266)[0m
+[0m[[0m[31merror[0m] [0m[0m(compile:[31mplayEbeanModels[0m) java.lang.BootstrapMethodError: call site initialization exception[0m

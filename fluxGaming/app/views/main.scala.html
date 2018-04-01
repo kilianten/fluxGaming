@@ -57,11 +57,6 @@
             </p>
           }
   
-          @if(flash.containsKey("error")){
-            <p class="alert alert-warning">
-              @flash.get("loginRequired")
-            </p>
-          }
   
           @helper.form(action = controllers.routes.HomeController.loginSubmit()){
           @CSRF.formField

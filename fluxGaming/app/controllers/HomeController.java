@@ -2,6 +2,7 @@ package controllers;
 
 import play.mvc.*;
 import views.html.*;
+import views.html.admin.*;
 
 import play.api.Environment;
 import play.data.*;
@@ -9,6 +10,7 @@ import play.db.ebean.Transactional;
 
 import models.*;
 import models.users.*;
+import models.products.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -220,8 +222,10 @@ public class HomeController extends Controller {
     public Result store() {
 
         Form<Login> loginForm = formFactory.form(Login.class);
+
+        List<Product> productList = Product.findAll();
         
-        return ok(store.render(User.getUserById(session().get("username")), loginForm));
+        return ok(store.render(User.getUserById(session().get("username")), loginForm, productList, env));
     }
 
 }

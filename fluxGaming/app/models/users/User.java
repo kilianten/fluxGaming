@@ -3,6 +3,8 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
+import models.shopping.Basket;
+
 import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
@@ -16,11 +18,15 @@ public class User extends Model {
     private String email;
     private String password;
 
-    public User(String username, String role, String email, String password) {
+    @OneToOne(mappedBy="user", cascade = CascadeType.ALL)
+    private Basket basket;
+
+    public User(String username, String role, String email, String password, Basket basket) {
         this.username = username;
         this.role = role;
         this.email = email;
         this.password = password;
+        this.basket = basket;
     }
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
@@ -86,6 +92,14 @@ public class User extends Model {
             adminsMap.put(u.getUsername(), u.getUsername());
         }
         return adminsMap;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 
 }

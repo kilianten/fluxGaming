@@ -1,5 +1,63 @@
-@(user: models.User, loginForm: Form[models.users.Login])
+@(user: models.User, loginForm: Form[models.users.Login], products: List[models.products.Product], env: play.api.Environment)
 
 @main("Store", loginForm, user){
+
+    <head>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/store.css")">                
+    </head>
+    
+    <h1 style="text-align: center;">Store</h1>
+
+    @if(flash.containsKey("error")){
+        <div class="alert alert-warning">
+          @flash.get("error")
+    </div>
+    }
+
+    @for(p <- products){
+      <div class="col-md-3 col-sm-6">
+        <div class="gradientBoxesWithOuterShadows">
+            <!-- admin buttons -->
+            @if(user != null){
+              @if(user.getRole=="admin"){
+                  
+                  <img class="icon" src="/assets/images/misc/bin.png"/>
+                  
+                  <img class="icon" src="/assets/images/misc/edit.png"/>
+                  
+              }
+            }
+
+          <div class="img-container">
+              @if(p.getStock() <= 0){
+                <img class="top" src="/assets/images/misc/outOfStock.png"/>
+              }
+
+              @if(env.resource("public/images/gamePictures/" + p.getId + "Item.jpg").isDefined) {
+                <img class="tile" src="/assets/images/gamePictures/@(p.getId + "Item.jpg")"/>
+              } else {
+                <img class="tile" src="/assets/images/misc/noImage.png"/>
+              }
+          </div>
+      
+          <h3><u>@p.getName</u></h3>
+          <h5>Price: €@p.getPrice</h5>
+
+          @if(user != null){
+            @if(user.getRole=="admin"){
+                <p style="color:red;">Stock: @p.getStock</p>
+            }
+          }
+
+          <a href="@routes.ShoppingController.addToCart(p.getId)">
+            <div style="text-align:center;">
+                    <button class="addToCartBtn" type="button">Add To Cart</button>       
+            </div>
+        </a>  
+
+        </div> 
+      </div>
+    }
 
 }
