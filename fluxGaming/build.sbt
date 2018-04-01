@@ -1,3 +1,6 @@
+
+routesGenerator := InjectedRoutesGenerator
+
 name := """fluxGaming"""
 organization := "com.example"
 

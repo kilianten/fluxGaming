@@ -15,6 +15,17 @@
     </div>
     }
 
+
+    @if(user != null){
+      @if(!user.getBasket().getBasketItems().isEmpty){
+        <div class="basket-container">
+        <img class="basket" src="/assets/images/misc/basket.png"/>
+        
+        <p class="number">@user.getBasket.getCount</p>
+        </div>
+      }
+    }
+
     @for(p <- products){
       <div class="col-md-3 col-sm-6">
         <div class="gradientBoxesWithOuterShadows">

@@ -18,4 +18,24 @@
     opacity: .80;
     float:left;
     width:15em;
-  }
+}
+
+.basket{
+    position:fixed;
+    right:0em;
+    top:10em;
+    width:5.5em;
+    z-index:2;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+
+.number{
+    position:fixed;
+    right:-4em;
+    top:13.4em;
+    width:5.5em;
+    z-index:3;
+    color:white;
+}

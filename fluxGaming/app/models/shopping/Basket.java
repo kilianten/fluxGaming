@@ -119,4 +119,16 @@ public class Basket extends Model {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public int getCount(){
+        int count = 0;
+
+        for (OrderItem i : basketItems) {
+            Product p = Product.find.byId(i.getProduct().getId());
+            if (i.getProduct().getId() == p.getId()) {
+                count += i.getQuantity();
+            }
+        }
+        return count;
+    }
 }

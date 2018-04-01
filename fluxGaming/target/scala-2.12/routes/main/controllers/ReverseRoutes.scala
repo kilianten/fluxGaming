@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Sat Mar 31 11:16:12 IST 2018
+// @DATE:Sun Apr 01 15:42:12 IST 2018
 
 import play.api.mvc.Call
 

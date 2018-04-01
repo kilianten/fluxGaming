@@ -46,3 +46,5 @@
 
 -- INSERT INTO PRODUCT VALUES(1, 'Flux Gaming Mug', 'A great mug for when you need to wake up after a long night of gaming', 12, 10.00);
 -- INSERT INTO PRODUCT VALUES(2, 'Flux Gaming Shirt', 'A great way to show your friends about your favorite site!', 20, 12.00);
+-- INSERT INTO PRODUCT VALUES(3, 'Flux Gaming Post', 'A great poster to hang in your moms basement', 10, 5.00);
+-- INSERT INTO PRODUCT VALUES(4, 'Flux Gaming Badge', 'A badge to stick on your bag, on a tshirt or wherever really!', 20, 3.00);

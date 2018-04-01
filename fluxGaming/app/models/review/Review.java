@@ -140,4 +140,8 @@ public class Review extends Model {
         return Review.find.query().where().eq("genres.id", genreId).ilike("name", "%" + filter + "%").orderBy("name asc").findList();
     }
 
+    public List<Genre> getGenres(){
+        return genres;
+    }
+
 }
