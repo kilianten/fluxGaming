@@ -45,8 +45,8 @@
                 <img class="top" src="/assets/images/misc/outOfStock.png"/>
               }
 
-              @if(env.resource("public/images/gamePictures/" + p.getId + "Item.jpg").isDefined) {
-                <img class="tile" src="/assets/images/gamePictures/@(p.getId + "Item.jpg")"/>
+              @if(env.resource("public/images/products/" + p.getId + ".jpg").isDefined) {
+                <img class="tile" src="/assets/images/products/@(p.getId + ".jpg")"/>
               } else {
                 <img class="tile" src="/assets/images/misc/noImage.png"/>
               }
