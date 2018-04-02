@@ -115,9 +115,11 @@ public class HomeController extends Controller {
             Review newReview = newReviewForm.get();
             newReview.save();
 
+            if(newReview.getGenreSelect() != null){
                 for(Long genre : newReview.getGenreSelect()){
                     newReview.getGenres().add(Genre.find.byId(genre));
                 }
+            }
             
             newReview.update();
 
