@@ -22,6 +22,12 @@ GET     /addReview                  controllers.HomeController.addReview
 POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
 
 GET     /store                      controllers.HomeController.store
+GET     /basket                     controllers.HomeController.basket
+
+#basketFunctions
+GET     /emptyBasket                controllers.ShoppingController.emptyBasket
+GET     /addOne/:itemId             controllers.ShoppingController.addOne(itemId: Long)
+GET     /removeOne/:itemId          controllers.ShoppingController.removeOne(itemId: Long)
 
 #ShoppingController
 GET     /addToCart/:id                  controllers.ShoppingController.addToCart(id: Long)

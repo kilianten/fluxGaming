@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Sun Apr 01 15:42:12 IST 2018
+// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/fluxGaming/conf/routes
+// @DATE:Mon Apr 02 15:03:32 IST 2018
 
 package router
 
@@ -16,9 +16,9 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
   HomeController_0: controllers.HomeController,
-  // @LINE:27
+  // @LINE:28
   ShoppingController_2: controllers.ShoppingController,
-  // @LINE:31
+  // @LINE:37
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -27,9 +27,9 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
     HomeController_0: controllers.HomeController,
-    // @LINE:27
+    // @LINE:28
     ShoppingController_2: controllers.ShoppingController,
-    // @LINE:31
+    // @LINE:37
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_0, ShoppingController_2, Assets_1, "/")
 
@@ -55,6 +55,10 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addReview""", """controllers.HomeController.addReview"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addReviewSubmit""", """controllers.HomeController.addReviewSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """store""", """controllers.HomeController.store"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """basket""", """controllers.HomeController.basket"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """emptyBasket""", """controllers.ShoppingController.emptyBasket"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addOne/""" + "$" + """itemId<[^/]+>""", """controllers.ShoppingController.addOne(itemId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """removeOne/""" + "$" + """itemId<[^/]+>""", """controllers.ShoppingController.removeOne(itemId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addToCart/""" + "$" + """id<[^/]+>""", """controllers.ShoppingController.addToCart(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
@@ -280,11 +284,83 @@ class Routes(
     )
   )
 
-  // @LINE:27
-  private[this] lazy val controllers_ShoppingController_addToCart12_route = Route("GET",
+  // @LINE:25
+  private[this] lazy val controllers_HomeController_basket12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("basket")))
+  )
+  private[this] lazy val controllers_HomeController_basket12_invoker = createInvoker(
+    HomeController_0.basket,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "basket",
+      Nil,
+      "GET",
+      this.prefix + """basket""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:28
+  private[this] lazy val controllers_ShoppingController_emptyBasket13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("emptyBasket")))
+  )
+  private[this] lazy val controllers_ShoppingController_emptyBasket13_invoker = createInvoker(
+    ShoppingController_2.emptyBasket,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ShoppingController",
+      "emptyBasket",
+      Nil,
+      "GET",
+      this.prefix + """emptyBasket""",
+      """basketFunctions""",
+      Seq()
+    )
+  )
+
+  // @LINE:29
+  private[this] lazy val controllers_ShoppingController_addOne14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addOne/"), DynamicPart("itemId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ShoppingController_addOne14_invoker = createInvoker(
+    ShoppingController_2.addOne(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ShoppingController",
+      "addOne",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """addOne/""" + "$" + """itemId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:30
+  private[this] lazy val controllers_ShoppingController_removeOne15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("removeOne/"), DynamicPart("itemId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ShoppingController_removeOne15_invoker = createInvoker(
+    ShoppingController_2.removeOne(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ShoppingController",
+      "removeOne",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """removeOne/""" + "$" + """itemId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:33
+  private[this] lazy val controllers_ShoppingController_addToCart16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addToCart/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_ShoppingController_addToCart12_invoker = createInvoker(
+  private[this] lazy val controllers_ShoppingController_addToCart16_invoker = createInvoker(
     ShoppingController_2.addToCart(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -298,11 +374,11 @@ class Routes(
     )
   )
 
-  // @LINE:31
-  private[this] lazy val controllers_Assets_versioned13_route = Route("GET",
+  // @LINE:37
+  private[this] lazy val controllers_Assets_versioned17_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned13_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned17_invoker = createInvoker(
     Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -391,16 +467,40 @@ class Routes(
         controllers_HomeController_store11_invoker.call(HomeController_0.store)
       }
   
-    // @LINE:27
-    case controllers_ShoppingController_addToCart12_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_ShoppingController_addToCart12_invoker.call(ShoppingController_2.addToCart(id))
+    // @LINE:25
+    case controllers_HomeController_basket12_route(params@_) =>
+      call { 
+        controllers_HomeController_basket12_invoker.call(HomeController_0.basket)
       }
   
-    // @LINE:31
-    case controllers_Assets_versioned13_route(params@_) =>
+    // @LINE:28
+    case controllers_ShoppingController_emptyBasket13_route(params@_) =>
+      call { 
+        controllers_ShoppingController_emptyBasket13_invoker.call(ShoppingController_2.emptyBasket)
+      }
+  
+    // @LINE:29
+    case controllers_ShoppingController_addOne14_route(params@_) =>
+      call(params.fromPath[Long]("itemId", None)) { (itemId) =>
+        controllers_ShoppingController_addOne14_invoker.call(ShoppingController_2.addOne(itemId))
+      }
+  
+    // @LINE:30
+    case controllers_ShoppingController_removeOne15_route(params@_) =>
+      call(params.fromPath[Long]("itemId", None)) { (itemId) =>
+        controllers_ShoppingController_removeOne15_invoker.call(ShoppingController_2.removeOne(itemId))
+      }
+  
+    // @LINE:33
+    case controllers_ShoppingController_addToCart16_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_ShoppingController_addToCart16_invoker.call(ShoppingController_2.addToCart(id))
+      }
+  
+    // @LINE:37
+    case controllers_Assets_versioned17_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned13_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned17_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }

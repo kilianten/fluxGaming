@@ -26,11 +26,15 @@ public class ShoppingController extends Controller {
         this.formFactory = f;
     }
 
+    public User getUser(){
+        return User.getUserById(session().get("username"));
+    }
+
     public Result addToCart(Long id){
 
         Product p = Product.find.byId(id);
 
-        User customer = User.getUserById(session().get("username"));
+        User customer = getUser();
         
 
         if(p.getStock() > 0){
@@ -51,6 +55,61 @@ public class ShoppingController extends Controller {
         return redirect(routes.HomeController.store());
     }
 
+
+    @Transactional
+    public Result emptyBasket() {
+
+        User customer = getUser();
+
+        customer.getBasket().removeAllItems();
+        customer.getBasket().update();
+            
+        return redirect(routes.HomeController.store());
+        
+    }
+
+    @Transactional
+    public Result addOne(Long itemId) {
+       
+        OrderItem item = OrderItem.find.byId(itemId);
+        
+            if(item.getProduct().getStock()>0){
+
+            item.increaseQty();
+            
+            item.getProduct().decrementStock();
+            item.getProduct().update();
+
+            item.update();
+            
+            }
+            else
+            {
+                flash("error", "Sorry, no more of these products left");
+            }
+
+            return redirect(routes.HomeController.basket());
+        }
+
+    @Transactional
+    public Result removeOne(Long itemId) {
+        
+        OrderItem item = OrderItem.find.byId(itemId);
+        
+        User customer = getUser();
+        
+        customer.getBasket().removeItem(item);
+        customer.getBasket().update();
+
+        item.getProduct().incrementStock(1);
+        item.getProduct().update();
+
+        if(customer.getBasket().getBasketItems().size() == 0){
+            return redirect(routes.HomeController.store());
+        }
+        
+        return redirect(routes.HomeController.basket());
+    }
         
 
     

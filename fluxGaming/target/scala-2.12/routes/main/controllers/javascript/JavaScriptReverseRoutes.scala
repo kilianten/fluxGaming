@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Sun Apr 01 15:42:12 IST 2018
+// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/fluxGaming/conf/routes
+// @DATE:Mon Apr 02 15:03:32 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,7 +11,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:27
+  // @LINE:28
   class ReverseShoppingController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -19,12 +19,42 @@ package controllers.javascript {
     }
 
   
-    // @LINE:27
+    // @LINE:30
+    def removeOne: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingController.removeOne",
+      """
+        function(itemId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "removeOne/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("itemId", itemId0))})
+        }
+      """
+    )
+  
+    // @LINE:29
+    def addOne: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingController.addOne",
+      """
+        function(itemId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addOne/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("itemId", itemId0))})
+        }
+      """
+    )
+  
+    // @LINE:33
     def addToCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.addToCart",
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addToCart/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:28
+    def emptyBasket: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingController.emptyBasket",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "emptyBasket"})
         }
       """
     )
@@ -103,6 +133,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:25
+    def basket: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.basket",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "basket"})
+        }
+      """
+    )
+  
     // @LINE:10
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.logout",
@@ -155,7 +195,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:31
+  // @LINE:37
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -163,7 +203,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:31
+    // @LINE:37
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

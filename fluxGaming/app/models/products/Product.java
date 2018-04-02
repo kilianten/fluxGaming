@@ -104,8 +104,12 @@ public class Product extends Model {
             }
             return allowed;
         }
+
         public void incrementStock(int q){          
-            stock = stock +q;
+            stock += q;
         }
+
+
+
     }
     

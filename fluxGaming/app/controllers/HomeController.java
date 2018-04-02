@@ -26,6 +26,14 @@ public class HomeController extends Controller {
 
     private Environment env;
 
+    public Form<Login> getLogin(){
+        return formFactory.form(Login.class);
+    }
+
+    public User getUser(){
+        return User.getUserById(session().get("username"));
+    }
+
     @Inject
     public HomeController(Environment e, FormFactory f){
         this.env = e;
@@ -226,6 +234,10 @@ public class HomeController extends Controller {
         List<Product> productList = Product.findAll();
         
         return ok(store.render(User.getUserById(session().get("username")), loginForm, productList, env));
+    }
+
+    public Result basket(){
+        return ok(basket.render(getUser(), getLogin()));
     }
 
 }
