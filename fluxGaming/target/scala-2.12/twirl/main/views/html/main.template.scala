@@ -56,15 +56,27 @@ Seq[Any](format.raw/*3.1*/("""
                 <li><a href="/reviews">Reviews</a></li>
                 <li><a href="/store">Store</a></li>
                 <li><a href="/">Contact</a></li>
-              </ul>
+                                <!-- DROPDOWN MENU -->
+                                """),_display_(/*29.34*/if(user != null)/*29.50*/{_display_(Seq[Any](format.raw/*29.51*/("""
+                                  """),_display_(/*30.36*/if(user.getRole.equals("admin") || user.equals("moderator"))/*30.96*/{_display_(Seq[Any](format.raw/*30.97*/("""
+                                """),format.raw/*31.33*/("""<li class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moderator Actions
+                                  <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="/addReview">Add Review</a></li>
+                                  </ul>
+                                </li>
+                                  """)))}),format.raw/*38.36*/("""
+                                """)))}),format.raw/*39.34*/("""
+              """),format.raw/*40.15*/("""</ul>
               <ul class="nav navbar-nav navbar-right">
-                """),_display_(/*30.18*/if(user != null)/*30.34*/{_display_(Seq[Any](format.raw/*30.35*/("""
-                  """),format.raw/*31.19*/("""<li><a href="/">"""),_display_(/*31.36*/user/*31.40*/.getUsername()),format.raw/*31.54*/("""</a></li>
+                """),_display_(/*42.18*/if(user != null)/*42.34*/{_display_(Seq[Any](format.raw/*42.35*/("""
+                  """),format.raw/*43.19*/("""<li><a href="/">"""),_display_(/*43.36*/user/*43.40*/.getUsername()),format.raw/*43.54*/("""</a></li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
-                """)))}/*33.19*/else/*33.24*/{_display_(Seq[Any](format.raw/*33.25*/("""
-                  """),format.raw/*34.19*/("""<li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                """)))}),format.raw/*35.18*/("""
-              """),format.raw/*36.15*/("""</ul>
+                """)))}/*45.19*/else/*45.24*/{_display_(Seq[Any](format.raw/*45.25*/("""
+                  """),format.raw/*46.19*/("""<li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                """)))}),format.raw/*47.18*/("""
+              """),format.raw/*48.15*/("""</ul>
             </div>
           </div>
         </div>
@@ -74,37 +86,37 @@ Seq[Any](format.raw/*3.1*/("""
       <!-- Modal content -->
       <div class="modal-content">
           <span class="close">&times;</span>
-          <img id="loginLogo" src=""""),_display_(/*46.37*/routes/*46.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*46.91*/("""">
+          <img id="loginLogo" src=""""),_display_(/*58.37*/routes/*58.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*58.91*/("""">
           <h2>Login</h2>   
-          """),_display_(/*48.12*/if(loginForm.hasGlobalErrors)/*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
-              """),format.raw/*49.15*/("""<script>
-                  setTimeout(function()"""),format.raw/*50.40*/("""{"""),format.raw/*50.41*/("""
-                          """),format.raw/*51.27*/("""document.getElementById('login').click();
-                         """),format.raw/*52.26*/("""}"""),format.raw/*52.27*/(""",2);
+          """),_display_(/*60.12*/if(loginForm.hasGlobalErrors)/*60.41*/{_display_(Seq[Any](format.raw/*60.42*/("""
+              """),format.raw/*61.15*/("""<script>
+                  setTimeout(function()"""),format.raw/*62.40*/("""{"""),format.raw/*62.41*/("""
+                          """),format.raw/*63.27*/("""document.getElementById('login').click();
+                         """),format.raw/*64.26*/("""}"""),format.raw/*64.27*/(""",2);
               </script>
             <br>
             <p class="alert alert-warning">
-              """),_display_(/*56.16*/loginForm/*56.25*/.globalError.message),format.raw/*56.45*/("""
-            """),format.raw/*57.13*/("""</p>
-          """)))}),format.raw/*58.12*/("""
+              """),_display_(/*68.16*/loginForm/*68.25*/.globalError.message),format.raw/*68.45*/("""
+            """),format.raw/*69.13*/("""</p>
+          """)))}),format.raw/*70.12*/("""
   
   
-          """),_display_(/*61.12*/helper/*61.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*61.81*/{_display_(Seq[Any](format.raw/*61.82*/("""
-          """),_display_(/*62.12*/CSRF/*62.16*/.formField),format.raw/*62.26*/("""
+          """),_display_(/*73.12*/helper/*73.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*73.81*/{_display_(Seq[Any](format.raw/*73.82*/("""
+          """),_display_(/*74.12*/CSRF/*74.16*/.formField),format.raw/*74.26*/("""
   
-          """),format.raw/*64.11*/("""<div class="form-group">
-              """),_display_(/*65.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*65.126*/("""
-          """),format.raw/*66.11*/("""</div>
+          """),format.raw/*76.11*/("""<div class="form-group">
+              """),_display_(/*77.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*77.126*/("""
+          """),format.raw/*78.11*/("""</div>
   
           <div class="form-group">
-             """),_display_(/*69.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*69.129*/("""
-          """),format.raw/*70.11*/("""</div>
+             """),_display_(/*81.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*81.129*/("""
+          """),format.raw/*82.11*/("""</div>
   
           <div class="form-group">
               <input type="submit" value="Sign in" class="btn btn-primary">
           </div>
-        """)))}),format.raw/*75.10*/("""
-        """),format.raw/*76.9*/("""</div>
+        """)))}),format.raw/*87.10*/("""
+        """),format.raw/*88.9*/("""</div>
       </div>
        
         <!-- jQuery library -->
@@ -112,9 +124,9 @@ Seq[Any](format.raw/*3.1*/("""
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
-        """),_display_(/*84.10*/content),format.raw/*84.17*/("""
+        """),_display_(/*96.10*/content),format.raw/*96.17*/("""
 
-        """),format.raw/*86.9*/("""<script src=""""),_display_(/*86.23*/routes/*86.29*/.Assets.versioned("javascripts/main.js")),format.raw/*86.69*/("""" type="text/javascript"></script>
+        """),format.raw/*98.9*/("""<script src=""""),_display_(/*98.23*/routes/*98.29*/.Assets.versioned("javascripts/main.js")),format.raw/*98.69*/("""" type="text/javascript"></script>
     </body>
 </html>
 """))
@@ -133,11 +145,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 02 13:38:39 IST 2018
+                  DATE: Mon Apr 02 17:55:20 IST 2018
                   SOURCE: /home/wdd/webapps/fluxGaming/fluxGaming/fluxGaming/app/views/main.scala.html
-                  HASH: 1363a62b05a556ed65ef3144c683de84754338de
-                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|3001->1642|3026->1658|3065->1659|3112->1678|3156->1695|3169->1699|3204->1713|3378->1869|3391->1874|3430->1875|3477->1894|3616->2002|3659->2017|3961->2292|3976->2298|4045->2346|4114->2388|4152->2417|4191->2418|4234->2433|4310->2481|4339->2482|4394->2509|4489->2576|4518->2577|4650->2682|4668->2691|4709->2711|4750->2724|4797->2740|4842->2758|4857->2764|4929->2827|4968->2828|5007->2840|5020->2844|5051->2854|5093->2868|5160->2908|5292->3018|5331->3029|5417->3088|5553->3202|5592->3213|5770->3360|5806->3369|6145->3681|6173->3688|6210->3698|6251->3712|6266->3718|6327->3758
-                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|61->30|61->30|61->30|62->31|62->31|62->31|62->31|64->33|64->33|64->33|65->34|66->35|67->36|77->46|77->46|77->46|79->48|79->48|79->48|80->49|81->50|81->50|82->51|83->52|83->52|87->56|87->56|87->56|88->57|89->58|92->61|92->61|92->61|92->61|93->62|93->62|93->62|95->64|96->65|96->65|97->66|100->69|100->69|101->70|106->75|107->76|115->84|115->84|117->86|117->86|117->86|117->86
+                  HASH: 174936d9cc5e943e0e419bf931f4871e32af1f29
+                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|2997->1638|3022->1654|3061->1655|3124->1691|3193->1751|3232->1752|3293->1785|3778->2239|3843->2273|3886->2288|3991->2366|4016->2382|4055->2383|4102->2402|4146->2419|4159->2423|4194->2437|4368->2593|4381->2598|4420->2599|4467->2618|4606->2726|4649->2741|4951->3016|4966->3022|5035->3070|5104->3112|5142->3141|5181->3142|5224->3157|5300->3205|5329->3206|5384->3233|5479->3300|5508->3301|5640->3406|5658->3415|5699->3435|5740->3448|5787->3464|5832->3482|5847->3488|5919->3551|5958->3552|5997->3564|6010->3568|6041->3578|6083->3592|6150->3632|6282->3742|6321->3753|6407->3812|6543->3926|6582->3937|6760->4084|6796->4093|7135->4405|7163->4412|7200->4422|7241->4436|7256->4442|7317->4482
+                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|60->29|60->29|60->29|61->30|61->30|61->30|62->31|69->38|70->39|71->40|73->42|73->42|73->42|74->43|74->43|74->43|74->43|76->45|76->45|76->45|77->46|78->47|79->48|89->58|89->58|89->58|91->60|91->60|91->60|92->61|93->62|93->62|94->63|95->64|95->64|99->68|99->68|99->68|100->69|101->70|104->73|104->73|104->73|104->73|105->74|105->74|105->74|107->76|108->77|108->77|109->78|112->81|112->81|113->82|118->87|119->88|127->96|127->96|129->98|129->98|129->98|129->98
                   -- GENERATED --
               */
           

@@ -38,13 +38,14 @@ public class Review extends Model {
 
     public static Finder<Long, Review> find = new Finder<Long, Review>(Review.class);
 
-    public Review(Long id, String name, String author, String caption, String review, int rating) {
+    public Review(Long id, String name, String author, String caption, String review, int rating, List<Genre> genres) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.caption = caption;
         this.review = review;
         this.rating = rating;
+        this.genres = genres;
     }
 
     public Long getId() {
@@ -130,6 +131,10 @@ public class Review extends Model {
 
     public List<Long> getGenreSelect(){
         return genreSelect;
+    }
+
+    public void setGenreSelect(List<Long> genreSelect){
+        this.genreSelect = genreSelect;
     }
 
     public static final List<Review> findAllOrdered(String filter){

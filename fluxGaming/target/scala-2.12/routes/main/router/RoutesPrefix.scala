@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/fluxGaming/conf/routes
-// @DATE:Mon Apr 02 15:03:32 IST 2018
+// @DATE:Mon Apr 02 17:55:20 IST 2018
 
 
 package router {

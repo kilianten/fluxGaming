@@ -116,7 +116,7 @@ public class HomeController extends Controller {
             newReview.save();
 
                 for(Long genre : newReview.getGenreSelect()){
-                    newReview.genres.add(Genre.find.byId(genre));
+                    newReview.getGenres().add(Genre.find.byId(genre));
                 }
             
             newReview.update();
@@ -224,7 +224,7 @@ public class HomeController extends Controller {
 
         flash("success", "Review has been deleted");
         
-        return redirect(routes.HomeController.index());
+        return redirect(routes.HomeController.reviews(0, null));
     }
 
     public Result store() {
