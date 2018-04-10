@@ -30,10 +30,18 @@
     border-bottom-left-radius: 1em;
 }
 
-
 .number{
     position:fixed;
     right:-4em;
+    top:13.4em;
+    width:5.5em;
+    z-index:3;
+    color:white;
+}
+
+.numberFuller{
+    position:fixed;
+    right:-3.7em;
     top:13.4em;
     width:5.5em;
     z-index:3;

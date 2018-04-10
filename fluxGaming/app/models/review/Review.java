@@ -152,5 +152,6 @@ public class Review extends Model {
     public void setGenres(List<Genre> genres){
         this.genres = genres;
     }
+    
 
 }

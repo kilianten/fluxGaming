@@ -20,9 +20,15 @@
       @if(!user.getBasket().getBasketItems().isEmpty){
         <a href="/basket">
         <div class="basket-container">
+          
         <img class="basket" src="/assets/images/misc/basket.png"/>
-        
-        <p class="number">@user.getBasket.getCount</p>
+          
+        @if(user.getBasket().getCount < 10){
+          <p class="number">@user.getBasket.getCount</p>
+        } else {
+          p
+          <p class="numberFuller">@user.getBasket.getCount</p>
+        }
         </div>
         </a>
       }
