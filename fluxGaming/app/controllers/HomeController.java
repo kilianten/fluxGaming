@@ -169,9 +169,10 @@ public class HomeController extends Controller {
                 newGenres.add(Genre.find.byId(genre));
             }
             
-            r.genres = newGenres;
+            r.setGenres(newGenres);
             
             r.update();
+
             saveFile(Long.toString(r.getId()), image);
             saveFile(Long.toString(r.getId()) + "Tile", tileImage);
 

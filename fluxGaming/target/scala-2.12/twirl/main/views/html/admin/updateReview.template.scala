@@ -75,15 +75,16 @@ Seq[Any](format.raw/*3.1*/("""
       'class -> "form-control"
     )),format.raw/*45.6*/("""
 
-    """),format.raw/*47.5*/("""<div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
-      """),_display_(/*48.8*/for((value, name) <- Genre.options) yield /*48.43*/{_display_(Seq[Any](format.raw/*48.44*/("""
-      """),format.raw/*49.7*/("""<input type="checkbox" name="genreSelect[]" value=""""),_display_(/*49.59*/value),format.raw/*49.64*/(""""
-      """),_display_(/*50.8*/if(Genre.inGenre(value.toLong, reviewId))/*50.49*/{_display_(Seq[Any](format.raw/*50.50*/("""
-        """),format.raw/*51.9*/("""checked
-      """)))}),format.raw/*52.8*/("""
-      """),format.raw/*53.7*/("""/>"""),_display_(/*53.10*/name),format.raw/*53.14*/("""<br>  
-    """)))}),format.raw/*54.6*/("""
-    """),format.raw/*55.5*/("""</div>
+
+    """),format.raw/*48.5*/("""<div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
+      """),_display_(/*49.8*/for((value, name) <- Genre.options) yield /*49.43*/{_display_(Seq[Any](format.raw/*49.44*/("""
+        """),format.raw/*50.9*/("""<input type="checkbox" name="genreSelect[]" value=""""),_display_(/*50.61*/value),format.raw/*50.66*/(""""
+        """),_display_(/*51.10*/if(Genre.inGenre(value.toLong, reviewId))/*51.51*/{_display_(Seq[Any](format.raw/*51.52*/("""
+          """),format.raw/*52.11*/("""checked
+        """)))}),format.raw/*53.10*/("""
+        """),format.raw/*54.9*/("""/>"""),_display_(/*54.12*/name),format.raw/*54.16*/("""<br>
+      """)))}),format.raw/*55.8*/("""
+      """),format.raw/*56.7*/("""</div>
     <br>
 
     <label>Banner Image Upload (Must be: 1660x780)</label>
@@ -94,13 +95,13 @@ Seq[Any](format.raw/*3.1*/("""
     <input class="btn-sm btn-default" type="file" name="uploadTile">
     <br>
     
-    """),_display_(/*66.6*/inputText(reviewForm("id"), '_label -> null, 'hidden -> "hidden", '_help -> "")),format.raw/*66.85*/("""
+    """),_display_(/*67.6*/inputText(reviewForm("id"), '_label -> null, 'hidden -> "hidden", '_help -> "")),format.raw/*67.85*/("""
 
 
 
-    """),format.raw/*70.5*/("""<div class="actions">
+    """),format.raw/*71.5*/("""<div class="actions">
         <input type="submit" value="Update Review" class="btn btn-primary">
-        <a href=""""),_display_(/*72.19*/routes/*72.25*/.HomeController.index()),format.raw/*72.48*/("""">
+        <a href=""""),_display_(/*73.19*/routes/*73.25*/.HomeController.index()),format.raw/*73.48*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
@@ -108,9 +109,9 @@ Seq[Any](format.raw/*3.1*/("""
     <br>
   
   </div>
-  """)))}),format.raw/*80.4*/("""
+  """)))}),format.raw/*81.4*/("""
 
-""")))}),format.raw/*82.2*/("""
+""")))}),format.raw/*83.2*/("""
 """))
       }
     }
@@ -127,11 +128,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 10 17:30:16 IST 2018
+                  DATE: Tue Apr 10 18:09:02 IST 2018
                   SOURCE: /home/wdd/webapps/fluxGaming/fluxGaming/app/views/admin/updateReview.scala.html
-                  HASH: 0d6d922e90b215545db85d17f51a32de7ccbeed1
-                  MATRIX: 1016->1|1194->108|1238->124|1265->126|1310->163|1349->165|1382->172|1481->245|1495->251|1564->299|1682->391|1836->535|1876->536|1908->542|1921->546|1952->556|1985->563|2094->651|2126->657|2242->751|2275->758|2387->849|2419->855|2540->954|2577->965|2825->1193|2858->1200|3107->1429|3140->1435|3257->1526|3308->1561|3347->1562|3381->1569|3460->1621|3486->1626|3521->1635|3571->1676|3610->1677|3646->1686|3691->1701|3725->1708|3755->1711|3780->1715|3822->1727|3854->1732|4180->2032|4280->2111|4315->2119|4458->2235|4473->2241|4517->2264|4673->2390|4706->2393
-                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|38->7|40->9|40->9|40->9|49->18|49->18|49->18|50->19|50->19|50->19|52->21|52->21|53->22|53->22|55->24|55->24|56->25|56->25|58->27|66->35|68->37|76->45|78->47|79->48|79->48|79->48|80->49|80->49|80->49|81->50|81->50|81->50|82->51|83->52|84->53|84->53|84->53|85->54|86->55|97->66|97->66|101->70|103->72|103->72|103->72|111->80|113->82
+                  HASH: 3bca8dca848ce8ba46d4cb76c97c9e7d07538b99
+                  MATRIX: 1016->1|1194->108|1238->124|1265->126|1310->163|1349->165|1382->172|1481->245|1495->251|1564->299|1682->391|1836->535|1876->536|1908->542|1921->546|1952->556|1985->563|2094->651|2126->657|2242->751|2275->758|2387->849|2419->855|2540->954|2577->965|2825->1193|2858->1200|3107->1429|3141->1436|3258->1527|3309->1562|3348->1563|3384->1572|3463->1624|3489->1629|3527->1640|3577->1681|3616->1682|3655->1693|3703->1710|3739->1719|3769->1722|3794->1726|3836->1738|3870->1745|4196->2045|4296->2124|4331->2132|4474->2248|4489->2254|4533->2277|4689->2403|4722->2406
+                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|38->7|40->9|40->9|40->9|49->18|49->18|49->18|50->19|50->19|50->19|52->21|52->21|53->22|53->22|55->24|55->24|56->25|56->25|58->27|66->35|68->37|76->45|79->48|80->49|80->49|80->49|81->50|81->50|81->50|82->51|82->51|82->51|83->52|84->53|85->54|85->54|85->54|86->55|87->56|98->67|98->67|102->71|104->73|104->73|104->73|112->81|114->83
                   -- GENERATED --
               */
           

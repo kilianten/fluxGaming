@@ -34,12 +34,12 @@
             <!-- admin buttons -->
             @if(user != null){
               @if(user.getRole=="admin"){
-                <a href="@routes.HomeController.deleteProduct(p.getId)"> 
+                <a class="link" href="@routes.HomeController.deleteProduct(p.getId)"> 
                   <img class="icons" src="/assets/images/misc/bin.png">
                 </a>
                   <img class="icons" src="/assets/images/misc/edit.png">
-                
-
+                <br>
+                <br>
               }
             }
 

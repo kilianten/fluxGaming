@@ -149,4 +149,8 @@ public class Review extends Model {
         return genres;
     }
 
+    public void setGenres(List<Genre> genres){
+        this.genres = genres;
+    }
+
 }
