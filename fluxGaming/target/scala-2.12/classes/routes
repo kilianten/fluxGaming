@@ -19,6 +19,7 @@ GET     /updateReview/:id           controllers.HomeController.updateReview(id: 
 POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)
 
 GET     /deleteReview/:id   controllers.HomeController.deleteReview(id: Long)
+GET     /deleteProduct/:id   controllers.HomeController.deleteProduct(id: Long)
 
 GET     /addReview                  controllers.HomeController.addReview
 POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit

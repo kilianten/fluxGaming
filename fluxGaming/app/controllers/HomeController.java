@@ -238,6 +238,8 @@ public class HomeController extends Controller {
         return ok(store.render(User.getUserById(session().get("username")), loginForm, productList, env));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     public Result stockReport(){
         Form<Login> loginForm = formFactory.form(Login.class);
 
@@ -246,6 +248,8 @@ public class HomeController extends Controller {
         return ok(stockReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     public Result salesReport(){
         Form<Login> loginForm = formFactory.form(Login.class);
 
@@ -254,8 +258,20 @@ public class HomeController extends Controller {
         return ok(salesReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
     }
 
+    @Security.Authenticated(Secured.class)
     public Result basket(){
         return ok(basket.render(getUser(), getLogin()));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result deleteProduct(Long id) {
+        Product.find.ref(id).delete();
+
+        flash("success", "Product has been deleted");
+        
+        return redirect(routes.HomeController.store());
     }
 
 }

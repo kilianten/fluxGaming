@@ -39,3 +39,13 @@
     z-index:3;
     color:white;
 }
+
+.icons{
+    position: relative;
+    z-index: 999;
+    width:1.5em;
+    float:right;
+    margin-top:.3em;
+    margin-right:.3em;
+    margin-left:0em;
+}

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/paul/fluxGaming/fluxGaming/conf/routes
-// @DATE:Tue Apr 10 11:49:44 IST 2018
+// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/conf/routes
+// @DATE:Tue Apr 10 17:35:04 IST 2018
 
 package controllers;
 

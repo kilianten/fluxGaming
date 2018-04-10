@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/paul/fluxGaming/fluxGaming/conf/routes
-// @DATE:Tue Apr 10 11:49:44 IST 2018
+// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/conf/routes
+// @DATE:Tue Apr 10 17:35:04 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,7 +11,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:30
+  // @LINE:31
   class ReverseShoppingController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -19,7 +19,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:32
+    // @LINE:33
     def removeOne: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.removeOne",
       """
@@ -29,7 +29,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:31
+    // @LINE:32
     def addOne: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.addOne",
       """
@@ -39,7 +39,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:36
     def addToCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.addToCart",
       """
@@ -49,7 +49,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:31
     def emptyBasket: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.emptyBasket",
       """
@@ -133,6 +133,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:22
+    def deleteProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteProduct",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:21
     def deleteReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteReview",
@@ -143,7 +153,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:28
     def basket: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.basket",
       """
@@ -173,7 +183,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:25
     def addReviewSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addReviewSubmit",
       """
@@ -203,7 +213,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:23
+    // @LINE:24
     def addReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addReview",
       """
@@ -215,7 +225,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:39
+  // @LINE:40
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -223,7 +233,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:39
+    // @LINE:40
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

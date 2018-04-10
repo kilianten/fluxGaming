@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/paul/fluxGaming/fluxGaming/conf/routes
-// @DATE:Tue Apr 10 11:49:44 IST 2018
+// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/conf/routes
+// @DATE:Tue Apr 10 17:35:04 IST 2018
 
 import play.api.mvc.Call
 
@@ -11,32 +11,32 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:30
+  // @LINE:31
   class ReverseShoppingController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:32
+    // @LINE:33
     def removeOne(itemId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "removeOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
-    // @LINE:31
+    // @LINE:32
     def addOne(itemId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
-    // @LINE:35
+    // @LINE:36
     def addToCart(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addToCart/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:30
+    // @LINE:31
     def emptyBasket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")
@@ -95,13 +95,19 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "stockReport")
     }
   
+    // @LINE:22
+    def deleteProduct(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
     // @LINE:21
     def deleteReview(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:27
+    // @LINE:28
     def basket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "basket")
@@ -119,7 +125,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "salesReport")
     }
   
-    // @LINE:24
+    // @LINE:25
     def addReviewSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addReviewSubmit")
@@ -137,7 +143,7 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:23
+    // @LINE:24
     def addReview(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addReview")
@@ -145,14 +151,14 @@ package controllers {
   
   }
 
-  // @LINE:39
+  // @LINE:40
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:39
+    // @LINE:40
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

@@ -34,11 +34,12 @@
             <!-- admin buttons -->
             @if(user != null){
               @if(user.getRole=="admin"){
-                  
-                  <img class="icon" src="/assets/images/misc/bin.png"/>
-                  
-                  <img class="icon" src="/assets/images/misc/edit.png"/>
-                  
+                <a href="@routes.HomeController.deleteProduct(p.getId)"> 
+                  <img class="icons" src="/assets/images/misc/bin.png">
+                </a>
+                  <img class="icons" src="/assets/images/misc/edit.png">
+                
+
               }
             }
 
@@ -67,7 +68,7 @@
             <div style="text-align:center;">
                     <button class="addToCartBtn" type="button">Add To Cart</button>       
             </div>
-        </a>  
+          </a>  
 
         </div> 
       </div>
