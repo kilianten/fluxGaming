@@ -238,6 +238,22 @@ public class HomeController extends Controller {
         return ok(store.render(User.getUserById(session().get("username")), loginForm, productList, env));
     }
 
+    public Result stockReport(){
+        Form<Login> loginForm = formFactory.form(Login.class);
+
+        List<Product> productList = Product.findAll();
+
+        return ok(stockReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
+    }
+
+    public Result salesReport(){
+        Form<Login> loginForm = formFactory.form(Login.class);
+
+        List<Product> productList = Product.findAll();
+
+        return ok(salesReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
+    }
+
     public Result basket(){
         return ok(basket.render(getUser(), getLogin()));
     }

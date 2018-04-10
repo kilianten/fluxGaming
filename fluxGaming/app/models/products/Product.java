@@ -10,106 +10,94 @@ import play.data.validation.*;
 @Entity
 public class Product extends Model {
     
-        // Properties
-        @Id
-        private Long id;
-        @Constraints.Required
-        private String name;
+    // Properties
+    @Id
+    private Long id;
+    @Constraints.Required
+    private String name;
 
-        @Constraints.Required
-        private String description; 
-        @Constraints.Required
-        private int stock; 
-        @Constraints.Required
-        private double price;
+    @Constraints.Required
+    private String description; 
+    @Constraints.Required
+    private int stock; 
+    @Constraints.Required
+    private double price;
 
-        public static final Finder<Long, Product> find = new Finder<>(Product.class);
+    public static final Finder<Long, Product> find = new Finder<>(Product.class);
 
-        public static final List<Product> findAll() { 
-            
-            return Product.find.all();
-}
-    // Find all Products in the database
+    public static final List<Product> findAll() { 
+        return Product.find.all();
+    }
+
+    //Find all Products in the database
     // Filter product name 
     public static List<Product> findAll(String filter) {
-        return Product.find.query().where()
-                        // name like filter value (surrounded by wildcards)
-                        .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
-                        .findList();
+        return Product.find.query().where().ilike("name", "%" + filter + "%").orderBy("name asc").findList();
     }
     
 
     public static List<Product> findFilter(Long catID, String filter) {
-        return Product.find.query().where()
-
-                        .eq("categories.id", catID)
-
-                        .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
-                        .findList();
+        return Product.find.query().where().eq("categories.id", catID).ilike("name", "%" + filter + "%").orderBy("name asc").findList();
     }
-        // Default Constructor
-        public Product() {
-        }
-    
-        // Constructor to initialise object
-        public Product(Long id, String name, String description, int stock, double price) {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.stock = stock;
-            this.price = price;
-        }
-    
-        // Accessor methods
-        public Long getId() {
-            return id;
-        }
-        public void setId(Long id) {
-            this.id = id;
-        }
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getDescription() { 
-            return description; 
-        } 
-        public void setDescription(String description) { 
-            this.description = description; 
-        } 
-        public int getStock() { 
-            return stock; 
-        } 
-        public void setStock(int stock) { 
-            this.stock = stock; 
-        } 
-        public double getPrice() { 
-            return price; 
-        } 
-        public void setPrice(double price) { 
-            this.price = price; 
-        } 
-
-        public boolean decrementStock(){
-            boolean allowed =true;
-            if ((stock-1) < 0){
-                allowed = false;
-            }else{
-                stock = stock-1;
-            }
-            return allowed;
-        }
-
-        public void incrementStock(int q){          
-            stock += q;
-        }
-
-
-
+    // Default Constructor
+    public Product() {
     }
+    
+    // Constructor to initialise object
+    public Product(Long id, String name, String description, int stock, double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.stock = stock;
+        this.price = price;
+    }
+    
+    // Accessor methods
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() { 
+        return description; 
+    } 
+    public void setDescription(String description) { 
+        this.description = description; 
+    } 
+    public int getStock() { 
+        return stock; 
+    } 
+    public void setStock(int stock) { 
+        this.stock = stock; 
+    } 
+    public double getPrice() { 
+        return price; 
+    } 
+    public void setPrice(double price) { 
+        this.price = price; 
+    } 
+
+    public boolean decrementStock(){
+        boolean allowed =true;
+        if ((stock-1) < 0){
+            allowed = false;
+        }else{
+            stock = stock-1;
+        }
+        return allowed;
+    }
+
+    public void incrementStock(int q){          
+        stock += q;
+    }
+
+}
     

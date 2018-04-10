@@ -12,6 +12,8 @@ GET     /logout                     controllers.HomeController.logout
 GET     /review/:id           controllers.HomeController.review(id: Long)
 
 GET     /store                      controllers.HomeController.store
+GET     /stockReport                      controllers.HomeController.stockReport
+GET     /salesReport                      controllers.HomeController.salesReport
 
 GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
 POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)

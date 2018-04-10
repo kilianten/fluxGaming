@@ -1,0 +1,45 @@
+@import models.products.Product
+@import models.User
+@(user: models.User, loginForm: Form[models.users.Login], products: List[Product], env: play.api.Environment)
+
+@main("Sales Report", loginForm, user) {
+    <p class="lead">Sales Report</p>
+    <br>
+    <div class="row">
+      <div class="col-sm-10">
+          @if(flash.containsKey("success")) {
+            <div class="alert alert-success">
+              @flash.get("success")
+            </div>
+          }
+
+        <table class="table table-bordered table-hover table-condensed">   
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>       
+              <th>Description</th>
+              <th>Stock</th>
+              <th>Price</th>   
+            </tr>
+          </thead>
+    
+          <tbody>
+            @for(p<-products) {
+              <tr>
+                <td class="numeric">@p.getId</td>
+                <td>@p.getName</td>
+                <td>@p.getDescription</td>
+                <td  class="numeric">@p.getStock</td>
+                <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
+    
+              </tr>
+            }
+          </tbody>
+    
+        </table>
+      </div>
+    </div>
+  
+  
+}
