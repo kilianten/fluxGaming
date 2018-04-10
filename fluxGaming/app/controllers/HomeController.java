@@ -275,4 +275,16 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.store());
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    public Result addProduct(){
+        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+
+        Form<Review> reviewForm = formFactory.form(Review.class);
+
+        return ok(addReview.render(User.getUserById(session().get("username")), loginForm, reviewForm));
+    }
+
+    
+
 }

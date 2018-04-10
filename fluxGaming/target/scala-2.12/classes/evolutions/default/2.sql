@@ -3,6 +3,8 @@
 -- INSERT INTO user (username, role, email, password) VALUES ('kilian', 'admin', 'kiliantennyson@hotmail.com', 'admin');
 -- INSERT INTO user (username, role, email, password) VALUES ('stephen', 'user', 'stephenW@hotmail.com', 'password');
 
+INSERT INTO basket VALUES(1, kilian);
+
 -- INSERT INTO GENRE VALUES(1, 'Indie');
 -- INSERT INTO GENRE VALUES(2, 'Action');
 -- INSERT INTO GENRE VALUES(3, 'Casual');
