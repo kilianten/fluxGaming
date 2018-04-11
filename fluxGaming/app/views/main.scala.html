@@ -45,6 +45,7 @@
                   <li><a href="/">@user.getUsername()</a></li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
                 } else {
+                  <li><a href="/register" ><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                   <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 }
               </ul>
@@ -53,12 +54,14 @@
         </div>
 
             <!-- The Modal -->
+            @if(loginForm != null){ 
     <div id="myModal" class="modal">     
       <!-- Modal content -->
       <div class="modal-content">
           <span class="close">&times;</span>
           <img id="loginLogo" src="@routes.Assets.versioned("images/logos/logoShader.png")">
-          <h2>Login</h2>   
+          <h2>Login</h2> 
+           
           @if(loginForm.hasGlobalErrors){
               <script>
                   setTimeout(function(){
@@ -70,6 +73,7 @@
               @loginForm.globalError.message
             </p>
           }
+        
   
   
           @helper.form(action = controllers.routes.HomeController.loginSubmit()){
@@ -83,10 +87,14 @@
              @inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")
           </div>
   
+          <a href="@routes.HomeController.register"> Already a member? Click here to log-in</a>
+          <br>
+          <br>
+
           <div class="form-group">
               <input type="submit" value="Sign in" class="btn btn-primary">
           </div>
-        }
+        }}
         </div>
       </div>
        

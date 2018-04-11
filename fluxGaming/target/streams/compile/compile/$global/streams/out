@@ -1,2 +1,4 @@
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/fluxGaming/fluxGaming/app/controllers/HomeController.java: /home/wdd/webapps/fluxGaming/fluxGaming/app/controllers/HomeController.java uses unchecked or unsafe operations.[0m
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/fluxGaming/fluxGaming/app/controllers/HomeController.java: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/webapps/fluxGaming/fluxGaming/app/views/register.scala.html:16:23: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m        @registerForm.globalError.message[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

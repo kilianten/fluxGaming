@@ -32,40 +32,41 @@ object register extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.H
 
 
 Seq[Any](format.raw/*3.1*/("""
-"""),_display_(/*4.2*/main("Register", loginForm, user)/*4.35*/{_display_(Seq[Any](format.raw/*4.36*/("""
+"""),_display_(/*4.2*/main("Register", null, user)/*4.30*/{_display_(Seq[Any](format.raw/*4.31*/("""
 
     """),format.raw/*6.5*/("""<img id="loginLogo" src=""""),_display_(/*6.31*/routes/*6.37*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*6.85*/("""">
     <br>
     <br>
     <div class="container">
 
-    <h2>Register</h2>   
-    """),_display_(/*12.6*/if(registerForm.hasGlobalErrors)/*12.38*/{_display_(Seq[Any](format.raw/*12.39*/("""
+    <h1>Register</h1> 
+    <br>  
+    """),_display_(/*13.6*/if(registerForm.hasGlobalErrors)/*13.38*/{_display_(Seq[Any](format.raw/*13.39*/("""
 
-      """),format.raw/*14.7*/("""<p class="alert alert-warning">
-        """),_display_(/*15.10*/registerForm/*15.22*/.globalError.message),format.raw/*15.42*/("""
-      """),format.raw/*16.7*/("""</p>
-    """)))}),format.raw/*17.6*/("""
+      """),format.raw/*15.7*/("""<p class="alert alert-warning">
+        """),_display_(/*16.10*/registerForm/*16.22*/.globalError.message),format.raw/*16.42*/("""
+      """),format.raw/*17.7*/("""</p>
+    """)))}),format.raw/*18.6*/("""
 
 
-    """),_display_(/*20.6*/helper/*20.12*/.form(action = controllers.routes.HomeController.registerSubmit())/*20.78*/{_display_(Seq[Any](format.raw/*20.79*/("""
-    """),_display_(/*21.6*/CSRF/*21.10*/.formField),format.raw/*21.20*/("""
+    """),_display_(/*21.6*/helper/*21.12*/.form(action = controllers.routes.HomeController.registerSubmit())/*21.78*/{_display_(Seq[Any](format.raw/*21.79*/("""
+   
 
-    """),format.raw/*23.5*/("""<div class="form-group">
-        """),_display_(/*24.10*/inputText(registerForm("username"), '_label -> "Username", 'class -> "form-control input-xs", 'placeholder -> "Username", '_help -> "")),format.raw/*24.145*/("""
-    """),format.raw/*25.5*/("""</div>
-
-    <div class="form-group">
-        """),_display_(/*28.10*/inputText(registerForm("email"), '_label -> "Email", 'class -> "form-control input-xs", 'placeholder -> "Email", '_help -> "")),format.raw/*28.136*/("""
-    """),format.raw/*29.5*/("""</div>
+    """),format.raw/*24.5*/("""<div class="form-group">
+        """),_display_(/*25.10*/inputText(registerForm("username"), '_label -> "Username", 'class -> "form-control input-xs", 'placeholder -> "Username", '_help -> "")),format.raw/*25.145*/("""
+    """),format.raw/*26.5*/("""</div>
 
     <div class="form-group">
-       """),_display_(/*32.9*/inputPassword(registerForm("password"), '_label -> "Password", 'class -> "form-control input-xs", 'placeholder -> "Password", '_help -> "")),format.raw/*32.148*/("""
-    """),format.raw/*33.5*/("""</div>
+        """),_display_(/*29.10*/inputText(registerForm("email"), '_label -> "Email", 'class -> "form-control input-xs", 'placeholder -> "Email", '_help -> "")),format.raw/*29.136*/("""
+    """),format.raw/*30.5*/("""</div>
 
     <div class="form-group">
-        """),_display_(/*36.10*/inputPassword(registerForm("confirmPassword"), '_label -> "Confirm Password", 'class -> "form-control input-xs", 'placeholder -> "Confirm Password", '_help -> "")),format.raw/*36.172*/("""
-    """),format.raw/*37.5*/("""</div>
+       """),_display_(/*33.9*/inputPassword(registerForm("password"), '_label -> "Password", 'class -> "form-control input-xs", 'placeholder -> "Password", '_help -> "")),format.raw/*33.148*/("""
+    """),format.raw/*34.5*/("""</div>
+
+    <div class="form-group">
+        """),_display_(/*37.10*/inputPassword(registerForm("confirmPassword"), '_label -> "Confirm Password", 'class -> "form-control input-xs", 'placeholder -> "Confirm Password", '_help -> "")),format.raw/*37.172*/("""
+    """),format.raw/*38.5*/("""</div>
 
 
     <div class="form-group">
@@ -73,8 +74,8 @@ Seq[Any](format.raw/*3.1*/("""
     </div>
 
     </div>
-  """)))}),format.raw/*45.4*/("""
-""")))}),format.raw/*46.2*/("""
+  """)))}),format.raw/*46.4*/("""
+""")))}),format.raw/*47.2*/("""
 """))
       }
     }
@@ -91,11 +92,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 11 18:24:43 IST 2018
+                  DATE: Wed Apr 11 19:47:47 IST 2018
                   SOURCE: /home/wdd/webapps/fluxGaming/fluxGaming/app/views/register.scala.html
-                  HASH: a3857ab7cb378edd4c61dc9deb6f2ad7f967e81b
-                  MATRIX: 1009->1|1181->102|1225->118|1252->120|1293->153|1331->154|1363->160|1415->186|1429->192|1497->240|1603->320|1644->352|1683->353|1718->361|1786->402|1807->414|1848->434|1882->441|1922->451|1956->459|1971->465|2046->531|2085->532|2117->538|2130->542|2161->552|2194->558|2255->592|2412->727|2444->732|2517->778|2665->904|2697->909|2768->954|2929->1093|2961->1098|3034->1144|3218->1306|3250->1311|3415->1446|3447->1448
-                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|37->6|37->6|37->6|37->6|43->12|43->12|43->12|45->14|46->15|46->15|46->15|47->16|48->17|51->20|51->20|51->20|51->20|52->21|52->21|52->21|54->23|55->24|55->24|56->25|59->28|59->28|60->29|63->32|63->32|64->33|67->36|67->36|68->37|76->45|77->46
+                  HASH: d317450dc6b9732a732a1b5e03eb63db81ed70a2
+                  MATRIX: 1009->1|1181->102|1225->118|1252->120|1288->148|1326->149|1358->155|1410->181|1424->187|1492->235|1607->324|1648->356|1687->357|1722->365|1790->406|1811->418|1852->438|1886->445|1926->455|1960->463|1975->469|2050->535|2089->536|2126->546|2187->580|2344->715|2376->720|2449->766|2597->892|2629->897|2700->942|2861->1081|2893->1086|2966->1132|3150->1294|3182->1299|3347->1434|3379->1436
+                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|37->6|37->6|37->6|37->6|44->13|44->13|44->13|46->15|47->16|47->16|47->16|48->17|49->18|52->21|52->21|52->21|52->21|55->24|56->25|56->25|57->26|60->29|60->29|61->30|64->33|64->33|65->34|68->37|68->37|69->38|77->46|78->47
                   -- GENERATED --
               */
           

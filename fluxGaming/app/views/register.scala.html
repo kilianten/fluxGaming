@@ -1,14 +1,15 @@
 @(user: models.User, loginForm: Form[models.users.Login], registerForm: Form[models.users.Register])
 @import helper._
 
-@main("Register", loginForm, user){
+@main("Register", null, user){
 
     <img id="loginLogo" src="@routes.Assets.versioned("images/logos/logoShader.png")">
     <br>
     <br>
     <div class="container">
 
-    <h2>Register</h2>   
+    <h1>Register</h1> 
+    <br>  
     @if(registerForm.hasGlobalErrors){
 
       <p class="alert alert-warning">
@@ -18,7 +19,7 @@
 
 
     @helper.form(action = controllers.routes.HomeController.registerSubmit()){
-    @CSRF.formField
+   
 
     <div class="form-group">
         @inputText(registerForm("username"), '_label -> "Username", 'class -> "form-control input-xs", 'placeholder -> "Username", '_help -> "")

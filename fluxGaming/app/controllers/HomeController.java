@@ -276,6 +276,7 @@ public class HomeController extends Controller {
     }
 
     public Result registerSubmit(){
+        session().clear();
         Form<Register> registerForm = formFactory.form(Register.class).bindFromRequest();
 
         if(registerForm.hasErrors()){

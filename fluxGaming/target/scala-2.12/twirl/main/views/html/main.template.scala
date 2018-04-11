@@ -76,49 +76,57 @@ Seq[Any](format.raw/*3.1*/("""
                   """),format.raw/*45.19*/("""<li><a href="/">"""),_display_(/*45.36*/user/*45.40*/.getUsername()),format.raw/*45.54*/("""</a></li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
                 """)))}/*47.19*/else/*47.24*/{_display_(Seq[Any](format.raw/*47.25*/("""
-                  """),format.raw/*48.19*/("""<li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                """)))}),format.raw/*49.18*/("""
-              """),format.raw/*50.15*/("""</ul>
+                  """),format.raw/*48.19*/("""<li><a href="/register" ><span class="glyphicon glyphicon-edit"></span> Register</a></li>
+                  <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                """)))}),format.raw/*50.18*/("""
+              """),format.raw/*51.15*/("""</ul>
             </div>
           </div>
         </div>
 
             <!-- The Modal -->
-    <div id="myModal" class="modal">     
+            """),_display_(/*57.14*/if(loginForm != null)/*57.35*/{_display_(Seq[Any](format.raw/*57.36*/(""" 
+    """),format.raw/*58.5*/("""<div id="myModal" class="modal">     
       <!-- Modal content -->
       <div class="modal-content">
           <span class="close">&times;</span>
-          <img id="loginLogo" src=""""),_display_(/*60.37*/routes/*60.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*60.91*/("""">
-          <h2>Login</h2>   
-          """),_display_(/*62.12*/if(loginForm.hasGlobalErrors)/*62.41*/{_display_(Seq[Any](format.raw/*62.42*/("""
-              """),format.raw/*63.15*/("""<script>
-                  setTimeout(function()"""),format.raw/*64.40*/("""{"""),format.raw/*64.41*/("""
-                          """),format.raw/*65.27*/("""document.getElementById('login').click();
-                         """),format.raw/*66.26*/("""}"""),format.raw/*66.27*/(""",2);
+          <img id="loginLogo" src=""""),_display_(/*62.37*/routes/*62.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*62.91*/("""">
+          <h2>Login</h2> 
+           
+          """),_display_(/*65.12*/if(loginForm.hasGlobalErrors)/*65.41*/{_display_(Seq[Any](format.raw/*65.42*/("""
+              """),format.raw/*66.15*/("""<script>
+                  setTimeout(function()"""),format.raw/*67.40*/("""{"""),format.raw/*67.41*/("""
+                          """),format.raw/*68.27*/("""document.getElementById('login').click();
+                         """),format.raw/*69.26*/("""}"""),format.raw/*69.27*/(""",2);
               </script>
             <br>
             <p class="alert alert-warning">
-              """),_display_(/*70.16*/loginForm/*70.25*/.globalError.message),format.raw/*70.45*/("""
-            """),format.raw/*71.13*/("""</p>
-          """)))}),format.raw/*72.12*/("""
+              """),_display_(/*73.16*/loginForm/*73.25*/.globalError.message),format.raw/*73.45*/("""
+            """),format.raw/*74.13*/("""</p>
+          """)))}),format.raw/*75.12*/("""
+        
   
   
-          """),_display_(/*75.12*/helper/*75.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*75.81*/{_display_(Seq[Any](format.raw/*75.82*/("""
-          """),_display_(/*76.12*/CSRF/*76.16*/.formField),format.raw/*76.26*/("""
+          """),_display_(/*79.12*/helper/*79.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*79.81*/{_display_(Seq[Any](format.raw/*79.82*/("""
+          """),_display_(/*80.12*/CSRF/*80.16*/.formField),format.raw/*80.26*/("""
   
-          """),format.raw/*78.11*/("""<div class="form-group">
-              """),_display_(/*79.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*79.126*/("""
-          """),format.raw/*80.11*/("""</div>
-  
-          <div class="form-group">
-             """),_display_(/*83.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*83.129*/("""
+          """),format.raw/*82.11*/("""<div class="form-group">
+              """),_display_(/*83.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*83.126*/("""
           """),format.raw/*84.11*/("""</div>
   
           <div class="form-group">
+             """),_display_(/*87.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*87.129*/("""
+          """),format.raw/*88.11*/("""</div>
+  
+          <a href=""""),_display_(/*90.21*/routes/*90.27*/.HomeController.register),format.raw/*90.51*/(""""> Already a member? Click here to log-in</a>
+          <br>
+          <br>
+
+          <div class="form-group">
               <input type="submit" value="Sign in" class="btn btn-primary">
           </div>
-        """)))}),format.raw/*89.10*/("""
-        """),format.raw/*90.9*/("""</div>
+        """)))})))}),format.raw/*97.11*/("""
+        """),format.raw/*98.9*/("""</div>
       </div>
        
         <!-- jQuery library -->
@@ -126,9 +134,9 @@ Seq[Any](format.raw/*3.1*/("""
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
-        """),_display_(/*98.10*/content),format.raw/*98.17*/("""
+        """),_display_(/*106.10*/content),format.raw/*106.17*/("""
 
-        """),format.raw/*100.9*/("""<script src=""""),_display_(/*100.23*/routes/*100.29*/.Assets.versioned("javascripts/main.js")),format.raw/*100.69*/("""" type="text/javascript"></script>
+        """),format.raw/*108.9*/("""<script src=""""),_display_(/*108.23*/routes/*108.29*/.Assets.versioned("javascripts/main.js")),format.raw/*108.69*/("""" type="text/javascript"></script>
     </body>
 </html>
 """))
@@ -147,11 +155,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 10 17:30:16 IST 2018
+                  DATE: Wed Apr 11 19:46:32 IST 2018
                   SOURCE: /home/wdd/webapps/fluxGaming/fluxGaming/app/views/main.scala.html
-                  HASH: 74f353a9c5dcc59f509ef0f1d09c2d90974a8217
-                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|2997->1638|3022->1654|3061->1655|3124->1691|3193->1751|3232->1752|3293->1785|3948->2409|4013->2443|4056->2458|4161->2536|4186->2552|4225->2553|4272->2572|4316->2589|4329->2593|4364->2607|4538->2763|4551->2768|4590->2769|4637->2788|4776->2896|4819->2911|5121->3186|5136->3192|5205->3240|5274->3282|5312->3311|5351->3312|5394->3327|5470->3375|5499->3376|5554->3403|5649->3470|5678->3471|5810->3576|5828->3585|5869->3605|5910->3618|5957->3634|6002->3652|6017->3658|6089->3721|6128->3722|6167->3734|6180->3738|6211->3748|6253->3762|6320->3802|6452->3912|6491->3923|6577->3982|6713->4096|6752->4107|6930->4254|6966->4263|7305->4575|7333->4582|7371->4592|7413->4606|7429->4612|7491->4652
-                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|60->29|60->29|60->29|61->30|61->30|61->30|62->31|71->40|72->41|73->42|75->44|75->44|75->44|76->45|76->45|76->45|76->45|78->47|78->47|78->47|79->48|80->49|81->50|91->60|91->60|91->60|93->62|93->62|93->62|94->63|95->64|95->64|96->65|97->66|97->66|101->70|101->70|101->70|102->71|103->72|106->75|106->75|106->75|106->75|107->76|107->76|107->76|109->78|110->79|110->79|111->80|114->83|114->83|115->84|120->89|121->90|129->98|129->98|131->100|131->100|131->100|131->100
+                  HASH: 2a07a3eff711d87791ee5a953ad2a53359a88b3c
+                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|2997->1638|3022->1654|3061->1655|3124->1691|3193->1751|3232->1752|3293->1785|3948->2409|4013->2443|4056->2458|4161->2536|4186->2552|4225->2553|4272->2572|4316->2589|4329->2593|4364->2607|4538->2763|4551->2768|4590->2769|4637->2788|4884->3004|4927->3019|5056->3121|5086->3142|5125->3143|5158->3149|5367->3331|5382->3337|5451->3385|5530->3437|5568->3466|5607->3467|5650->3482|5726->3530|5755->3531|5810->3558|5905->3625|5934->3626|6066->3731|6084->3740|6125->3760|6166->3773|6213->3789|6267->3816|6282->3822|6354->3885|6393->3886|6432->3898|6445->3902|6476->3912|6518->3926|6585->3966|6717->4076|6756->4087|6842->4146|6978->4260|7017->4271|7074->4301|7089->4307|7134->4331|7383->4546|7419->4555|7759->4867|7788->4874|7826->4884|7868->4898|7884->4904|7946->4944
+                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|60->29|60->29|60->29|61->30|61->30|61->30|62->31|71->40|72->41|73->42|75->44|75->44|75->44|76->45|76->45|76->45|76->45|78->47|78->47|78->47|79->48|81->50|82->51|88->57|88->57|88->57|89->58|93->62|93->62|93->62|96->65|96->65|96->65|97->66|98->67|98->67|99->68|100->69|100->69|104->73|104->73|104->73|105->74|106->75|110->79|110->79|110->79|110->79|111->80|111->80|111->80|113->82|114->83|114->83|115->84|118->87|118->87|119->88|121->90|121->90|121->90|128->97|129->98|137->106|137->106|139->108|139->108|139->108|139->108
                   -- GENERATED --
               */
           
