@@ -65,7 +65,10 @@ Seq[Any](format.raw/*3.1*/("""
       'class -> "form-control"
     )),format.raw/*35.6*/("""
 
-    """),_display_(/*37.6*/select(
+    """),_display_(/*37.6*/inputText(reviewForm("lastname"), '_label -> "Name", 'class -> "form-control", '_help -> "")),format.raw/*37.98*/("""
+
+
+    """),_display_(/*40.6*/select(
       reviewForm("year"),
       options(Review.options),
       '_label -> "Year",
@@ -73,14 +76,14 @@ Seq[Any](format.raw/*3.1*/("""
       '_disabled -> Seq("null", "null"),
       '_help -> "",
       'class -> "form-control"
-    )),format.raw/*45.6*/("""
+    )),format.raw/*48.6*/("""
 
-    """),format.raw/*47.5*/("""<div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
-    """),_display_(/*48.6*/for((value, name) <- Genre.options) yield /*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
-      """),format.raw/*49.7*/("""<input type="checkbox" name="genreSelect[]" value=""""),_display_(/*49.59*/value),format.raw/*49.64*/(""""
-      />"""),_display_(/*50.10*/name),format.raw/*50.14*/("""<br>
-    """)))}),format.raw/*51.6*/("""
-    """),format.raw/*52.5*/("""</div>
+    """),format.raw/*50.5*/("""<div style="background-color: rgb(228, 204, 204); padding:.1em;" class="jumbotron">
+    """),_display_(/*51.6*/for((value, name) <- Genre.options) yield /*51.41*/{_display_(Seq[Any](format.raw/*51.42*/("""
+      """),format.raw/*52.7*/("""<input type="checkbox" name="genreSelect[]" value=""""),_display_(/*52.59*/value),format.raw/*52.64*/(""""
+      />"""),_display_(/*53.10*/name),format.raw/*53.14*/("""<br>
+    """)))}),format.raw/*54.6*/("""
+    """),format.raw/*55.5*/("""</div>
 
     <label>Banner Image Upload (Displayed at: 1660x780)</label>
     <input class="btn-sm btn-default" type="file" name="upload">
@@ -93,7 +96,7 @@ Seq[Any](format.raw/*3.1*/("""
 
     <div class="actions">
         <input type="submit" value="Add Review" class="btn btn-primary">
-        <a href=""""),_display_(/*65.19*/routes/*65.25*/.HomeController.index()),format.raw/*65.48*/("""">
+        <a href=""""),_display_(/*68.19*/routes/*68.25*/.HomeController.index()),format.raw/*68.48*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
@@ -101,9 +104,9 @@ Seq[Any](format.raw/*3.1*/("""
     <br>
   
   </div>
-  """)))}),format.raw/*73.4*/("""
+  """)))}),format.raw/*76.4*/("""
 
-""")))}),format.raw/*75.2*/("""
+""")))}),format.raw/*78.2*/("""
 """))
       }
     }
@@ -120,11 +123,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 10 17:30:16 IST 2018
+                  DATE: Wed Apr 11 17:30:13 IST 2018
                   SOURCE: /home/wdd/webapps/fluxGaming/fluxGaming/app/views/admin/addReview.scala.html
-                  HASH: 576667c00b149bfe5ff3ecff8ea833d220357157
-                  MATRIX: 1008->1|1170->92|1214->108|1241->110|1286->147|1325->149|1358->156|1457->229|1471->235|1540->283|1658->375|1801->508|1841->509|1873->515|1886->519|1917->529|1950->536|2059->624|2091->630|2207->724|2240->731|2352->822|2384->828|2505->927|2542->938|2790->1166|2823->1173|3072->1402|3105->1408|3220->1497|3271->1532|3310->1533|3344->1540|3423->1592|3449->1597|3487->1608|3512->1612|3552->1622|3584->1627|4020->2036|4035->2042|4079->2065|4235->2191|4268->2194
-                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|38->7|40->9|40->9|40->9|49->18|49->18|49->18|50->19|50->19|50->19|52->21|52->21|53->22|53->22|55->24|55->24|56->25|56->25|58->27|66->35|68->37|76->45|78->47|79->48|79->48|79->48|80->49|80->49|80->49|81->50|81->50|82->51|83->52|96->65|96->65|96->65|104->73|106->75
+                  HASH: 0e99c6ae9bc4ff01c918e781455df2dd7fab645d
+                  MATRIX: 1008->1|1170->92|1214->108|1241->110|1286->147|1325->149|1358->156|1457->229|1471->235|1540->283|1658->375|1801->508|1841->509|1873->515|1886->519|1917->529|1950->536|2059->624|2091->630|2207->724|2240->731|2352->822|2384->828|2505->927|2542->938|2790->1166|2823->1173|2936->1265|2970->1273|3219->1502|3252->1508|3367->1597|3418->1632|3457->1633|3491->1640|3570->1692|3596->1697|3634->1708|3659->1712|3699->1722|3731->1727|4167->2136|4182->2142|4226->2165|4382->2291|4415->2294
+                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|38->7|40->9|40->9|40->9|49->18|49->18|49->18|50->19|50->19|50->19|52->21|52->21|53->22|53->22|55->24|55->24|56->25|56->25|58->27|66->35|68->37|68->37|71->40|79->48|81->50|82->51|82->51|82->51|83->52|83->52|83->52|84->53|84->53|85->54|86->55|99->68|99->68|99->68|107->76|109->78
                   -- GENERATED --
               */
           

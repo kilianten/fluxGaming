@@ -11,6 +11,8 @@ import play.db.ebean.Transactional;
 import models.*;
 import models.users.*;
 import models.products.*;
+import models.shopping.*;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -43,9 +45,7 @@ public class HomeController extends Controller {
     public Result index() {
         List<Review> reviews = Review.findRecent();
 
-        Form<Login> loginForm = formFactory.form(Login.class);
-
-        return ok(index.render(User.getUserById(session().get("username")), loginForm, reviews, env));
+        return ok(index.render(getUser(), getLogin(), reviews, env));
     }
 
     public Result reviews(Long genre, String filter){
@@ -62,9 +62,7 @@ public class HomeController extends Controller {
             reviewList = Review.findFilter(genre, filter);
         }
 
-        Form<Login> loginForm = formFactory.form(Login.class);
-
-        return ok(reviews.render(User.getUserById(session().get("username")), loginForm, reviewList, env, genreList, genre, filter));
+        return ok(reviews.render(getUser(), getLogin(), reviewList, env, genreList, genre, filter));
     }
 
     public Result loginSubmit(){
@@ -90,26 +88,27 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     public Result addReview(){
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         Form<Review> reviewForm = formFactory.form(Review.class);
 
-        return ok(addReview.render(User.getUserById(session().get("username")), loginForm, reviewForm));
+        return ok(addReview.render(getUser(), getLogin(), reviewForm));
     }
 
     public Result addReviewSubmit(){
 
         String saveImageMsg;
 
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
         Form<Review> newReviewForm = formFactory.form(Review.class).bindFromRequest();
+        // DynamicForm  requestData = formFactory.form().bindFromRequest();
 
         MultipartFormData data = request().body().asMultipartFormData();
+        // String lastname = requestData.get("lastname");
+
         FilePart image = data.getFile("upload");
         FilePart tileImage = data.getFile("uploadTile");
         
         if(newReviewForm.hasErrors()){
-            return badRequest(addReview.render(User.getUserById(session().get("username")), loginForm, newReviewForm));
+            return badRequest(addReview.render(getUser(), getLogin(), newReviewForm));
         }
         else{
             Review newReview = newReviewForm.get();
@@ -127,6 +126,7 @@ public class HomeController extends Controller {
             saveFile(Long.toString(newReview.getId()) + "Tile", tileImage);
 
             flash("success", "Review " + newReview.getName() + " was added");
+            // return ok(lastname);
             return redirect(controllers.routes.HomeController.index());
         }
     }
@@ -138,7 +138,6 @@ public class HomeController extends Controller {
 
         Review r;
         Form<Review> reviewForm;
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         try{
             r = Review.find.byId(id);
@@ -146,20 +145,19 @@ public class HomeController extends Controller {
         } catch (Exception ex){
             return badRequest("Error");
         }
-        return ok(updateReview.render(User.getUserById(session().get("username")), loginForm, reviewForm, id));
+        return ok(updateReview.render(getUser(), getLogin(), reviewForm, id));
     }
 
     public Result updateReviewSubmit(Long id){
 
         Form<Review> updateReviewForm = formFactory.form(Review.class).bindFromRequest();
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         MultipartFormData data = request().body().asMultipartFormData();
         FilePart image = data.getFile("upload");
         FilePart tileImage = data.getFile("uploadTile");
 
         if(updateReviewForm.hasErrors()){
-            return badRequest(updateReview.render(User.getUserById(session().get("username")), loginForm, updateReviewForm, id));
+            return badRequest(updateReview.render(getUser(), getLogin(), updateReviewForm, id));
         } else {
             Review r = updateReviewForm.get();
             r.setId(id);
@@ -214,9 +212,7 @@ public class HomeController extends Controller {
 
         Review r = Review.find.byId(id);
 
-        Form<Login> loginForm = formFactory.form(Login.class);
-
-        return ok(review.render(User.getUserById(session().get("username")), loginForm, r, env));
+        return ok(review.render(getUser(), getLogin(), r, env));
     }
 
     @Security.Authenticated(Secured.class)
@@ -232,31 +228,27 @@ public class HomeController extends Controller {
 
     public Result store() {
 
-        Form<Login> loginForm = formFactory.form(Login.class);
-
         List<Product> productList = Product.findAll();
         
-        return ok(store.render(User.getUserById(session().get("username")), loginForm, productList, env));
+        return ok(store.render(getUser(), getLogin(), productList, env));
     }
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     public Result stockReport(){
-        Form<Login> loginForm = formFactory.form(Login.class);
 
         List<Product> productList = Product.findAll();
 
-        return ok(stockReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
+        return ok(stockReport.render(getUser(), getLogin(), productList, env));
     }
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     public Result salesReport(){
-        Form<Login> loginForm = formFactory.form(Login.class);
 
         List<Product> productList = Product.findAll();
 
-        return ok(salesReport.render(User.getUserById(session().get("username")), loginForm, productList, env));
+        return ok(salesReport.render(getUser(), getLogin(), productList, env));
     }
 
     @Security.Authenticated(Secured.class)
@@ -275,15 +267,29 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.store());
     }
 
-    @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
-    public Result addProduct(){
-        Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
+    public Result register(){
+        session().clear();
 
-        Form<Review> reviewForm = formFactory.form(Review.class);
+        Form<Register> registerForm = formFactory.form(Register.class);
 
-        return ok(addReview.render(User.getUserById(session().get("username")), loginForm, reviewForm));
+        return ok(register.render(getUser(), getLogin(), registerForm));
     }
+
+    public Result registerSubmit(){
+        Form<Register> registerForm = formFactory.form(Register.class).bindFromRequest();
+
+        if(registerForm.hasErrors()){
+            
+            return badRequest(register.render(getUser(), getLogin(), registerForm));
+        } else {
+            Register r = registerForm.get();
+            User newUser = new User(r.getUsername(), "", r.getEmail(), r.getPassword(), new Basket());
+            newUser.save();
+        }
+
+        return redirect(controllers.routes.HomeController.index());
+    }
+
 
     
 

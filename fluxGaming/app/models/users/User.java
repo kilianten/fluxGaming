@@ -23,7 +23,7 @@ public class User extends Model {
 
     public User(String username, String role, String email, String password, Basket basket) {
         this.username = username;
-        this.role = role;
+        this.role = "user";
         this.email = email;
         this.password = password;
         this.basket = basket;
@@ -100,6 +100,28 @@ public class User extends Model {
 
     public void setBasket(Basket basket) {
         this.basket = basket;
+    }
+
+    public static boolean isUsernameTaken(String username){
+        User user = find.query().where().eq("username", username).findUnique();
+        
+        if(user == null){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public static boolean isEmailTaken(String email){
+        User user = find.query().where().eq("email", email).findUnique();
+        
+        if(user == null){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }

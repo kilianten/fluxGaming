@@ -1,0 +1,46 @@
+@(user: models.User, loginForm: Form[models.users.Login], registerForm: Form[models.users.Register])
+@import helper._
+
+@main("Register", loginForm, user){
+
+    <img id="loginLogo" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+    <br>
+    <br>
+    <div class="container">
+
+    <h2>Register</h2>   
+    @if(registerForm.hasGlobalErrors){
+
+      <p class="alert alert-warning">
+        @registerForm.globalError.message
+      </p>
+    }
+
+
+    @helper.form(action = controllers.routes.HomeController.registerSubmit()){
+    @CSRF.formField
+
+    <div class="form-group">
+        @inputText(registerForm("username"), '_label -> "Username", 'class -> "form-control input-xs", 'placeholder -> "Username", '_help -> "")
+    </div>
+
+    <div class="form-group">
+        @inputText(registerForm("email"), '_label -> "Email", 'class -> "form-control input-xs", 'placeholder -> "Email", '_help -> "")
+    </div>
+
+    <div class="form-group">
+       @inputPassword(registerForm("password"), '_label -> "Password", 'class -> "form-control input-xs", 'placeholder -> "Password", '_help -> "")
+    </div>
+
+    <div class="form-group">
+        @inputPassword(registerForm("confirmPassword"), '_label -> "Confirm Password", 'class -> "form-control input-xs", 'placeholder -> "Confirm Password", '_help -> "")
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary">
+    </div>
+
+    </div>
+  }
+}

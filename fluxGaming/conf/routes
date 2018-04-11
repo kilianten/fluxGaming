@@ -9,6 +9,9 @@ GET     /reviews                    controllers.HomeController.reviews(genre:Lon
 POST    /loginSubmit                controllers.HomeController.loginSubmit
 GET     /logout                     controllers.HomeController.logout        
 
+GET     /register                   controllers.HomeController.register
+POST    /registerSubmit             controllers.HomeController.registerSubmit
+
 GET     /review/:id           controllers.HomeController.review(id: Long)
 
 GET     /store                      controllers.HomeController.store
