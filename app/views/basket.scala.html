@@ -1,0 +1,62 @@
+@(user: models.User, loginForm: Form[models.users.Login])
+
+@main("Cart", loginForm, user){
+    <head>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/basket.css")">                
+    </head>
+
+    <h1>Your Cart</h1>
+    
+    <br>
+    <div class="container">
+    @if(flash.containsKey("error")){
+        <div class="alert alert-warning">
+          @flash.get("error")
+        </div>
+    }
+    </div>
+
+    <div id="tableContainer" class="container">
+
+        <br>
+
+        <table class="table table-striped">
+            <thead>
+            <!-- The header row-->
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Item Price</th>
+                <th>Total</th>
+                <th>Quantity</th>
+                <th>dec.</th>
+                <th>inc.</th>
+            </tr>
+            </thead>
+            <tbody>
+                @if(user.getBasket() != null) {
+                    <!-- Start of For loop - For each p in products add a row -->
+                    @for(i <- user.getBasket().getBasketItems()) {
+                    <tr>
+                        <td>@i.getProduct.getName</td>
+                        <td>@i.getProduct.getDescription()</td>
+                        <td>&euro; @("%.2f".format(i.getPrice))</td>
+                        <td>&euro; @("%.2f".format(i.getItemTotal))</td>
+                        <td>@i.getQuantity()</td>
+                        <td><a href="@routes.ShoppingController.addOne(i.getId)"><img class="basketButton" src="/assets/images/misc/add.png"/></a></td>
+                        <td><a href="@routes.ShoppingController.removeOne(i.getId)"><img class="basketButton" src="/assets/images/misc/minus.png"/></a></td>
+                    </tr>
+                    }<!-- End of For loop -->
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <a href="/emptyBasket">
+    <button class="emptyCart" type="button">Empty Cart</button>       
+    </a>
+
+
+}

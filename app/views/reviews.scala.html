@@ -1,0 +1,64 @@
+@(user: models.User, loginForm: Form[models.users.Login], reviews: List[models.Review], env: play.api.Environment, genres: List[models.Genre], genreId: Long, filter: String)
+
+@main("Reviews", loginForm, user) {
+
+  <head>
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
+  </head>
+
+  <div id="actions">
+    <form action="@routes.HomeController.reviews(genreId)" method="GET">
+      <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search Review Name">
+      <input type="submit" id="searchsubmit" value="Filter by title" class="btn-md btn-primary">
+    </form>
+  </div>
+
+  <h1 style="text-align:center;">Reviews</h1>
+
+  @if(!filter.equals("")){
+    <p style="text-align: center;"> Showing results for: @filter </p>
+  }
+
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <div class="list-group">
+            <a href="@routes.HomeController.reviews(0, filter)" class="list-group-item">All Genres</a>
+            @for(g <- genres){
+              <a href="@routes.HomeController.reviews(g.getId, filter)" class="list-group-item"> @g.getName
+                <span class="badge">@g.getReviews.size()</span>
+              </a>
+            }
+          </div>
+        </div>
+
+  @for(r <- reviews){
+    <div class="col-md-3 col-sm-6">
+          <div class="gradientBoxesWithOuterShadows">
+              <!-- admin buttons -->
+              @if(user != null){
+                @if(user.getRole.equals("admin") || user.getRole.equals("mod")){
+                    
+                    <a href="@routes.HomeController.deleteReview(r.getId)">
+                    <img class="icon" src="/assets/images/misc/bin.png"/>
+                    </a>
+                    <a href="@routes.HomeController.updateReview(r.getId)">
+                    <img class="icon" src="/assets/images/misc/edit.png"/>
+                    </a>
+                }
+              }
+            <a href="@routes.HomeController.review(r.getId)"> 
+            @if(env.resource("public/images/gamePictures/" + r.getId + "Tile.jpg").isDefined) {
+              <img class="tile" src="/assets/images/gamePictures/@(r.getId + "Tile.jpg")"/>
+            } else {
+              <img class="tile" src="/assets/images/misc/noImage.png"/>
+            }
+        
+            <h3><u>@r.getName</u></h3>
+            <h4>@r.getCaption</h5>
+            <h5>- @r.getAuthor</h5>
+
+          </div> 
+        </div>
+    
+  }
+
+}

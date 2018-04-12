@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/webapps/fluxGaming/fluxGaming/app/views/main.scala.html:77:26: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m              @loginForm.globalError.message[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

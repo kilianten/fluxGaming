@@ -1,0 +1,19 @@
+.emptyCart{
+    background: #e07474;
+    background-image: linear-gradient(to bottom, #da8181, #da4753);
+    border-radius: .5em;
+    font-family: Arial;
+    color: black;
+    font-size: 1em;
+    padding: .5em;
+    margin-left: 20%;
+}
+
+#tableContainer{
+    background-color: rgb(235, 208, 183);
+}
+
+.basketButton{
+    width:1.2em;
+    margin-left:.5em;
+}

@@ -1,0 +1,49 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+GET     /reviews                    controllers.HomeController.reviews(genre:Long?=0L, filter?="")      
+
+POST    /loginSubmit                controllers.HomeController.loginSubmit
+GET     /logout                     controllers.HomeController.logout        
+
+GET     /register                   controllers.HomeController.register
+POST    /registerSubmit             controllers.HomeController.registerSubmit
+
+GET     /review/:id           controllers.HomeController.review(id: Long)
+
+GET     /store                      controllers.HomeController.store
+GET     /stockReport                      controllers.HomeController.stockReport
+GET     /salesReport                      controllers.HomeController.salesReport
+
+GET     /updateReview/:id           controllers.HomeController.updateReview(id: Long)
+POST    /updateReviewSubmit/:id     controllers.HomeController.updateReviewSubmit(id: Long)
+
+GET     /deleteReview/:id   controllers.HomeController.deleteReview(id: Long)
+GET     /deleteProduct/:id   controllers.HomeController.deleteProduct(id: Long)
+
+GET     /addReview                  controllers.HomeController.addReview
+POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
+
+GET     /store                      controllers.HomeController.store
+GET     /basket                     controllers.HomeController.basket
+
+GET     /moderators                 controllers.HomeController.moderators(filter?="")
+
+#basketFunctions
+GET     /emptyBasket                controllers.ShoppingController.emptyBasket
+GET     /addOne/:itemId             controllers.ShoppingController.addOne(itemId: Long)
+GET     /removeOne/:itemId          controllers.ShoppingController.removeOne(itemId: Long)
+
+#ShoppingController
+GET     /addToCart/:id                  controllers.ShoppingController.addToCart(id: Long)
+
+GET   /moderators/:username/:filter             controllers.HomeController.makeModerator(username: String, filter:String)
+GET   /moderators/:username/                     controllers.HomeController.makeModerator(username: String, filter?="")
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+

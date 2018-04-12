@@ -1,0 +1,82 @@
+@(user: models.User, loginForm: Form[models.users.Login], products: List[models.products.Product], env: play.api.Environment)
+
+@main("Store", loginForm, user){
+
+    <head>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reviews.css")">                
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/store.css")">                
+    </head>
+    
+    <h1 style="text-align: center;">Store</h1>
+
+    @if(flash.containsKey("error")){
+        <div class="alert alert-warning">
+          @flash.get("error")
+    </div>
+    }
+
+
+    @if(user != null){
+      @if(!user.getBasket().getBasketItems().isEmpty){
+        <a href="/basket">
+        <div class="basket-container">
+          
+        <img class="basket" src="/assets/images/misc/basket.png"/>
+          
+        @if(user.getBasket().getCount < 10){
+          <p class="number">@user.getBasket.getCount</p>
+        } else {
+          <p class="numberFuller">@user.getBasket.getCount</p>
+        }
+        </div>
+        </a>
+      }
+    }
+
+    @for(p <- products){
+      <div class="col-md-3 col-sm-6">
+        <div class="gradientBoxesWithOuterShadows">
+            <!-- admin buttons -->
+            @if(user != null){
+              @if(user.getRole.equals("admin")){
+                <a class="link" href="@routes.HomeController.deleteProduct(p.getId)"> 
+                  <img class="icons" src="/assets/images/misc/bin.png">
+                </a>
+                  <img class="icons" src="/assets/images/misc/edit.png">
+                <br>
+                <br>
+              }
+            }
+
+          <div class="img-container">
+              @if(p.getStock() <= 0){
+                <img class="top" src="/assets/images/misc/outOfStock.png"/>
+              }
+
+              @if(env.resource("public/images/products/" + p.getId + ".jpg").isDefined) {
+                <img class="tile" src="/assets/images/products/@(p.getId + ".jpg")"/>
+              } else {
+                <img class="tile" src="/assets/images/misc/noImage.png"/>
+              }
+          </div>
+      
+          <h3><u>@p.getName</u></h3>
+          <h5>Price: €@p.getPrice</h5>
+
+          @if(user != null){
+            @if(user.getRole.equals("admin")){
+               <p style="color:red;">Stock: @p.getStock</p>
+            }
+          }
+
+          <a href="@routes.ShoppingController.addToCart(p.getId)">
+            <div style="text-align:center;">
+                    <button class="addToCartBtn" type="button">Add To Cart</button>       
+            </div>
+          </a>  
+
+        </div> 
+      </div>
+    }
+
+}
