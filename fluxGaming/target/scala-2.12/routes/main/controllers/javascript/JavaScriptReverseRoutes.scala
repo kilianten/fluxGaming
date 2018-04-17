@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/fluxGaming/fluxGaming/conf/routes
-// @DATE:Wed Apr 11 19:37:51 IST 2018
+// @SOURCE:/home/paul/fluxGaming/fluxGaming/conf/routes
+// @DATE:Tue Apr 17 20:08:55 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 

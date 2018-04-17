@@ -4,6 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 import models.shopping.Basket;
+import models.shopping.ShopOrder;
 
 import io.ebean.*;
 import play.data.format.*;
@@ -20,6 +21,10 @@ public class User extends Model {
 
     @OneToOne(mappedBy="user", cascade = CascadeType.ALL)
     private Basket basket;
+
+    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+    private ShopOrder shopOrder;
+
 
     public User(String username, String role, String email, String password, Basket basket) {
         this.username = username;
