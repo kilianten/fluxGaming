@@ -31,6 +31,7 @@ public class Review extends Model {
     @Constraints.Required
     private int year;
     private Date reviewDate;
+
     
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "reviews")

@@ -724,3 +724,102 @@ INSERT INTO Review VALUES(1,'Max Payne', 'A classic thats worth revisiting.', 'k
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2018-04-17 21:05:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:05:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "BASKET" not found; SQL statement:
+alter table basket drop constraint if exists fk_basket_user_username [42102-193]
+2018-04-17 21:05:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user (username, role, email, password) VALUES ('kilian', 'admin', 'kiliantennyson@hotmail.com', 'admin') [42102-193]
+2018-04-17 21:05:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:05:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:06:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:07:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "REVIEW" not found; SQL statement:
+select t0.id, t0.name, t0.author, t0.caption, t0.review, t0.rating, t0.year, t0.review_date from review t0 where t0.id = ?   [42102-193]
+2018-04-17 21:07:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "BASKET" not found; SQL statement:
+alter table basket drop constraint if exists fk_basket_user_username [42102-193]
+2018-04-17 21:07:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+INSERT INTO Review VALUES(1,'Max Payne','kilian', 'A classic thats worth revisiting.',  'review', 7,2001, '2018-03-12') [21002-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.dml.Insert.prepare(Insert.java:265)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at play.api.db.evolutions.DatabaseEvolutions.execute(EvolutionsApi.scala:329)
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$evolve$4(EvolutionsApi.scala:212)
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$evolve$4$adapted(EvolutionsApi.scala:212)
+	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:32)
+	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:29)
+	at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:38)
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$evolve$3(EvolutionsApi.scala:212)
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$evolve$3$adapted(EvolutionsApi.scala:207)
+	at scala.collection.immutable.List.foreach(List.scala:389)
+	at play.api.db.evolutions.DatabaseEvolutions.evolve(EvolutionsApi.scala:207)
+	at play.api.db.evolutions.DefaultEvolutionsApi.evolve(EvolutionsApi.scala:97)
+	at play.api.db.evolutions.EvolutionsWebCommands.handleWebCommand(ApplicationEvolutions.scala:366)
+	at play.core.DefaultWebCommands.$anonfun$handleWebCommand$1(WebCommands.scala:40)
+	at scala.collection.immutable.Stream.flatMap(Stream.scala:486)
+	at play.core.DefaultWebCommands.handleWebCommand(WebCommands.scala:40)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$handleWebCommand$1(DevServerStart.scala:134)
+	at scala.Option.flatMap(Option.scala:171)
+	at play.core.server.DevServerStart$$anon$1.handleWebCommand(DevServerStart.scala:134)
+	at play.core.server.AkkaHttpServer$$anon$4.handleWebCommand(AkkaHttpServer.scala:219)
+	at play.core.server.Server$.getHandlerFor(Server.scala:111)
+	at play.core.server.AkkaHttpServer.getHandler(AkkaHttpServer.scala:217)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:195)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:106)
+	at akka.stream.impl.fusing.MapAsync$$anon$25.onPush(Ops.scala:1194)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:585)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:469)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:560)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor.aroundReceive(Actor.scala:517)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:515)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:667)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:590)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:559)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
