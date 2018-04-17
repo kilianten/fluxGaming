@@ -25,6 +25,7 @@ create table genre_review (
 create table order_item (
   id                            bigint auto_increment not null,
   basket_id                     bigint,
+  shop_order_id                 bigint,
   product_id                    bigint,
   quantity                      integer not null,
   price                         double not null,
@@ -52,9 +53,16 @@ create table review (
   constraint pk_review primary key (id)
 );
 
+create table shop_order (
+  id                            bigint auto_increment not null,
+  order_date                    timestamp,
+  user_username                 varchar(255),
+  constraint pk_shop_order primary key (id)
+);
+
 create table user (
-  role                          varchar(255),
   username                      varchar(255) not null,
+  role                          varchar(255),
   email                         varchar(255),
   password                      varchar(255),
   constraint pk_user primary key (username)
@@ -71,8 +79,14 @@ create index ix_genre_review_review on genre_review (review_id);
 alter table order_item add constraint fk_order_item_basket_id foreign key (basket_id) references basket (id) on delete restrict on update restrict;
 create index ix_order_item_basket_id on order_item (basket_id);
 
+alter table order_item add constraint fk_order_item_shop_order_id foreign key (shop_order_id) references shop_order (id) on delete restrict on update restrict;
+create index ix_order_item_shop_order_id on order_item (shop_order_id);
+
 alter table order_item add constraint fk_order_item_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
 create index ix_order_item_product_id on order_item (product_id);
+
+alter table shop_order add constraint fk_shop_order_user_username foreign key (user_username) references user (username) on delete restrict on update restrict;
+create index ix_shop_order_user_username on shop_order (user_username);
 
 
 # --- !Downs
@@ -88,8 +102,14 @@ drop index if exists ix_genre_review_review;
 alter table order_item drop constraint if exists fk_order_item_basket_id;
 drop index if exists ix_order_item_basket_id;
 
+alter table order_item drop constraint if exists fk_order_item_shop_order_id;
+drop index if exists ix_order_item_shop_order_id;
+
 alter table order_item drop constraint if exists fk_order_item_product_id;
 drop index if exists ix_order_item_product_id;
+
+alter table shop_order drop constraint if exists fk_shop_order_user_username;
+drop index if exists ix_shop_order_user_username;
 
 drop table if exists basket;
 
@@ -102,6 +122,8 @@ drop table if exists order_item;
 drop table if exists product;
 
 drop table if exists review;
+
+drop table if exists shop_order;
 
 drop table if exists user;
 

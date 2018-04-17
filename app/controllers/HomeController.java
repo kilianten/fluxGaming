@@ -3,7 +3,6 @@ package controllers;
 import play.mvc.*;
 import views.html.*;
 import views.html.admin.*;
-import views.html.mod.*;
 
 import play.api.Environment;
 import play.data.*;
@@ -87,7 +86,7 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
-    @With(AuthModerator.class)
+    @With(AuthAdmin.class)
     public Result addReview(){
 
         Form<Review> reviewForm = formFactory.form(Review.class);
@@ -133,7 +132,7 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
-    @With(AuthModerator.class)
+    @With(AuthAdmin.class)
     @Transactional
     public Result updateReview(Long id){
 
@@ -217,7 +216,7 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
-    @With(AuthModerator.class)
+    @With(AuthAdmin.class)
     @Transactional
     public Result deleteReview(Long id) {
         Review.find.ref(id).delete();
@@ -292,34 +291,7 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.index());
     }
 
-    @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
-    @Transactional
-    public Result moderators(String filter){
 
-        List<User> users = User.findUser(filter);
-        List<User> mods = Moderator.findAll();
-
-        return ok(moderators.render(getUser(), getLogin(), users, filter, mods));
-    }
-
-    @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
-    @Transactional
-    public Result makeModerator(String username, String filter) {
-
-        User u = User.getUserById(username);
-
-        if(u.getRole().equals("mod")){
-            u.setRole("user");
-            u.update();
-        }
-        else if(u.getRole().equals("user")){
-            u.setRole("mod");
-            u.update();
-        }
-        
-        return redirect(controllers.routes.HomeController.moderators(filter));
-    }
     
+
 }
