@@ -169,6 +169,16 @@ public class Review extends Model {
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
     }
+
+    public static Map<String, String> ratingOptions() {
+        LinkedHashMap<String, String> options = new LinkedHashMap();
+    
+        for(int i = 1; i < 11; i++){
+          options.put(Integer.toString(i), Integer.toString(i));
+        }
+        
+        return options;
+    }
     
 
 }

@@ -22,7 +22,15 @@
     @inputText(reviewForm("caption"), '_label -> "Caption", 'class -> "form-control", '_help -> "")
 
     @textarea(reviewForm("review"), '_label -> "Review", 'class -> "form-control", '_help -> "")
-    @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "")
+    <!-- @inputText(reviewForm("rating"), '_label -> "Rating (1-10)", 'class -> "form-control", '_help -> "") -->
+    
+    @select(reviewForm("rating"),
+    options(Review.ratingOptions),
+    'class -> "form-control",
+    '_help -> "",
+    '_label -> "Rating",
+    )
+    
     
     @select(
       reviewForm("author"),
@@ -34,7 +42,7 @@
       'class -> "form-control"
     )
 
-    @inputText(reviewForm("lastname"), '_label -> "Name", 'class -> "form-control", '_help -> "")
+    <!-- @inputText(reviewForm("lastname"), '_label -> "Name", 'class -> "form-control", '_help -> "") -->
 
 
     @select(
