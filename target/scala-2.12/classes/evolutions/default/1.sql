@@ -48,6 +48,7 @@ create table review (
   review                        varchar(7000),
   rating                        integer not null,
   year                          integer not null,
+  review_date                   timestamp,
   constraint pk_review primary key (id)
 );
 
