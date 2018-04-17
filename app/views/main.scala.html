@@ -27,14 +27,18 @@
                 <li><a href="/">Contact</a></li>
                                 <!-- DROPDOWN MENU -->
                                 @if(user != null){
-                                  @if(user.getRole.equals("admin") || user.equals("moderator")){
+                                  @if(user.getRole.equals("admin") || user.getRole.equals("mod")){
                                 <li class="dropdown">
                                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moderator Actions
                                   <span class="caret"></span></a>
                                   <ul class="dropdown-menu">
                                     <li><a href="/addReview">Add Review</a></li>
+                                    @if(user.getRole.equals("admin")){
+                                    <li class="divider"></li>
                                     <li><a href="/stockReport">Stock Report</a></li>
                                     <li><a href="/salesReport">Sales Report</a></li>
+                                    <li><a href="/moderators">Moderators</a></li>
+                                    }
                                   </ul>
                                 </li>
                                   }

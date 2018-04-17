@@ -38,7 +38,7 @@
         <div class="gradientBoxesWithOuterShadows">
             <!-- admin buttons -->
             @if(user != null){
-              @if(user.getRole=="admin"){
+              @if(user.getRole.equals("admin")){
                 <a class="link" href="@routes.HomeController.deleteProduct(p.getId)"> 
                   <img class="icons" src="/assets/images/misc/bin.png">
                 </a>
@@ -64,8 +64,8 @@
           <h5>Price: €@p.getPrice</h5>
 
           @if(user != null){
-            @if(user.getRole=="admin"){
-                <p style="color:red;">Stock: @p.getStock</p>
+            @if(user.getRole.equals("admin")){
+               <p style="color:red;">Stock: @p.getStock</p>
             }
           }
 

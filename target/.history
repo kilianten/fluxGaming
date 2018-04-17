@@ -79,6 +79,13 @@ clean
 run
 clean
 run
-clean
-compile
+h2-browser
+run
+h2-browser
+run
+h2-browser
+run
+h2-browser
+run
+sbt
 run

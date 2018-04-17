@@ -35,7 +35,7 @@
           <div class="gradientBoxesWithOuterShadows">
               <!-- admin buttons -->
               @if(user != null){
-                @if(user.getRole=="admin"){
+                @if(user.getRole.equals("admin") || user.getRole.equals("mod")){
                     
                     <a href="@routes.HomeController.deleteReview(r.getId)">
                     <img class="icon" src="/assets/images/misc/bin.png"/>

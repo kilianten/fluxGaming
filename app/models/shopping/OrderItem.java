@@ -20,9 +20,6 @@ public class OrderItem extends Model {
     private Basket basket;
 
     @ManyToOne
-    private ShopOrder shopOrder;
-
-    @ManyToOne
     private Product product;
     
     private int quantity;

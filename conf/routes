@@ -30,6 +30,8 @@ POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
 GET     /store                      controllers.HomeController.store
 GET     /basket                     controllers.HomeController.basket
 
+GET     /moderators                 controllers.HomeController.moderators(filter?="")
+
 #basketFunctions
 GET     /emptyBasket                controllers.ShoppingController.emptyBasket
 GET     /addOne/:itemId             controllers.ShoppingController.addOne(itemId: Long)
@@ -37,6 +39,9 @@ GET     /removeOne/:itemId          controllers.ShoppingController.removeOne(ite
 
 #ShoppingController
 GET     /addToCart/:id                  controllers.ShoppingController.addToCart(id: Long)
+
+GET   /moderators/:username/:filter             controllers.HomeController.makeModerator(username: String, filter:String)
+GET   /moderators/:username/                     controllers.HomeController.makeModerator(username: String, filter?="")
 
 
 # Map static resources from the /public folder to the /assets URL path
