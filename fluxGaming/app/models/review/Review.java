@@ -10,6 +10,8 @@ import play.data.validation.*;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 
+import java.util.Date;
+
 @Entity
 public class Review extends Model {
 
@@ -28,6 +30,8 @@ public class Review extends Model {
     private int rating;
     @Constraints.Required
     private int year;
+    private Date reviewDate;
+    
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "reviews")
     public List<Genre> genres;
@@ -38,6 +42,10 @@ public class Review extends Model {
 
     public static Finder<Long, Review> find = new Finder<Long, Review>(Review.class);
 
+    public Review(){
+        reviewDate = new Date();
+    }
+
     public Review(Long id, String name, String author, String caption, String review, int rating, List<Genre> genres) {
         this.id = id;
         this.name = name;
@@ -46,6 +54,7 @@ public class Review extends Model {
         this.review = review;
         this.rating = rating;
         this.genres = genres;
+        reviewDate = new Date();
     }
 
     public Long getId() {
@@ -151,6 +160,14 @@ public class Review extends Model {
 
     public void setGenres(List<Genre> genres){
         this.genres = genres;
+    }
+
+    public String getReviewDate() {
+        return new SimpleDateFormat("dd-MM-yyyy").format(reviewDate);
+    }
+
+    public void setReviewDate(Date reviewDate) {
+        this.reviewDate = reviewDate;
     }
     
 
