@@ -61,7 +61,7 @@
           </div>
       
           <h3><u>@p.getName</u></h3>
-          <h5>Price: €@p.getPrice</h5>
+          <h5>Price: &euro; @("%.2f".format(p.getPrice))</h5>
 
           @if(user != null){
             @if(user.getRole.equals("admin")){
