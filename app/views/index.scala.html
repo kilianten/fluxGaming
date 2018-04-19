@@ -60,9 +60,23 @@
           @if(flash.containsKey("success")){
             <div class="alert alert-success">
               @flash.get("success")
-          </div>
+            </div>
+          }
+          <a href="@routes.HomeController.store">
+            <div class="jumbotron">
+              
+              <h2>Store</h2>
+              <hr>
+
+              <p>Check out our store page to get some FluxGaming merch to show your friends!</p>
+
+              <img id="logoStore" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+
+            </div>
+          </a>
       </div>
 
-      </div> <!--  end of container -->
-  }
+      <!--  end of container -->
+  
+  </div> 
 }

@@ -11,3 +11,11 @@ a:hover, a:focus {
     color: white;
     text-decoration: none;
 }
+
+.jumbotron{
+    background-color: #DDBD95;
+}
+
+#logoStore{
+    width: 20em;
+}
