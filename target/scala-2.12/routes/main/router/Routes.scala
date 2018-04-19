@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Tue Apr 17 18:45:00 IST 2018
+// @DATE:Thu Apr 19 20:37:47 IST 2018
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:36
   ShoppingController_2: controllers.ShoppingController,
-  // @LINE:48
+  // @LINE:55
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_0: controllers.HomeController,
     // @LINE:36
     ShoppingController_2: controllers.ShoppingController,
-    // @LINE:48
+    // @LINE:55
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_0, ShoppingController_2, Assets_1, "/")
 
@@ -68,6 +68,10 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addToCart/""" + "$" + """id<[^/]+>""", """controllers.ShoppingController.addToCart(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """moderators/""" + "$" + """username<[^/]+>/""" + "$" + """filter<[^/]+>""", """controllers.HomeController.makeModerator(username:String, filter:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """moderators/""" + "$" + """username<[^/]+>/""", """controllers.HomeController.makeModerator(username:String, filter:String ?= "")"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProduct""", """controllers.HomeController.addProduct"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProductSubmit""", """controllers.HomeController.addProductSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProduct/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProduct(id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProductSubmit/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProductSubmit(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -526,11 +530,83 @@ class Routes(
     )
   )
 
+  // @LINE:47
+  private[this] lazy val controllers_HomeController_addProduct25_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProduct")))
+  )
+  private[this] lazy val controllers_HomeController_addProduct25_invoker = createInvoker(
+    HomeController_0.addProduct,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addProduct",
+      Nil,
+      "GET",
+      this.prefix + """addProduct""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:48
-  private[this] lazy val controllers_Assets_versioned25_route = Route("GET",
+  private[this] lazy val controllers_HomeController_addProductSubmit26_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addProductSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_addProductSubmit26_invoker = createInvoker(
+    HomeController_0.addProductSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addProductSubmit",
+      Nil,
+      "POST",
+      this.prefix + """addProductSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:50
+  private[this] lazy val controllers_HomeController_updateProduct27_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateProduct/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_updateProduct27_invoker = createInvoker(
+    HomeController_0.updateProduct(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "updateProduct",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """updateProduct/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:51
+  private[this] lazy val controllers_HomeController_updateProductSubmit28_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateProductSubmit/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_updateProductSubmit28_invoker = createInvoker(
+    HomeController_0.updateProductSubmit(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "updateProductSubmit",
+      Seq(classOf[Long]),
+      "POST",
+      this.prefix + """updateProductSubmit/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:55
+  private[this] lazy val controllers_Assets_versioned29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned25_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned29_invoker = createInvoker(
     Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -697,10 +773,34 @@ class Routes(
         controllers_HomeController_makeModerator24_invoker.call(HomeController_0.makeModerator(username, filter))
       }
   
+    // @LINE:47
+    case controllers_HomeController_addProduct25_route(params@_) =>
+      call { 
+        controllers_HomeController_addProduct25_invoker.call(HomeController_0.addProduct)
+      }
+  
     // @LINE:48
-    case controllers_Assets_versioned25_route(params@_) =>
+    case controllers_HomeController_addProductSubmit26_route(params@_) =>
+      call { 
+        controllers_HomeController_addProductSubmit26_invoker.call(HomeController_0.addProductSubmit)
+      }
+  
+    // @LINE:50
+    case controllers_HomeController_updateProduct27_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_updateProduct27_invoker.call(HomeController_0.updateProduct(id))
+      }
+  
+    // @LINE:51
+    case controllers_HomeController_updateProductSubmit28_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_updateProductSubmit28_invoker.call(HomeController_0.updateProductSubmit(id))
+      }
+  
+    // @LINE:55
+    case controllers_Assets_versioned29_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned25_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned29_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }

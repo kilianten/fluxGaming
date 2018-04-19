@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Tue Apr 17 18:45:00 IST 2018
+// @DATE:Thu Apr 19 20:37:47 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -68,6 +68,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:48
+    def addProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addProductSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addProductSubmit"})
+        }
+      """
+    )
   
     // @LINE:21
     def updateReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -153,6 +163,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:50
+    def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateProduct",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:43
     def makeModerator: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.makeModerator",
@@ -197,6 +217,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:47
+    def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addProduct",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addProduct"})
+        }
+      """
+    )
+  
     // @LINE:19
     def salesReport: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.salesReport",
@@ -237,6 +267,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:51
+    def updateProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateProductSubmit",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateProductSubmit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.index",
@@ -269,7 +309,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:48
+  // @LINE:55
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -277,7 +317,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:48
+    // @LINE:55
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

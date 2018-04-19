@@ -44,6 +44,13 @@ GET   /moderators/:username/:filter             controllers.HomeController.makeM
 GET   /moderators/:username/                     controllers.HomeController.makeModerator(username: String, filter?="")
 
 
+GET     /addProduct                 controllers.HomeController.addProduct
+POST    /addProductSubmit           controllers.HomeController.addProductSubmit
+
+GET     /updateProduct/:id                controllers.HomeController.updateProduct(id: Long)
+POST    /updateProductSubmit/:id           controllers.HomeController.updateProductSubmit(id: Long)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 

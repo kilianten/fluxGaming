@@ -1,0 +1,45 @@
+@(user: models.User, loginForm: Form[models.users.Login], productForm: Form[models.products.Product], productId: Long)
+@import helper._
+
+@main("Add a Product", loginForm, user) {
+  
+
+  <div class="container">
+
+    <img style="width:12em; float:right;" src="@routes.Assets.versioned("images/logos/logoShader.png")">
+
+    <br>
+
+    <h1 style="text-align:center;">Add a Product</h1>
+
+    <br>
+    <br>
+
+    @form(action=routes.HomeController.updateProductSubmit(productId), 'class -> "form-horizontal", 'role -> "form", 'enctype -> "multipart/form-data"){
+    @CSRF.formField
+
+    @inputText(productForm("name"), '_label -> "Name", 'class -> "form-control")
+    @inputText(productForm("description"), '_label -> "Description", 'class -> "form-control")
+    @inputText(productForm("stock"), '_label -> "Stock", 'class -> "form-control")
+    @inputText(productForm("price"), '_label -> "Price", 'class -> "form-control")
+
+    @inputText(productForm("id"), '_label -> "", 'hidden -> "hidden")
+
+    <label>Banner Image Upload (Must be: 1660x780)</label>
+    <input class="btn-sm btn-default" type="file" name="upload">
+    <br>
+
+
+    <div class="actions">
+        <input type="submit" value="Update Product" class="btn btn-primary">
+        <a href="@routes.HomeController.index()">
+            <button type="button" class="btn btn-warning">Cancel</button>
+        </a>
+    </div>
+
+    <br>
+  
+  </div>
+  }
+
+}

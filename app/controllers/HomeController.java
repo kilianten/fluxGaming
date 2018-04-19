@@ -193,18 +193,32 @@ public class HomeController extends Controller {
               }
 
               File file = uploaded.getFile();
-              File dir = new File("public/images/gamePictures");
-              if(!dir.exists()){
-                  dir.mkdirs();
-              }
-              if(file.renameTo(new File("public/images/gamePictures", id + "." + extension))){
-                  return "/ file uploaded";
-              }
-              else
-              {
-                  return "/ file upload failed";
-              }
+              if(id.indexOf("product") != -1){
+                File dir = new File("public/images/products");
+                if(!dir.exists()){
+                    dir.mkdirs();
+                }
+                if(file.renameTo(new File("public/images/products", id + "." + extension))){
+                    return "/ file uploaded";
+                }
+                else
+                {
+                    return "/ file upload failed";
+                }
+              } else {
+                File dir = new File("public/images/gamePictures");
+                if(!dir.exists()){
+                    dir.mkdirs();
+                }
+                if(file.renameTo(new File("public/images/gamePictures", id + "." + extension))){
+                    return "/ file uploaded";
+                }
+                else
+                {
+                    return "/ file upload failed";
+                }
             }
+          }
         }
         return "/ no file";
     }
@@ -321,5 +335,79 @@ public class HomeController extends Controller {
         
         return redirect(controllers.routes.HomeController.moderators(filter));
     }
-    
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    public Result addProduct(){
+
+        Form<Product> productForm = formFactory.form(Product.class);
+
+        return ok(addProduct.render(getUser(), getLogin(), productForm));
+    }
+
+    public Result addProductSubmit(){
+
+        String saveImageMsg;
+
+        Form<Product> newProductForm = formFactory.form(Product.class).bindFromRequest();
+
+        MultipartFormData data = request().body().asMultipartFormData();
+
+        FilePart image = data.getFile("upload");
+        
+        if(newProductForm.hasErrors()){
+            return badRequest(addProduct.render(getUser(), getLogin(), newProductForm));
+        }
+        else{
+            Product newProduct = newProductForm.get();
+            newProduct.save();
+
+            saveFile(Long.toString(newProduct.getId()) + "product", image);
+
+            flash("success", "product " + newProduct.getName() + " was added");
+            // return ok(lastname);
+            return redirect(controllers.routes.HomeController.index());
+        }
+    }
+   
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result updateProduct(Long id){
+
+        Product p;
+        Form<Product> productForm;
+
+        try{
+            p = Product.find.byId(id);
+            productForm = formFactory.form(Product.class).fill(p);
+        } catch (Exception ex){
+            return badRequest("Error");
+        }
+        return ok(updateProduct.render(getUser(), getLogin(), productForm, id));
+    }
+
+    public Result updateProductSubmit(Long id){
+
+        Form<Product> updateProductForm = formFactory.form(Product.class).bindFromRequest();
+
+        MultipartFormData data = request().body().asMultipartFormData();
+        FilePart image = data.getFile("upload");
+
+        if(updateProductForm.hasErrors()){
+            return badRequest(updateProduct.render(getUser(), getLogin(), updateProductForm, id));
+        } else {
+            Product p = updateProductForm.get();
+            p.setId(id);
+           
+            p.update();
+
+            saveFile(Long.toString(p.getId()) + "product", image);
+
+            flash("success", "Product " + p.getName() + " has been updated" );
+        }
+
+        return redirect(routes.HomeController.store());
+    }
+
 }

@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/fluxGaming/app/views/store.scala.html:64:47: illegal start of simple expression[0m
-[0m[[0m[31merror[0m] [0m[0m          <h5>Price: € &euro; @("%.2f".format(@p.getPrice))</h5>[0m
-[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/fluxGaming/app/views/store.scala.html:82:2: ')' expected but '}' found.[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/webapps/fluxGaming/app/views/main.scala.html:78:26: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m              @loginForm.globalError.message[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

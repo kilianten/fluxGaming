@@ -42,7 +42,9 @@
                 <a class="link" href="@routes.HomeController.deleteProduct(p.getId)"> 
                   <img class="icons" src="/assets/images/misc/bin.png">
                 </a>
+                <a class="link" href="@routes.HomeController.updateProduct(p.getId)">
                   <img class="icons" src="/assets/images/misc/edit.png">
+                </a>  
                 <br>
                 <br>
               }
@@ -53,8 +55,8 @@
                 <img class="top" src="/assets/images/misc/outOfStock.png"/>
               }
 
-              @if(env.resource("public/images/products/" + p.getId + ".jpg").isDefined) {
-                <img class="tile" src="/assets/images/products/@(p.getId + ".jpg")"/>
+              @if(env.resource("public/images/products/" + p.getId + "product.jpg").isDefined) {
+                <img class="tile" src="/assets/images/products/@(p.getId + "product"+ ".jpg")"/>
               } else {
                 <img class="tile" src="/assets/images/misc/noImage.png"/>
               }
