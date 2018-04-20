@@ -78,60 +78,65 @@ Seq[Any](format.raw/*3.1*/("""
               """),format.raw/*47.15*/("""</ul>
               <ul class="nav navbar-nav navbar-right">
                 """),_display_(/*49.18*/if(user != null)/*49.34*/{_display_(Seq[Any](format.raw/*49.35*/("""
-                  """),format.raw/*50.19*/("""<li><a href="/">"""),_display_(/*50.36*/user/*50.40*/.getUsername()),format.raw/*50.54*/("""</a></li>
+                  """),format.raw/*50.19*/("""<li><a class="dropdown-toggle" data-toggle="dropdown" href="/">"""),_display_(/*50.83*/user/*50.87*/.getUsername()),format.raw/*50.101*/("""
+                    """),format.raw/*51.21*/("""<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/viewOrders">Orders</a></li>
+                    </ul>
+                </li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
-                """)))}/*52.19*/else/*52.24*/{_display_(Seq[Any](format.raw/*52.25*/("""
-                  """),format.raw/*53.19*/("""<li><a href="/register" ><span class="glyphicon glyphicon-edit"></span> Register</a></li>
+                """)))}/*57.19*/else/*57.24*/{_display_(Seq[Any](format.raw/*57.25*/("""
+                  """),format.raw/*58.19*/("""<li><a href="/register" ><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                   <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                """)))}),format.raw/*55.18*/("""
-              """),format.raw/*56.15*/("""</ul>
+                """)))}),format.raw/*60.18*/("""
+              """),format.raw/*61.15*/("""</ul>
             </div>
           </div>
         </div>
 
             <!-- The Modal -->
-            """),_display_(/*62.14*/if(loginForm != null)/*62.35*/{_display_(Seq[Any](format.raw/*62.36*/(""" 
-    """),format.raw/*63.5*/("""<div id="myModal" class="modal">     
+            """),_display_(/*67.14*/if(loginForm != null)/*67.35*/{_display_(Seq[Any](format.raw/*67.36*/(""" 
+    """),format.raw/*68.5*/("""<div id="myModal" class="modal">     
       <!-- Modal content -->
       <div class="modal-content">
           <span class="close">&times;</span>
-          <img id="loginLogo" src=""""),_display_(/*67.37*/routes/*67.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*67.91*/("""">
+          <img id="loginLogo" src=""""),_display_(/*72.37*/routes/*72.43*/.Assets.versioned("images/logos/logoShader.png")),format.raw/*72.91*/("""">
           <h2>Login</h2> 
            
-          """),_display_(/*70.12*/if(loginForm.hasGlobalErrors)/*70.41*/{_display_(Seq[Any](format.raw/*70.42*/("""
-              """),format.raw/*71.15*/("""<script>
-                  setTimeout(function()"""),format.raw/*72.40*/("""{"""),format.raw/*72.41*/("""
-                          """),format.raw/*73.27*/("""document.getElementById('login').click();
-                         """),format.raw/*74.26*/("""}"""),format.raw/*74.27*/(""",2);
+          """),_display_(/*75.12*/if(loginForm.hasGlobalErrors)/*75.41*/{_display_(Seq[Any](format.raw/*75.42*/("""
+              """),format.raw/*76.15*/("""<script>
+                  setTimeout(function()"""),format.raw/*77.40*/("""{"""),format.raw/*77.41*/("""
+                          """),format.raw/*78.27*/("""document.getElementById('login').click();
+                         """),format.raw/*79.26*/("""}"""),format.raw/*79.27*/(""",2);
               </script>
             <br>
             <p class="alert alert-warning">
-              """),_display_(/*78.16*/loginForm/*78.25*/.globalError.message),format.raw/*78.45*/("""
-            """),format.raw/*79.13*/("""</p>
-          """)))}),format.raw/*80.12*/("""
+              """),_display_(/*83.16*/loginForm/*83.25*/.globalError.message),format.raw/*83.45*/("""
+            """),format.raw/*84.13*/("""</p>
+          """)))}),format.raw/*85.12*/("""
         
   
   
-          """),_display_(/*84.12*/helper/*84.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*84.81*/{_display_(Seq[Any](format.raw/*84.82*/("""
-          """),_display_(/*85.12*/CSRF/*85.16*/.formField),format.raw/*85.26*/("""
+          """),_display_(/*89.12*/helper/*89.18*/.form(action = controllers.routes.HomeController.loginSubmit())/*89.81*/{_display_(Seq[Any](format.raw/*89.82*/("""
+          """),_display_(/*90.12*/CSRF/*90.16*/.formField),format.raw/*90.26*/("""
   
-          """),format.raw/*87.11*/("""<div class="form-group">
-              """),_display_(/*88.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*88.126*/("""
-          """),format.raw/*89.11*/("""</div>
+          """),format.raw/*92.11*/("""<div class="form-group">
+              """),_display_(/*93.16*/inputText(loginForm("username"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Username")),format.raw/*93.126*/("""
+          """),format.raw/*94.11*/("""</div>
   
           <div class="form-group">
-             """),_display_(/*92.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*92.129*/("""
-          """),format.raw/*93.11*/("""</div>
+             """),_display_(/*97.15*/inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*97.129*/("""
+          """),format.raw/*98.11*/("""</div>
   
-          <a href=""""),_display_(/*95.21*/routes/*95.27*/.HomeController.register),format.raw/*95.51*/(""""> Already a member? Click here to log-in</a>
+          <a href=""""),_display_(/*100.21*/routes/*100.27*/.HomeController.register),format.raw/*100.51*/(""""> Already a member? Click here to log-in</a>
           <br>
           <br>
 
           <div class="form-group">
               <input type="submit" value="Sign in" class="btn btn-primary">
           </div>
-        """)))})))}),format.raw/*102.11*/("""
-        """),format.raw/*103.9*/("""</div>
+        """)))})))}),format.raw/*107.11*/("""
+        """),format.raw/*108.9*/("""</div>
       </div>
        
         <!-- jQuery library -->
@@ -139,9 +144,9 @@ Seq[Any](format.raw/*3.1*/("""
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
-        """),_display_(/*111.10*/content),format.raw/*111.17*/("""
+        """),_display_(/*116.10*/content),format.raw/*116.17*/("""
 
-        """),format.raw/*113.9*/("""<script src=""""),_display_(/*113.23*/routes/*113.29*/.Assets.versioned("javascripts/main.js")),format.raw/*113.69*/("""" type="text/javascript"></script>
+        """),format.raw/*118.9*/("""<script src=""""),_display_(/*118.23*/routes/*118.29*/.Assets.versioned("javascripts/main.js")),format.raw/*118.69*/("""" type="text/javascript"></script>
     </body>
 </html>
 """))
@@ -160,11 +165,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 20:51:26 IST 2018
-                  SOURCE: /home/wdd/webapps/fluxGaming/app/views/main.scala.html
-                  HASH: 57d2d10d3f9568a5c4bbcf3382aee960d76f6405
-                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|2997->1638|3022->1654|3061->1655|3124->1691|3195->1753|3234->1754|3295->1787|3700->2165|3741->2197|3780->2198|3845->2235|4276->2635|4339->2670|4449->2749|4514->2783|4557->2798|4662->2876|4687->2892|4726->2893|4773->2912|4817->2929|4830->2933|4865->2947|5039->3103|5052->3108|5091->3109|5138->3128|5385->3344|5428->3359|5557->3461|5587->3482|5626->3483|5659->3489|5868->3671|5883->3677|5952->3725|6031->3777|6069->3806|6108->3807|6151->3822|6227->3870|6256->3871|6311->3898|6406->3965|6435->3966|6567->4071|6585->4080|6626->4100|6667->4113|6714->4129|6768->4156|6783->4162|6855->4225|6894->4226|6933->4238|6946->4242|6977->4252|7019->4266|7086->4306|7218->4416|7257->4427|7343->4486|7479->4600|7518->4611|7575->4641|7590->4647|7635->4671|7885->4886|7922->4895|8262->5207|8291->5214|8329->5224|8371->5238|8387->5244|8449->5284
-                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|60->29|60->29|60->29|61->30|61->30|61->30|62->31|67->36|67->36|67->36|68->37|73->42|74->43|76->45|77->46|78->47|80->49|80->49|80->49|81->50|81->50|81->50|81->50|83->52|83->52|83->52|84->53|86->55|87->56|93->62|93->62|93->62|94->63|98->67|98->67|98->67|101->70|101->70|101->70|102->71|103->72|103->72|104->73|105->74|105->74|109->78|109->78|109->78|110->79|111->80|115->84|115->84|115->84|115->84|116->85|116->85|116->85|118->87|119->88|119->88|120->89|123->92|123->92|124->93|126->95|126->95|126->95|133->102|134->103|142->111|142->111|144->113|144->113|144->113|144->113
+                  DATE: Fri Apr 20 16:51:58 IST 2018
+                  SOURCE: /home/paul/Desktop/fluxGaming/app/views/main.scala.html
+                  HASH: 845e05ad6eb570c8428a09f4dbced511d089fc4e
+                  MATRIX: 989->1|1148->89|1192->105|1219->106|1298->211|1333->220|1367->228|1392->233|1590->404|1605->410|1668->451|1756->512|1771->518|1841->566|2092->790|2107->796|2176->844|2997->1638|3022->1654|3061->1655|3124->1691|3195->1753|3234->1754|3295->1787|3700->2165|3741->2197|3780->2198|3845->2235|4276->2635|4339->2670|4449->2749|4514->2783|4557->2798|4662->2876|4687->2892|4726->2893|4773->2912|4864->2976|4877->2980|4913->2994|4962->3015|5317->3352|5330->3357|5369->3358|5416->3377|5663->3593|5706->3608|5835->3710|5865->3731|5904->3732|5937->3738|6146->3920|6161->3926|6230->3974|6309->4026|6347->4055|6386->4056|6429->4071|6505->4119|6534->4120|6589->4147|6684->4214|6713->4215|6845->4320|6863->4329|6904->4349|6945->4362|6992->4378|7046->4405|7061->4411|7133->4474|7172->4475|7211->4487|7224->4491|7255->4501|7297->4515|7364->4555|7496->4665|7535->4676|7621->4735|7757->4849|7796->4860|7854->4890|7870->4896|7916->4920|8166->5135|8203->5144|8543->5456|8572->5463|8610->5473|8652->5487|8668->5493|8730->5533
+                  LINES: 28->1|31->2|34->3|35->4|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|48->17|48->17|48->17|60->29|60->29|60->29|61->30|61->30|61->30|62->31|67->36|67->36|67->36|68->37|73->42|74->43|76->45|77->46|78->47|80->49|80->49|80->49|81->50|81->50|81->50|81->50|82->51|88->57|88->57|88->57|89->58|91->60|92->61|98->67|98->67|98->67|99->68|103->72|103->72|103->72|106->75|106->75|106->75|107->76|108->77|108->77|109->78|110->79|110->79|114->83|114->83|114->83|115->84|116->85|120->89|120->89|120->89|120->89|121->90|121->90|121->90|123->92|124->93|124->93|125->94|128->97|128->97|129->98|131->100|131->100|131->100|138->107|139->108|147->116|147->116|149->118|149->118|149->118|149->118
                   -- GENERATED --
               */
           

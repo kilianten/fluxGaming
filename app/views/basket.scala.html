@@ -59,10 +59,20 @@
 
 
     <br>
-
-    <a href="/emptyBasket">
-    <button class="emptyCart" type="button">Empty Cart</button>       
-    </a>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="text-left">
+                <a href="@routes.ShoppingController.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
+            </p>
+        </div>  
+        <div class="col-md-3">
+            <p class="text-left">
+                <a href="@routes.ShoppingController.placeOrder()" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-euro"></span> Place Order</a>
+            </p>
+        </div>  
+    </div>
 
 
 }

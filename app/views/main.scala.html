@@ -47,7 +47,12 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 @if(user != null){
-                  <li><a href="/">@user.getUsername()</a></li>
+                  <li><a class="dropdown-toggle" data-toggle="dropdown" href="/">@user.getUsername()
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/viewOrders">Orders</a></li>
+                    </ul>
+                </li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>                    
                 } else {
                   <li><a href="/register" ><span class="glyphicon glyphicon-edit"></span> Register</a></li>

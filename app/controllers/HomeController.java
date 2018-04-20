@@ -272,6 +272,11 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
+    public Result viewOrders(){
+        return ok(viewOrders.render(getUser(), getLogin(), ShopOrder.findAll()));
+    }
+
+    @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
     public Result deleteProduct(Long id) {

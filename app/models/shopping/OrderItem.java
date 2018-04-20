@@ -21,6 +21,9 @@ public class OrderItem extends Model {
 
     @ManyToOne
     private Product product;
+
+    @ManyToOne
+    private ShopOrder shopOrder;
     
     private int quantity;
     private double price;
@@ -63,8 +66,16 @@ public class OrderItem extends Model {
         return basket;
     }
 
+    public ShopOrder getShopOrder(){
+        return shopOrder;
+    }
+
     public void setBasket(Basket basket) {
         this.basket = basket;
+    }
+
+    public void setOrder(ShopOrder shopOrder){
+        this.shopOrder = shopOrder;
     }
 
     public Product getProduct() {

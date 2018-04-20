@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import views.html.*;
 import play.db.ebean.Transactional;
 import play.api.Environment;
+import java.util.List;
 
 import models.users.*;
 import models.*;
@@ -24,6 +25,10 @@ public class ShoppingController extends Controller {
     public ShoppingController(Environment e, FormFactory f) {
         this.env = e;
         this.formFactory = f;
+    }
+
+    public Form<Login> getLogin(){
+        return formFactory.form(Login.class);
     }
 
     public User getUser(){
@@ -53,6 +58,51 @@ public class ShoppingController extends Controller {
                 flash("error", "Sorry item is out of stock");
             }
         return redirect(routes.HomeController.store());
+    }
+
+    @Transactional
+    public Result placeOrder() {
+        User u = getUser();
+        
+        // Create an order instance
+        ShopOrder order = new ShopOrder();
+        
+        // Associate order with customer
+        order.setUser(u);
+        
+        // Copy basket to order
+        order.setItems(u.getBasket().getBasketItems());
+        
+        // Save the order now to generate a new id for this order
+        order.save();
+       
+       // Move items from basket to order
+        for (OrderItem i: order.getItems()) {
+            // Associate with order
+            i.setOrder(order);
+            // Remove from basket
+            i.setBasket(null);
+            // update item
+            i.update();
+        }
+        
+        // Update the order
+        order.update();
+        
+        // Clear and update the shopping basket
+        u.getBasket().setBasketItems(null);
+        u.getBasket().update();
+        
+        // Show order confirmed view
+        return ok(orderConfirmed.render(u, order, getLogin()));
+    }
+
+    public Result viewOrders(){
+
+        List<ShopOrder> orderList;
+        orderList = ShopOrder.findAll();
+
+        return ok(viewOrders.render(getUser(), getLogin(), orderList));
     }
 
 

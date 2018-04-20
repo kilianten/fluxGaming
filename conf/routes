@@ -29,6 +29,7 @@ POST    /addReviewSubmit            controllers.HomeController.addReviewSubmit
 
 GET     /store                      controllers.HomeController.store
 GET     /basket                     controllers.HomeController.basket
+GET     /viewOrders                 controllers.HomeController.viewOrders
 
 GET     /moderators                 controllers.HomeController.moderators(filter?="")
 
@@ -39,6 +40,7 @@ GET     /removeOne/:itemId          controllers.ShoppingController.removeOne(ite
 
 #ShoppingController
 GET     /addToCart/:id                  controllers.ShoppingController.addToCart(id: Long)
+GET     /placeOrder                 controllers.ShoppingController.placeOrder
 
 GET   /moderators/:username/:filter             controllers.HomeController.makeModerator(username: String, filter:String)
 GET   /moderators/:username/                     controllers.HomeController.makeModerator(username: String, filter?="")
