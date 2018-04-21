@@ -27,7 +27,11 @@
               <tr>
                 <td class="numeric">@p.getId</td>
                 <td>@p.getName</td>
-                <td  class="numeric">@p.getStock</td>
+                @if(p.getStock < 20){
+                  <td  class="numeric" style="color: tomato">@p.getStock</td>
+                }else{
+                  <td  class="numeric" >@p.getStock</td>
+                }
               </tr>
             }
           </tbody>

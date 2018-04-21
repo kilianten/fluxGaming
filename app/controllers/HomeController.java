@@ -252,10 +252,11 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result stockReport(){
 
-        List<Product> productList = Product.findAll();
+        List<Product> productList = Product.findAllStockOrder();
 
         return ok(stockReport.render(getUser(), getLogin(), productList, env));
     }
+    
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/paul/Desktop/fluxGaming/conf/routes
-// @DATE:Fri Apr 20 16:51:57 IST 2018
+// @DATE:Sat Apr 21 17:17:36 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -25,6 +25,16 @@ package controllers.javascript {
       """
         function(itemId0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addOne/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("itemId", itemId0))})
+        }
+      """
+    )
+  
+    // @LINE:44
+    def cancelOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingController.cancelOrder",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cancelOrder"})
         }
       """
     )
@@ -79,7 +89,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:50
+    // @LINE:51
     def addProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProductSubmit",
       """
@@ -183,7 +193,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:52
+    // @LINE:53
     def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateProduct",
       """
@@ -193,7 +203,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:46
     def makeModerator: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.makeModerator",
       """
@@ -237,7 +247,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:49
+    // @LINE:50
     def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProduct",
       """
@@ -287,7 +297,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:53
+    // @LINE:54
     def updateProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateProductSubmit",
       """
@@ -329,7 +339,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:57
+  // @LINE:58
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -337,7 +347,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:57
+    // @LINE:58
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

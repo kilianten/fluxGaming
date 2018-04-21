@@ -40,14 +40,16 @@ Seq[Any](format.raw/*6.1*/("""
 
 """),format.raw/*11.1*/("""<div class="row">
 
-	<div class="col-md-12">
-		"""),_display_(/*14.4*/if(flash.containsKey("success"))/*14.36*/ {_display_(Seq[Any](format.raw/*14.38*/("""
-			  """),format.raw/*15.6*/("""<div class="alert alert-success">
-			      """),_display_(/*16.11*/flash/*16.16*/.get("success")),format.raw/*16.31*/("""
-			  """),format.raw/*17.6*/("""</div>
-		""")))}),format.raw/*18.4*/(""" 
+    <h2 style="padding-left: 1em">Order Confirmation</h2>
 
-		"""),format.raw/*20.3*/("""<table class="table table-bordered table-hover table-condensed">
+	<div class="col-md-12">
+		"""),_display_(/*16.4*/if(flash.containsKey("success"))/*16.36*/ {_display_(Seq[Any](format.raw/*16.38*/("""
+			  """),format.raw/*17.6*/("""<div class="alert alert-success">
+			      """),_display_(/*18.11*/flash/*18.16*/.get("success")),format.raw/*18.31*/("""
+			  """),format.raw/*19.6*/("""</div>
+		""")))}),format.raw/*20.4*/(""" 
+
+		"""),format.raw/*22.3*/("""<table class="table table-bordered table-hover table-condensed">
 			<thead>
 			<!-- The header row-->
 			<tr>
@@ -59,23 +61,23 @@ Seq[Any](format.raw/*6.1*/("""
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*32.18*/if(order != null)/*32.35*/ {_display_(Seq[Any](format.raw/*32.37*/("""
-                    """),format.raw/*33.21*/("""<!-- Start of For loop - For each p in products add a row -->
-                    """),_display_(/*34.22*/for(i <- order.getItems) yield /*34.46*/ {_display_(Seq[Any](format.raw/*34.48*/("""
-                    """),format.raw/*35.21*/("""<tr>
-                        <td>"""),_display_(/*36.30*/i/*36.31*/.getProduct.getName),format.raw/*36.50*/("""</td>
-                        <td>"""),_display_(/*37.30*/i/*37.31*/.getProduct.getDescription),format.raw/*37.57*/("""</td>
-                        <td>&euro; """),_display_(/*38.37*/("%.2f".format(i.getPrice))),format.raw/*38.64*/("""</td>
-                        <td>"""),_display_(/*39.30*/i/*39.31*/.getQuantity()),format.raw/*39.45*/("""</td>
-                        <td>&euro; """),_display_(/*40.37*/("%.2f".format(i.getItemTotal))),format.raw/*40.68*/("""</td>
+                """),_display_(/*34.18*/if(order != null)/*34.35*/ {_display_(Seq[Any](format.raw/*34.37*/("""
+                    """),format.raw/*35.21*/("""<!-- Start of For loop - For each p in products add a row -->
+                    """),_display_(/*36.22*/for(i <- order.getItems) yield /*36.46*/ {_display_(Seq[Any](format.raw/*36.48*/("""
+                    """),format.raw/*37.21*/("""<tr>
+                        <td>"""),_display_(/*38.30*/i/*38.31*/.getProduct.getName),format.raw/*38.50*/("""</td>
+                        <td>"""),_display_(/*39.30*/i/*39.31*/.getProduct.getDescription),format.raw/*39.57*/("""</td>
+                        <td>&euro; """),_display_(/*40.37*/("%.2f".format(i.getPrice))),format.raw/*40.64*/("""</td>
+                        <td>"""),_display_(/*41.30*/i/*41.31*/.getQuantity()),format.raw/*41.45*/("""</td>
+                        <td>&euro; """),_display_(/*42.37*/("%.2f".format(i.getItemTotal))),format.raw/*42.68*/("""</td>
                     </tr>
-                    """)))}),format.raw/*42.22*/("""<!-- End of For loop -->
-              """)))}),format.raw/*43.16*/("""
-			"""),format.raw/*44.4*/("""</tbody>
+                    """)))}),format.raw/*44.22*/("""<!-- End of For loop -->
+              """)))}),format.raw/*45.16*/("""
+			"""),format.raw/*46.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*48.68*/("%.2f".format(order.getOrderTotal))),format.raw/*48.104*/("""</strong></p>
+                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*50.68*/("%.2f".format(order.getOrderTotal))),format.raw/*50.104*/("""</strong></p>
             </div>  
         </div>
         </div>
@@ -96,11 +98,11 @@ Seq[Any](format.raw/*6.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 20 16:51:58 IST 2018
+                  DATE: Sat Apr 21 17:17:37 IST 2018
                   SOURCE: /home/paul/Desktop/fluxGaming/app/views/orderConfirmed.scala.html
-                  HASH: ca7e4e75f1d4d2ff1bb0aef1bfcfabce290c934e
-                  MATRIX: 651->1|687->31|719->57|1113->84|1297->175|1324->176|1395->222|1446->265|1485->267|1515->270|1588->317|1629->349|1669->351|1702->357|1773->401|1787->406|1823->421|1856->427|1896->437|1928->442|2234->721|2260->738|2300->740|2349->761|2459->844|2499->868|2539->870|2588->891|2649->925|2659->926|2699->945|2761->980|2771->981|2818->1007|2887->1049|2935->1076|2997->1111|3007->1112|3042->1126|3111->1168|3163->1199|3247->1252|3318->1292|3349->1296|3525->1445|3583->1481
-                  LINES: 24->1|25->2|26->3|31->5|36->6|37->7|38->8|38->8|38->8|41->11|44->14|44->14|44->14|45->15|46->16|46->16|46->16|47->17|48->18|50->20|62->32|62->32|62->32|63->33|64->34|64->34|64->34|65->35|66->36|66->36|66->36|67->37|67->37|67->37|68->38|68->38|69->39|69->39|69->39|70->40|70->40|72->42|73->43|74->44|78->48|78->48
+                  HASH: febaad684e8680317d5b0933695c0a8f3b962316
+                  MATRIX: 651->1|687->31|719->57|1113->84|1297->175|1324->176|1395->222|1446->265|1485->267|1515->270|1647->376|1688->408|1728->410|1761->416|1832->460|1846->465|1882->480|1915->486|1955->496|1987->501|2293->780|2319->797|2359->799|2408->820|2518->903|2558->927|2598->929|2647->950|2708->984|2718->985|2758->1004|2820->1039|2830->1040|2877->1066|2946->1108|2994->1135|3056->1170|3066->1171|3101->1185|3170->1227|3222->1258|3306->1311|3377->1351|3408->1355|3584->1504|3642->1540
+                  LINES: 24->1|25->2|26->3|31->5|36->6|37->7|38->8|38->8|38->8|41->11|46->16|46->16|46->16|47->17|48->18|48->18|48->18|49->19|50->20|52->22|64->34|64->34|64->34|65->35|66->36|66->36|66->36|67->37|68->38|68->38|68->38|69->39|69->39|69->39|70->40|70->40|71->41|71->41|71->41|72->42|72->42|74->44|75->45|76->46|80->50|80->50
                   -- GENERATED --
               */
           

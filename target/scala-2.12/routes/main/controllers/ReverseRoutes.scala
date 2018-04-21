@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/paul/Desktop/fluxGaming/conf/routes
-// @DATE:Fri Apr 20 16:51:57 IST 2018
+// @DATE:Sat Apr 21 17:17:36 IST 2018
 
 import play.api.mvc.Call
 
@@ -22,6 +22,12 @@ package controllers {
     def addOne(itemId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
+    }
+  
+    // @LINE:44
+    def cancelOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "cancelOrder")
     }
   
     // @LINE:43
@@ -57,7 +63,7 @@ package controllers {
     }
 
   
-    // @LINE:50
+    // @LINE:51
     def addProductSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addProductSubmit")
@@ -125,18 +131,18 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "deleteReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:52
+    // @LINE:53
     def updateProduct(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:45
+    // @LINE:46
     def makeModerator(username:String, filter:String): Call = {
     
       (username: @unchecked, filter: @unchecked) match {
       
-        // @LINE:45
+        // @LINE:46
         case (username, filter)  =>
           
           Call("GET", _prefix + { _defaultPrefix } + "moderators/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("username", username)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("filter", filter)))
@@ -163,7 +169,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "register")
     }
   
-    // @LINE:49
+    // @LINE:50
     def addProduct(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addProduct")
@@ -193,7 +199,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "reviews" + play.core.routing.queryString(List(if(genre == 0L) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("genre", genre)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
     }
   
-    // @LINE:53
+    // @LINE:54
     def updateProductSubmit(id:Long): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "updateProductSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
@@ -219,14 +225,14 @@ package controllers {
   
   }
 
-  // @LINE:57
+  // @LINE:58
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:57
+    // @LINE:58
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
