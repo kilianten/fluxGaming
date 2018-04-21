@@ -9,7 +9,6 @@
     <div class="row">
 
         @for(i <- orders.indices) {
-            @orders(i)
               
             <div class="col-md-9">
                 @if(flash.containsKey("success")) {
@@ -17,7 +16,8 @@
                       @flash.get("success")
                     </div>
                 }
-        
+                
+                <h2 style="clear: both">Order: @(i+1)</h2>
             <table class="table table-bordered table-hover table-condensed">
                 <thead>
                 <!-- The header row-->
