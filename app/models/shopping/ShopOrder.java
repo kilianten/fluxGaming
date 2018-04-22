@@ -52,6 +52,22 @@ public class ShopOrder extends Model {
         return ShopOrder.find.all();
     }
 
+    public void removeAllItems() {
+        for (OrderItem i : items) {
+            Product p = Product.find.byId(i.getProduct().getId());
+            if (i.getProduct().getId() == p.getId()) {
+                int quantity = i.getQuantity();
+                p.incrementStock(quantity);
+                p.update();
+            }
+        }
+
+        for(OrderItem i: this.items) {
+            i.delete();
+        }
+        this.items = null;
+    }
+
     public Long getId() {
         return id;
     }

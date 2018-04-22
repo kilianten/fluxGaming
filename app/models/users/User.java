@@ -51,6 +51,10 @@ public class User extends Model {
         return role;
     }
 
+    public ShopOrder getShopOrder(){
+        return shopOrder;
+    }
+
     public void setRole(String role) {
         this.role = role;
     }

@@ -38,8 +38,9 @@ GET     /addOne/:itemId             controllers.ShoppingController.addOne(itemId
 GET     /removeOne/:itemId          controllers.ShoppingController.removeOne(itemId: Long)
 
 #ShoppingController
-GET     /addToCart/:id                  controllers.ShoppingController.addToCart(id: Long)
+GET     /addToCart/:id              controllers.ShoppingController.addToCart(id: Long)
 GET     /placeOrder                 controllers.ShoppingController.placeOrder
+GET   /cancelOrder                controllers.ShoppingController.cancelOrder
 
 GET   /moderators/:username/:filter             controllers.HomeController.makeModerator(username: String, filter:String)
 GET   /moderators/:username/                     controllers.HomeController.makeModerator(username: String, filter?="")

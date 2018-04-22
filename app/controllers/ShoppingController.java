@@ -119,6 +119,27 @@ public class ShoppingController extends Controller {
     }
 
     @Transactional
+    public Result cancelOrder() {
+
+        User user = getUser();
+
+        user.getShopOrder().removeAllItems();
+        user.getShopOrder().update();
+            
+        return redirect(routes.HomeController.viewOrders()); 
+    }
+
+    // @Security.Authenticated(Secured.class)
+    // @Transactional
+    // public Result deleteProduct(Long id) {
+    //     Product.find.ref(id).delete();
+
+    //     flash("success", "Product has been deleted");
+        
+    //     return redirect(routes.HomeController.store());
+    // }
+
+    @Transactional
     public Result addOne(Long itemId) {
        
         OrderItem item = OrderItem.find.byId(itemId);

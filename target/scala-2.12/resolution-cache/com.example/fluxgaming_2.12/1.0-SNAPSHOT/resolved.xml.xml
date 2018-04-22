@@ -4,7 +4,11 @@
 		module="fluxgaming_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
+<<<<<<< HEAD
 		publication="20180422083648"
+=======
+		publication="20180421171711"
+>>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
 	>
 		<description>
 		fluxGaming

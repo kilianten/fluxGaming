@@ -34,6 +34,10 @@ public class Product extends Model {
     public static List<Product> findAll(String filter) {
         return Product.find.query().where().ilike("name", "%" + filter + "%").orderBy("name asc").findList();
     }
+
+    public static List<Product> findAllStockOrder() {
+        return Product.find.query().where().ilike("stock", "%").orderBy("stock asc").findList();
+    }
     
 
     public static List<Product> findFilter(Long catID, String filter) {

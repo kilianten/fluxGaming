@@ -252,7 +252,17 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
+<<<<<<< HEAD
     public Result salesReport(int year){
+=======
+    public Result stockReport(){
+
+        List<Product> productList = Product.findAllStockOrder();
+
+        return ok(stockReport.render(getUser(), getLogin(), productList, env));
+    }
+    
+>>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
 
         if(year == 0){
             year = Calendar.getInstance().get(1);
