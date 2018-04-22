@@ -1,10 +1,16 @@
 @import models.products.Product
-@import models.User
-@(user: models.User, loginForm: Form[models.users.Login], products: List[Product], env: play.api.Environment)
+@import models.shopping.ShopOrder
+@(user: models.User, loginForm: Form[models.users.Login], products: List[Product], env: play.api.Environment, year: Integer, Stock: Integer)
 
 @main("Sales Report", loginForm, user) {
-    <p class="lead">Sales Report</p>
+
+  <div class="container">
+
+    <h2>Sales Reports</h2>
+    <h4>For Year: @year</h4>
     <br>
+    
+
     <div class="row">
       <div class="col-sm-10">
           @if(flash.containsKey("success")) {
@@ -13,33 +19,95 @@
             </div>
           }
 
-        <table class="table table-bordered table-hover table-condensed">   
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>       
-              <th>Description</th>
-              <th>Stock</th>
-              <th>Price</th>   
-            </tr>
-          </thead>
-    
-          <tbody>
-            @for(p<-products) {
-              <tr>
-                <td class="numeric">@p.getId</td>
-                <td>@p.getName</td>
-                <td>@p.getDescription</td>
-                <td  class="numeric">@p.getStock</td>
-                <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
-    
-              </tr>
-            }
-          </tbody>
-    
-        </table>
-      </div>
+  
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Year
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              @for(year <- ShopOrder.options){
+                <li><a href="@routes.HomeController.salesReport(year)">@year</a></li>
+              }
+        </ul>
     </div>
+
+    <br>
+
+
+    @for((k,v) <- ShopOrder.getMonth(year)){
+      <p>@k : @v sold </p>
+    }
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <hr>
+  <h2>Stock Report</h2>
+  <br>
+  <div class="row">
+    <div class="col-sm-10">
+        @if(flash.containsKey("success")) {
+          <div class="alert alert-success">
+            @flash.get("success")
+          </div>
+        }
+
+      <table class="table table-bordered table-hover table-condensed">   
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>       
+            <th>Stock</th>
+            <th>Level</th> 
+          </tr>
+        </thead>
   
+        <tbody>
+          @for(p<-products) {
+            @if(p.getStock <= 10){
+              <tr class="danger">
+            } else if(p.getStock <= 30){
+              <tr class="warning">
+            } else{
+              <tr class="success">
+            }
+              <td class="numeric">@p.getId</td>
+              <td>@p.getName</td>
+              <td  class="numeric">@p.getStock</td>
+
+              
+                @if(p.getStock <= 10){
+                  <td>Low</td>
+                } else if(p.getStock <= 30){
+                  <td>Medium</td>
+                } else{
+                  <td>High</td>
+                }
+                <td>
+
+                  <form action="@routes.HomeController.addStock(p.getId)" method="GET">
+                        Add Stock: <input type="text"  name="Stock" value="@Stock">
+                  <input type="submit" value="Submit form">
+                  </form>
   
+        
+              
+                }
+              </td>
+            </tr>
+          
+        </tbody>
+  
+      </table>
+    </div>
+  </div>
+
+
 }

@@ -9,34 +9,33 @@ import play.data.validation.*;
 
 import java.util.Calendar;
 
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+
 import models.products.*;
-import models.users.Login;
-import models.users.Register;
 import models.User;
 
-// ShopOrder entity managed by Ebean
+import java.util.HashMap;
+import java.util.Map;
+
 @Entity
 public class ShopOrder extends Model {
 
     @Id
     private Long id;
     
-    private Calendar OrderDate;
+    private Date orderDate;
     
-    // Order contains may items.
-    // mappedBy makes this side of the mapping the owner
-    // so foreign key will be placed in resulting OrderItem table
-    // All changes, including deletes will be cascaded
     @OneToMany(mappedBy="shopOrder", cascade = CascadeType.ALL)
     private List<OrderItem> items;
     
     @ManyToOne
     private User user;
 
-    // Default constructor
     public  ShopOrder() {
-        OrderDate = Calendar.getInstance();
+        orderDate = new Date();
     }
+
     public double getOrderTotal() {
         
         double total = 0;
@@ -47,10 +46,8 @@ public class ShopOrder extends Model {
         return total;
     }
 	
-	//Generic query helper
     public static Finder<Long,ShopOrder> find = new Finder<Long,ShopOrder>(ShopOrder.class);
 
-    //Find all Products in the database
     public static List<ShopOrder> findAll() {
         return ShopOrder.find.all();
     }
@@ -63,12 +60,13 @@ public class ShopOrder extends Model {
         this.id = id;
     }
 
-    public Calendar getOrderDate() {
-        return OrderDate;
+    public String getOrderDate() {
+        return new SimpleDateFormat("dd-MM-yyyy").format(orderDate);
     }
 
     public void setOrderDate(Calendar orderDate) {
-        OrderDate = orderDate;
+        
+        orderDate = orderDate;
     }
 
     public List<OrderItem> getItems() {
@@ -86,5 +84,42 @@ public class ShopOrder extends Model {
     public void setUser(User user) {
         this.user = user;
     } 
+
+    public static Map<String, Integer> getMonth(int year){
+
+        String years = Integer.toString(year);
+
+        Map<String, Integer> orderMap = new HashMap<String, Integer>();
+
+        List<ShopOrder> orders = ShopOrder.find.query().where().like("orderDate", "%" + years + "%").findList();
+        
+        
+        for(ShopOrder o: orders){
+            for(OrderItem i: o.getItems()){
+                if(orderMap.containsKey(i.getProduct().getName())){
+                    orderMap.put(i.getProduct().getName(), (orderMap.get(i.getProduct().getName()) + i.getQuantity()));
+                } else {
+                orderMap.put(i.getProduct().getName(), i.getQuantity());
+                }
+            }
+        }
+
+        return orderMap;
+
+    }
+
+    public static List<Integer> options() {
+
+        ArrayList<Integer> years = new ArrayList<Integer>();
+        int baseYear = 2015;
+        int currentYear = Calendar.getInstance().get(1);
+        
+        while(currentYear >= baseYear){
+            years.add(currentYear);
+            currentYear--;
+        }
+
+        return years;
+    }
 
 }

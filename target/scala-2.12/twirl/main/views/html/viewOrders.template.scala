@@ -36,21 +36,25 @@ object viewOrders extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
 Seq[Any](format.raw/*6.1*/("""
 """),_display_(/*7.2*/main("Orders", loginForm, user)/*7.33*/ {_display_(Seq[Any](format.raw/*7.35*/("""
 
-    """),format.raw/*9.5*/("""<div class="row">
+    """),format.raw/*9.5*/("""<h2>Order History</h2>
 
-        """),_display_(/*11.10*/for(i <- orders.indices) yield /*11.34*/ {_display_(Seq[Any](format.raw/*11.36*/("""
-            """),_display_(/*12.14*/orders(i)),format.raw/*12.23*/("""
+    <br>
+    <br>
+    <div class="row">
+
+        """),_display_(/*15.10*/for(i <- orders.indices) yield /*15.34*/ {_display_(Seq[Any](format.raw/*15.36*/("""
+            """),format.raw/*16.13*/("""<div class="container"> 
+            <strong><p>Purchased On: """),_display_(/*17.39*/orders/*17.45*/.get(i).getOrderDate),format.raw/*17.65*/("""</p></strong>
               
-            """),format.raw/*14.13*/("""<div class="col-md-9">
-                """),_display_(/*15.18*/if(flash.containsKey("success"))/*15.50*/ {_display_(Seq[Any](format.raw/*15.52*/("""
-                    """),format.raw/*16.21*/("""<div class="alert alert-success">
-                      """),_display_(/*17.24*/flash/*17.29*/.get("success")),format.raw/*17.44*/("""
-                    """),format.raw/*18.21*/("""</div>
-                """)))}),format.raw/*19.18*/("""
+            <div class="col-md-10">
+                """),_display_(/*20.18*/if(flash.containsKey("success"))/*20.50*/ {_display_(Seq[Any](format.raw/*20.52*/("""
+                    """),format.raw/*21.21*/("""<div class="alert alert-success">
+                      """),_display_(/*22.24*/flash/*22.29*/.get("success")),format.raw/*22.44*/("""
+                    """),format.raw/*23.21*/("""</div>
+                """)))}),format.raw/*24.18*/("""
         
-            """),format.raw/*21.13*/("""<table class="table table-bordered table-hover table-condensed">
+            """),format.raw/*26.13*/("""<table class="table table-bordered table-hover table-condensed">
                 <thead>
-                <!-- The header row-->
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
@@ -60,26 +64,28 @@ Seq[Any](format.raw/*6.1*/("""
                 </tr>
                 </thead>
                 <tbody>
-                        <!-- Start of For loop - For each p in products add a row -->
-                    """),_display_(/*34.22*/for(o <- orders.get(i).getItems) yield /*34.54*/ {_display_(Seq[Any](format.raw/*34.56*/("""
-                        """),format.raw/*35.25*/("""<tr>
-                            <td>"""),_display_(/*36.34*/o/*36.35*/.getProduct.getName),format.raw/*36.54*/("""</td>
-                            <td>"""),_display_(/*37.34*/o/*37.35*/.getProduct.getDescription),format.raw/*37.61*/("""</td>
-                            <td>&euro; """),_display_(/*38.41*/("%.2f".format(o.getPrice))),format.raw/*38.68*/("""</td>
-                            <td>"""),_display_(/*39.34*/o/*39.35*/.getQuantity()),format.raw/*39.49*/("""</td>
-                            <td>&euro; """),_display_(/*40.41*/("%.2f".format(o.getItemTotal))),format.raw/*40.72*/("""</td>
+                    """),_display_(/*37.22*/for(o <- orders.get(i).getItems) yield /*37.54*/ {_display_(Seq[Any](format.raw/*37.56*/("""
+                        """),format.raw/*38.25*/("""<tr>
+                            <td>"""),_display_(/*39.34*/o/*39.35*/.getProduct.getName),format.raw/*39.54*/("""</td>
+                            <td>"""),_display_(/*40.34*/o/*40.35*/.getProduct.getDescription),format.raw/*40.61*/("""</td>
+                            <td>&euro; """),_display_(/*41.41*/("%.2f".format(o.getPrice))),format.raw/*41.68*/("""</td>
+                            <td>"""),_display_(/*42.34*/o/*42.35*/.getQuantity()),format.raw/*42.49*/("""</td>
+                            <td>&euro; """),_display_(/*43.41*/("%.2f".format(o.getItemTotal))),format.raw/*43.72*/("""</td>
                         </tr>
-                    """)))}),format.raw/*42.22*/("""<!-- End of For loop -->                
-                </tbody>
+                    """)))}),format.raw/*45.22*/("""            
+                """),format.raw/*46.17*/("""</tbody>
             </table>
             <div class="row">
                     <div class="col-md-12">
-                        <p class="text-right"><strong>Order Total: &euro; """),_display_(/*47.76*/("%.2f".format(orders.get(i).getOrderTotal))),format.raw/*47.120*/("""</strong></p>
+                        <p class="text-right"><strong>Order Total: &euro; """),_display_(/*50.76*/("%.2f".format(orders.get(i).getOrderTotal))),format.raw/*50.120*/("""</strong></p>
                     </div>  
                 </div>
             </div>
-        """)))}),format.raw/*51.10*/("""
-    """),format.raw/*52.5*/("""</div>
+        </div>
+
+        <hr>
+        """)))}),format.raw/*57.10*/("""
+    """),format.raw/*58.5*/("""</div>
 
 
 """)))}))
@@ -98,11 +104,11 @@ Seq[Any](format.raw/*6.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 20 16:51:58 IST 2018
-                  SOURCE: /home/paul/Desktop/fluxGaming/app/views/viewOrders.scala.html
-                  HASH: b9f55b79f3dec2c7b7b3344b5b5d7f1cb4ea2fd5
-                  MATRIX: 651->1|687->31|719->57|1099->84|1274->166|1301->168|1340->199|1379->201|1411->207|1466->235|1506->259|1546->261|1587->275|1617->284|1673->312|1740->352|1781->384|1821->386|1870->407|1954->464|1968->469|2004->484|2053->505|2108->529|2158->551|2700->1066|2748->1098|2788->1100|2841->1125|2906->1163|2916->1164|2956->1183|3022->1222|3032->1223|3079->1249|3152->1295|3200->1322|3266->1361|3276->1362|3311->1376|3384->1422|3436->1453|3524->1510|3787->1746|3853->1790|3978->1884|4010->1889
-                  LINES: 24->1|25->2|26->3|31->5|36->6|37->7|37->7|37->7|39->9|41->11|41->11|41->11|42->12|42->12|44->14|45->15|45->15|45->15|46->16|47->17|47->17|47->17|48->18|49->19|51->21|64->34|64->34|64->34|65->35|66->36|66->36|66->36|67->37|67->37|67->37|68->38|68->38|69->39|69->39|69->39|70->40|70->40|72->42|77->47|77->47|81->51|82->52
+                  DATE: Sun Apr 22 08:37:00 IST 2018
+                  SOURCE: /home/wdd/webapps/fluxGaming/app/views/viewOrders.scala.html
+                  HASH: 6fe19d21e8c872e4772aa5622123f6edf1202b1d
+                  MATRIX: 651->1|687->31|719->57|1099->84|1274->166|1301->168|1340->199|1379->201|1411->207|1512->281|1552->305|1592->307|1633->320|1723->383|1738->389|1779->409|1888->491|1929->523|1969->525|2018->546|2102->603|2116->608|2152->623|2201->644|2256->668|2306->690|2723->1080|2771->1112|2811->1114|2864->1139|2929->1177|2939->1178|2979->1197|3045->1236|3055->1237|3102->1263|3175->1309|3223->1336|3289->1375|3299->1376|3334->1390|3407->1436|3459->1467|3547->1524|3604->1553|3810->1732|3876->1776|4030->1899|4062->1904
+                  LINES: 24->1|25->2|26->3|31->5|36->6|37->7|37->7|37->7|39->9|45->15|45->15|45->15|46->16|47->17|47->17|47->17|50->20|50->20|50->20|51->21|52->22|52->22|52->22|53->23|54->24|56->26|67->37|67->37|67->37|68->38|69->39|69->39|69->39|70->40|70->40|70->40|71->41|71->41|72->42|72->42|72->42|73->43|73->43|75->45|76->46|80->50|80->50|87->57|88->58
                   -- GENERATED --
               */
           

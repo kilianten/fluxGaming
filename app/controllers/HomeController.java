@@ -9,6 +9,8 @@ import play.api.Environment;
 import play.data.*;
 import play.db.ebean.Transactional;
 
+import java.util.Calendar;
+
 import models.*;
 import models.users.*;
 import models.products.*;
@@ -250,20 +252,15 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
-    public Result stockReport(){
+    public Result salesReport(int year){
+
+        if(year == 0){
+            year = Calendar.getInstance().get(1);
+        }         
 
         List<Product> productList = Product.findAll();
 
-        return ok(stockReport.render(getUser(), getLogin(), productList, env));
-    }
-
-    @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
-    public Result salesReport(){
-
-        List<Product> productList = Product.findAll();
-
-        return ok(salesReport.render(getUser(), getLogin(), productList, env));
+        return ok(salesReport.render(getUser(), getLogin(), productList, env, year, 0));
     }
 
     @Security.Authenticated(Secured.class)
@@ -415,4 +412,17 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.store());
     }
 
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result addStock(Long id, int ammount){
+        Product p = Product.find.byId(id);
+
+        p.incrementStock(ammount);
+        p.update();
+
+        return redirect(routes.HomeController.salesReport(0));
+
+    }
 }

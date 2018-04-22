@@ -1,8 +1,8 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/evolutions,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/application.conf,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/routes,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/logback.xml,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/evolutions/default,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/evolutions/default/2.sql,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/paul/Desktop/fluxGaming/conf/evolutions/default/1.sql,/home/paul/Desktop/fluxGaming/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/evolutions,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/application.conf,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/logback.xml,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/routes,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/evolutions/default,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/evolutions/default/2.sql,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/evolutions/default/2.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/webapps/fluxGaming/conf/evolutions/default/1.sql,/home/wdd/webapps/fluxGaming/target/scala-2.12/classes/evolutions/default/1.sql)[0m

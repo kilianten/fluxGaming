@@ -29,8 +29,8 @@
                 <th>Item Price</th>
                 <th>Total</th>
                 <th>Quantity</th>
-                <th>dec.</th>
                 <th>inc.</th>
+                <th>dec.</th>
             </tr>
             </thead>
             <tbody>
@@ -55,24 +55,28 @@
                 <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(user.getBasket.getBasketTotal))</strong></p>
             </div>  
         </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="text-left">
+                    <a href="@routes.ShoppingController.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                    <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
+                </p>
+             
+            
+                <p class="text-left">
+                    <a href="@routes.ShoppingController.placeOrder()" class="btn btn-success btn-sm">
+                    <span class="glyphicon glyphicon-euro"></span> Place Order</a>
+                </p>
+            </div>
+        </div>
+
     </div>
 
 
     <br>
-    <div class="row">
-        <div class="col-md-3">
-            <p class="text-left">
-                <a href="@routes.ShoppingController.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
-                <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
-            </p>
-        </div>  
-        <div class="col-md-3">
-            <p class="text-left">
-                <a href="@routes.ShoppingController.placeOrder()" class="btn btn-success btn-sm">
-                <span class="glyphicon glyphicon-euro"></span> Place Order</a>
-            </p>
-        </div>  
-    </div>
+
 
 
 }
