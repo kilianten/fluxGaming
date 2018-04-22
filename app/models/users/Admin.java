@@ -18,4 +18,8 @@ public class Admin extends User{
         super(name, role, email, password, basket);
     }
 
+    public static List<User> findAll(){
+        return find.query().where().eq("role", "admin").findList();
+    }
+
 }

@@ -31,6 +31,7 @@ GET     /basket                     controllers.HomeController.basket
 GET     /viewOrders                 controllers.HomeController.viewOrders
 
 GET     /moderators                 controllers.HomeController.moderators(filter?="")
+GET     /contacts                 controllers.HomeController.contacts
 
 #basketFunctions
 GET     /emptyBasket                controllers.ShoppingController.emptyBasket

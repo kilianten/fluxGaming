@@ -319,6 +319,15 @@ public class HomeController extends Controller {
         return ok(moderators.render(getUser(), getLogin(), users, filter, mods));
     }
 
+    @Transactional
+    public Result contacts(){
+
+        List<User> mods = Moderator.findAll();
+        List<User> admins = Admin.findAll();
+
+        return ok(contacts.render(getUser(), getLogin(), mods, admins));
+    }
+
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
