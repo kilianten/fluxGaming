@@ -50,12 +50,7 @@
                 </tbody>
             </table>
             <div class="row">
-                    <div class="col-md-3">
-                            <p class="text-left">
-                                <a href="@routes.ShoppingController.cancelOrder()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
-                                <span class="glyphicon glyphicon-trash"></span> Cancel Order</a>
-                            </p>
-                        </div> 
+                    
                     <div class="col-md-9">
                         <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(orders.get(i).getOrderTotal))</strong></p>
                     </div>  

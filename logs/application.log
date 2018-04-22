@@ -357,3 +357,15 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[cannot find symb
     play.filters.hosts.AllowedHostsFilter
 
 2018-04-22 20:42:20,993 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-351 - Application started (Dev)
+2018-04-22 20:48:24,079 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2018-04-22 20:48:24,280 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-400 - Creating Pool for datasource 'default'
+2018-04-22 20:48:24,326 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-400 - Database [default] connected at jdbc:h2:file:./data/reviewsDB
+2018-04-22 20:48:24,497 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-400 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-04-22 20:48:24,588 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-400 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2018-04-22 20:48:24,590 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-400 - Application started (Dev)
+2018-04-22 20:48:33,150 [WARN] from application in application-akka.actor.default-dispatcher-2 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
