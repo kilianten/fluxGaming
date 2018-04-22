@@ -7,11 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-<<<<<<< HEAD
-		date="20180422083648"/>
-=======
-		date="20180421171711"/>
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+		date="20180422124110"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-akka-http-server_2.12">
 			<revision name="2.6.12" status="release" pubdate="20180302175148" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="79">

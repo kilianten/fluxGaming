@@ -1,11 +1,6 @@
 // @GENERATOR:play-routes-compiler
-<<<<<<< HEAD
 // @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Sun Apr 22 12:21:27 IST 2018
-=======
-// @SOURCE:/home/paul/Desktop/fluxGaming/conf/routes
-// @DATE:Sat Apr 21 17:17:36 IST 2018
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+// @DATE:Sun Apr 22 12:41:20 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -34,10 +29,7 @@ package controllers.javascript {
       """
     )
   
-<<<<<<< HEAD
-    // @LINE:42
-=======
-    // @LINE:44
+    // @LINE:43
     def cancelOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.cancelOrder",
       """
@@ -47,8 +39,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:43
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+    // @LINE:42
     def placeOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingController.placeOrder",
       """
@@ -118,7 +109,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:47
+    // @LINE:48
     def addStock: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addStock",
       """
@@ -212,11 +203,7 @@ package controllers.javascript {
       """
     )
   
-<<<<<<< HEAD
-    // @LINE:44
-=======
-    // @LINE:46
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+    // @LINE:45
     def makeModerator: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.makeModerator",
       """

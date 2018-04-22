@@ -1,11 +1,6 @@
 // @GENERATOR:play-routes-compiler
-<<<<<<< HEAD
 // @SOURCE:/home/wdd/webapps/fluxGaming/conf/routes
-// @DATE:Sun Apr 22 12:21:27 IST 2018
-=======
-// @SOURCE:/home/paul/Desktop/fluxGaming/conf/routes
-// @DATE:Sat Apr 21 17:17:36 IST 2018
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+// @DATE:Sun Apr 22 12:41:20 IST 2018
 
 import play.api.mvc.Call
 
@@ -29,17 +24,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
-<<<<<<< HEAD
-    // @LINE:42
-=======
-    // @LINE:44
+    // @LINE:43
     def cancelOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cancelOrder")
     }
   
-    // @LINE:43
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+    // @LINE:42
     def placeOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
@@ -84,7 +75,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "updateReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:47
+    // @LINE:48
     def addStock(id:Long, Stock:Int = 1): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addStock/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)) + "/" + play.core.routing.queryString(List(if(Stock == 1) None else Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("Stock", Stock)))))
@@ -146,20 +137,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "updateProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-<<<<<<< HEAD
-    // @LINE:44
-=======
-    // @LINE:46
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+    // @LINE:45
     def makeModerator(username:String, filter:String): Call = {
     
       (username: @unchecked, filter: @unchecked) match {
       
-<<<<<<< HEAD
-        // @LINE:44
-=======
-        // @LINE:46
->>>>>>> fcfb6d9050c04854a753d607b23879279d7475f0
+        // @LINE:45
         case (username, filter)  =>
           
           Call("GET", _prefix + { _defaultPrefix } + "moderators/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("username", username)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("filter", filter)))

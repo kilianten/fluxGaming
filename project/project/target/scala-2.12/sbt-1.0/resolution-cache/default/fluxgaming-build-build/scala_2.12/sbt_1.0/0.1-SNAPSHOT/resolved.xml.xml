@@ -4,7 +4,7 @@
 		module="fluxgaming-build-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180420172957"
+		publication="20180422124038"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
